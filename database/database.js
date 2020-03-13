@@ -10,6 +10,7 @@ db.once('open', function() {
 const ItemSchema = mongoose.Schema({
   productID: Number,
   productName: String,
+  productImage: String,
 });
 
 const Items = mongoose.model('Items', ItemSchema);

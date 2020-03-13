@@ -7,6 +7,7 @@ for (var i = 1; i <= 100; i++) {
   searchables.push({
     productID: i,
     productName: faker.fake('{{commerce.productName}}'),
+    productImage: faker.fake('{{image.image}}'),
   });
 }
 
