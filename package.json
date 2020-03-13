@@ -10,6 +10,7 @@
   "scripts": {
     "dev:react": "webpack -d --watch",
     "start": "nodemon server/index.js",
+    "seed": "node seed.js",
     "test": "jest"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "axios-mock-adapter": "^1.17.0",
     "cors": "2.8.5",
     "express": "4.17.1",
+    "faker": "^4.1.0",
     "moment": "^2.24.0",
     "mongoose": "5.9.4",
     "morgan": "1.9.1",
@@ -36,7 +38,6 @@
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-react": "^7.19.0",
-    "faker": "^4.1.0",
     "jest": "^25.1.0",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
