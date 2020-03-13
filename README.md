@@ -2,6 +2,10 @@
 
 > Project description
 
+```sh
+Replica of the REI store page's navigation bar and search functionality.
+```
+
 ## Related Projects
 
 - https://github.com/HRLA-35-FEC-CBDE/Eric_NavBar
