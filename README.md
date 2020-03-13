@@ -1,14 +1,12 @@
 # Team_Ferrari
 
-
 > Project description
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+- https://github.com/HRLA-35-FEC-CBDE/Eric_NavBar
+- https://github.com/HRLA-35-FEC-CBDE/Brandon_body
+- https://github.com/HRLA-35-FEC-CBDE/chris_reviews
 
 ## Table of Contents
 
@@ -37,4 +35,3 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
-
