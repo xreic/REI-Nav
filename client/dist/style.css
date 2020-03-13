@@ -1,0 +1,42 @@
+@import url('http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css');
+/* #navigation {
+} */
+
+/* #navigation {
+  background-color: #2a2a2a;
+} */
+
+/* .upperNavContainer {
+  overflow: hidden;
+  background-color: #2a2a2a;
+  height: 40px;
+} */
+
+#navigation {
+  width: 75%;
+  margin: auto;
+  text-align: center;
+}
+
+.upperNavItems {
+  /* color: white; */
+  font-size: 14px;
+  padding-right: 10px;
+  font-family: 'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+}
+
+.searchInput {
+  display: inline-block;
+  vertical-align: middle;
+  width: 400px;
+  height: 45px;
+  font-size: 24px;
+}
+
+.searchButton {
+  display: inline-block;
+  vertical-align: middle;
+  height: 51px;
+  font-size: 16px;
+}

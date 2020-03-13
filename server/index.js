@@ -6,18 +6,21 @@ const path = require('path');
 const server = express();
 const port = 3100;
 
-const Items = require('../database/database.js');
+const { Items, Users } = require('../database/database.js');
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(cors());
 server.use(morgan('dev'));
-server.use(express.static(path.join(__dirname, '/client/dist')));
+server.use(express.static(path.join(__dirname, '../client/dist')));
 
 server.post('/api/searchbar', (req, res) => {
   console.log('-------- POST (Search Bar) REQUEST START --------');
-  console.log(req.body);
-  console.log('-------- POST (Search Bar) REQUEST END --------');
+
+  //prettier-ignore
+  Items.find({})
+    .then((searchResults) => res.status(200).send(searchResults).end())
+    .catch((err) => res.status(400).send(err).end());
 });
 
 server.listen(port, () => console.log('Server initialized on port:', port));

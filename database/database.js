@@ -10,9 +10,19 @@ db.once('open', function() {
 const ItemSchema = mongoose.Schema({
   productID: Number,
   productName: String,
-  productImage: String,
+  productImage: String
+});
+
+const UsersSchema = mongoose.Schema({
+  name: String,
+  username: String,
+  password: String
 });
 
 const Items = mongoose.model('Items', ItemSchema);
+const Users = mongoose.model('Users', UsersSchema);
 
-module.exports = Items;
+module.exports = {
+  Items,
+  Users
+};
