@@ -1,23 +1,35 @@
 @import url('http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css');
 
 #navigation {
-  width: 75%;
+  width: 95%;
   margin: auto;
+  text-align: center;
+}
+
+.upperNav {
+  display: inline-flex;
+  padding-bottom: 5px;
 }
 
 .upperNavItems {
-  /* color: white; */
-  font-size: 14px;
-  padding-right: 10px;
+  cursor: pointer;
   font-family: 'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial,
     sans-serif;
+  font-size: 14px;
+  padding-right: 10px;
+  text-align: center;
 }
 
 .upperNavItems:hover {
   font-weight: bold;
 }
 
-.searchInput {
+.actions {
+  justify-content: space-evenly;
+  display: flex;
+}
+
+/* .searchInput {
   display: inline-block;
   vertical-align: middle;
   width: 400px;
@@ -34,18 +46,16 @@
 }
 
 .searchAction {
-  display: block;
   float: left;
 }
 
 .actionButtons {
-  display: block;
   float: right;
   padding-right: 10%;
 }
 
 .actions {
-  display: inline-block;
+  display: inline-flex;
   padding-top: 15px;
   padding-left: 15px;
   font-size: 17px;
@@ -54,3 +64,7 @@
 .actions:hover {
   color: green;
 }
+
+.lowerNav {
+  clear: both;
+} */

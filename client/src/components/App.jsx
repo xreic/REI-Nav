@@ -31,7 +31,9 @@ class App extends React.Component {
         'Kids',
         'Deals',
         'More'
-      ]
+      ],
+
+      loggedIn: false
     };
 
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
@@ -57,25 +59,19 @@ class App extends React.Component {
           <span className="upperNavItems">{this.state.upperNav[8]}</span>
           <span className="upperNavItems">{this.state.upperNav[9]}</span>
         </div>
-        <br />
-        <div className="lowerContainter">
-          <div className="functionality">
-            <div className="searchAction">
-              <form onSubmit={this.onSubmitHandler}>
-                <input
-                  className="searchInput"
-                  placeholder="Search for great gear & clothing"
-                />
-                <button className="searchButton">
-                  <span className="glyphicon glyphicon-search"></span>
-                </button>
-              </form>
-            </div>
-            <span className="actionButtons">
-              <div className="actions">SIGN IN</div>
-              <div className="actions">STORES</div>
-              <div className="actions">CART</div>
-            </span>
+        <div className="actions">
+          <form className="searchAction" onSubmit={this.onSubmitHandler}>
+            <input
+              className="searchInput"
+              placeholder="Search for great gear & clothing"
+            />
+            <button className="searchButton">
+              <span className="glyphicon glyphicon-search"></span>
+            </button>
+          </form>
+          <div className="actions">
+            <div name="stores">STORES</div>
+            <div name="cart">CART</div>
           </div>
         </div>
       </div>
@@ -84,3 +80,19 @@ class App extends React.Component {
 }
 
 module.exports = App;
+
+// {this.state.loggedIn ? (
+//   <div
+//     name="myaccount"
+//     onClick={() => this.setState({ loggedIn: false })}
+//   >
+//     MY ACCOUNT
+//   </div>
+// ) : (
+//   <div
+//     name="signin"
+//     onClick={() => this.setState({ loggedIn: true })}
+//   >
+//     SIGN IN
+//   </div>
+// )}
