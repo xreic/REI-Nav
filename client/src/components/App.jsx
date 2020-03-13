@@ -59,16 +59,23 @@ class App extends React.Component {
         </div>
         <br />
         <div className="lowerContainter">
-          <div className="searhBar">
-            <form onSubmit={this.onSubmitHandler}>
-              <input
-                className="searchInput"
-                placeholder="Search for great gear & clothing"
-              />
-              <button className="searchButton">
-                <span className="glyphicon glyphicon-search"></span>
-              </button>
-            </form>
+          <div className="functionality">
+            <div className="searchAction">
+              <form onSubmit={this.onSubmitHandler}>
+                <input
+                  className="searchInput"
+                  placeholder="Search for great gear & clothing"
+                />
+                <button className="searchButton">
+                  <span className="glyphicon glyphicon-search"></span>
+                </button>
+              </form>
+            </div>
+            <span className="actionButtons">
+              <div className="actions">SIGN IN</div>
+              <div className="actions">STORES</div>
+              <div className="actions">CART</div>
+            </span>
           </div>
         </div>
       </div>

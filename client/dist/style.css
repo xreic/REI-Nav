@@ -12,7 +12,8 @@
   height: 40px;
 } */
 
-#navigation {
+#navigation,
+.functionality {
   width: 75%;
   margin: auto;
   text-align: center;
@@ -27,13 +28,7 @@
 }
 
 .upperNavItems:hover {
-  /* color: white; */
-  cursor: pointer;
   font-weight: bold;
-  font-size: 14px;
-  padding-right: 10px;
-  font-family: 'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial,
-    sans-serif;
 }
 
 .searchInput {
@@ -50,4 +45,19 @@
   vertical-align: middle;
   height: 51px;
   font-size: 16px;
+}
+
+.searchAction {
+  display: block;
+  float: left;
+}
+
+.actionButtons {
+  display: block;
+  float: right;
+}
+
+.actions {
+  display: inline-block;
+  padding-top: 15px;
 }
