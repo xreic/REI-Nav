@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-import UpperNav from './UpperNav.jsx';
-
 class App extends React.Component {
   constructor(props) {
     super(props);

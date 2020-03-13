@@ -26,6 +26,16 @@
     sans-serif;
 }
 
+.upperNavItems:hover {
+  /* color: white; */
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  padding-right: 10px;
+  font-family: 'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+}
+
 .searchInput {
   display: inline-block;
   vertical-align: middle;
@@ -35,6 +45,7 @@
 }
 
 .searchButton {
+  cursor: pointer;
   display: inline-block;
   vertical-align: middle;
   height: 51px;
