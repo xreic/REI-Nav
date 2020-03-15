@@ -1,5 +1,5 @@
 const faker = require('faker');
-const Items = require('./database/database.js');
+const { Items, Users } = require('./database/database.js');
 
 let searchables = [];
 
@@ -7,7 +7,7 @@ for (var i = 1; i <= 100; i++) {
   searchables.push({
     productID: i,
     productName: faker.fake('{{commerce.productName}}'),
-    productImage: faker.fake('{{image.image}}'),
+    productImage: faker.fake('{{image.image}}')
   });
 }
 

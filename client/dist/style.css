@@ -1,70 +1,60 @@
 @import url('http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css');
 
-#navigation {
-  width: 95%;
-  margin: auto;
-  text-align: center;
-}
-
-.upperNav {
-  display: inline-flex;
-  padding-bottom: 5px;
-}
-
-.upperNavItems {
-  cursor: pointer;
-  font-family: 'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial,
+#navBody {
+  background-color: black;
+  display: block;
+  position: top;
+  font-family: 'Rubik', 'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial,
     sans-serif;
-  font-size: 14px;
-  padding-right: 10px;
-  text-align: center;
 }
 
-.upperNavItems:hover {
-  font-weight: bold;
+#navigation {
+  display: block;
 }
 
-.actions {
-  justify-content: space-evenly;
+.topNavBar {
   display: flex;
+  justify-content: center;
+  white-space: nowrap;
 }
 
-/* .searchInput {
+.topNavItems {
+  padding-top: 5px;
+  padding-right: 10px;
+  height: 40px;
+  color: lightgrey;
+  font-size: 14px;
+}
+
+.topNavItems:hover {
+  color: white;
+}
+
+.navBar {
+  display: block;
+}
+
+.navImage {
   display: inline-block;
-  vertical-align: middle;
-  width: 400px;
-  height: 45px;
-  font-size: 24px;
 }
 
-.searchButton {
-  cursor: pointer;
+.navBarRight {
   display: inline-block;
-  vertical-align: middle;
-  height: 51px;
-  font-size: 16px;
+  padding: 20px;
 }
 
-.searchAction {
-  float: left;
+.bottomNavBar {
+  display: block;
+  color: white;
 }
 
-.actionButtons {
-  float: right;
-  padding-right: 10%;
+.bottomNavItems {
+  padding-top: 5px;
+  padding-right: 10px;
+  color: white;
+  font-size: 14px;
 }
 
-.actions {
-  display: inline-flex;
-  padding-top: 15px;
-  padding-left: 15px;
-  font-size: 17px;
-}
-
-.actions:hover {
+.bottomNavItems:hover {
   color: green;
 }
-
-.lowerNav {
-  clear: both;
-} */
