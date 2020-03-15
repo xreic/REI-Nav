@@ -60,6 +60,7 @@ class App extends React.Component {
           <span className="topNavItems">{this.state.upperNav[9]}</span>
         </div>
         <div className="navBar">
+          
           <aside className="navImage">
             <img
               src="//satchel.rei.com/media/img/header/rei-co-op-logo-white.svg"
