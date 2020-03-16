@@ -16,7 +16,12 @@ class SearchBar extends React.Component {
   onChangeHandler(e) {
     this.setState({
       productName: e.target.value
-    }, () => console.log(this.state))
+    }, () => {
+      axios.post('/api/searchbar/', {})
+        .then(({ data }) => console.log(data))
+        .then(() => console.log('-------- SearchBar / Axios / Post / End --------'))
+        .catch((err) => {console.error(err)});
+    })
   }
 
   //prettier-ignore
