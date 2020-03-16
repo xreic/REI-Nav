@@ -14,11 +14,11 @@ server.use(cors());
 server.use(morgan('dev'));
 server.use(express.static(path.join(__dirname, '../client/dist')));
 
-server.post('/api/searchbar', (req, res) => {
+server.post('/api/searchbar/', (req, res) => {
   console.log('-------- POST (Search Bar) REQUEST START --------');
 
   //prettier-ignore
-  Items.find({})
+  Items.find(req.body)
     .then((searchResults) => res.status(200).send(searchResults).end())
     .catch((err) => res.status(400).send(err).end());
 });
