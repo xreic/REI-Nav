@@ -28,21 +28,26 @@ class CentralNav extends React.Component {
 
   render() {
     return (
-      <div className="navBar">
-        <div className="navImage">
-          <img
-            src="//satchel.rei.com/media/img/header/rei-co-op-logo-white.svg"
-            alt="Go to REI.com Home Page"
-          ></img>
-        </div>
-
-        <div className="navBarRight">
-          <div className="navBarRightUpper">
-            <SearchBar />
-            <Actions />
+      <div className="navBarWrapper">
+        <div className="navBar">
+          <div className="navImage">
+            <img
+              src="//satchel.rei.com/media/img/header/rei-co-op-logo-white.svg"
+              alt="Go to REI.com Home Page"
+            />
           </div>
-          <hr />
-          <BottomNav list={this.state.lowerNav} classType={'bottomNavItems'} />
+
+          <div className="navBarRight">
+            <div className="navBarRightUpper">
+              <SearchBar />
+              <Actions />
+            </div>
+            <hr className="middleRule" />
+            <BottomNav
+              list={this.state.lowerNav}
+              classType={'bottomNavItems'}
+            />
+          </div>
         </div>
       </div>
     );
