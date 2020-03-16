@@ -20,13 +20,6 @@ class App extends React.Component {
         'CAMPING PROJECT'
       ]
     };
-
-    this.onSubmitHandler = this.onSubmitHandler.bind(this);
-  }
-
-  onSubmitHandler(e) {
-    e.preventDefault();
-    console.log('Search Button Click');
   }
 
   render() {

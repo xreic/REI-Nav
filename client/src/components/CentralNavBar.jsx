@@ -1,4 +1,7 @@
 import React from 'react';
+
+import SearchBar from './SearchBar.jsx';
+import Actions from './Actions.jsx';
 import BottomNav from './BottomNavBar.jsx';
 
 class CentralNav extends React.Component {
@@ -19,9 +22,7 @@ class CentralNav extends React.Component {
         'Kids',
         'Deals',
         'More'
-      ],
-
-      loggedIn: false
+      ]
     };
   }
 
@@ -37,45 +38,10 @@ class CentralNav extends React.Component {
 
         <div className="navBarRight">
           <div className="navBarRightUpper">
-            <form className="navSearchForm" onSubmit={this.onSubmitHandler}>
-              <input
-                className="navSearchInput"
-                placeholder="Search for great gear & clothing"
-              />
-              <button className="navSearchButton">
-                <span className="glyphicon glyphicon-search"></span>
-              </button>
-            </form>
-
-            <div className="actions">
-              {this.state.loggedIn ? (
-                <div
-                  className="easyTagger"
-                  name="myaccount"
-                  onClick={() => this.setState({ loggedIn: false })}
-                >
-                  MY ACCOUNT
-                </div>
-              ) : (
-                <div
-                  className="easyTagger"
-                  name="signin"
-                  onClick={() => this.setState({ loggedIn: true })}
-                >
-                  SIGN IN
-                </div>
-              )}
-              <div className="easyTagger" name="stores">
-                STORES
-              </div>
-              <div className="easyTagger" name="cart">
-                CART
-              </div>
-            </div>
+            <SearchBar />
+            <Actions />
           </div>
-
           <hr />
-
           <BottomNav list={this.state.lowerNav} classType={'bottomNavItems'} />
         </div>
       </div>

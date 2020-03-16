@@ -103,14 +103,14 @@
   justify-self: end;
 }
 
-.easyTagger {
+.actionItems {
   display: flex;
   justify-content: flex-end;
   color: white;
   padding: 15px;
 }
 
-.easyTagger:hover {
+.actionItems:hover {
   color: #a1c900;
 }
 
