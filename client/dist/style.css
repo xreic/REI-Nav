@@ -1,54 +1,143 @@
 @import url('http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css');
 
 #navBody {
+  font-family: 'Rubik', 'Roboto Condensed', 'Helvetica Neue', Arial, sans-serif;
   background-color: black;
-  display: block;
-  position: top;
-  font-family: 'Rubik', 'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial,
-    sans-serif;
-}
 
-#navigation {
   display: block;
+  text-align: center;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
 }
 
 .topNavBar {
+  background-color: #555555;
+
   display: flex;
   justify-content: center;
+
+  overflow: hidden;
+}
+
+.topNavList {
+  display: inline-flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  list-style: none;
+
+  margin: 0;
+
   white-space: nowrap;
+
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
 }
 
 .topNavItems {
-  padding-top: 5px;
-  padding-right: 10px;
-  height: 40px;
+  font-size: 12px;
+  padding: 0 5px 0 5px;
+  position: relative;
   color: lightgrey;
-  font-size: 14px;
+  cursor: pointer;
 }
 
 .topNavItems:hover {
   color: white;
 }
 
+.test {
+  border-bottom: 1px solid #f00;
+}
+
 .navBar {
-  display: block;
+  border: red dotted 1px;
+  display: inline-flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  padding: 10px 0 10px 0;
 }
 
 .navImage {
+  border: red dotted 1px;
   display: inline-block;
 }
 
 .navBarRight {
+  border: red dotted 1px;
   display: inline-block;
-  padding: 20px;
+  justify-content: center;
+  flex-flow: column;
+  margin-left: 20px;
+}
+
+.navBarRightUpper {
+  display: grid;
+  grid-template-columns: 49% 10% 41%;
+  grid-template-rows: 100%;
+}
+
+.navSearchForm {
+  grid-column: 1;
+  display: flex;
+}
+
+.navSearchInput {
+  display: flex;
+  flex-basis: 100%;
+  color: white;
+  border: #555555 20px solid;
+  background-color: #555555;
+}
+
+.navSearchInput::placeholder {
+  color: white;
+  font-size: 16px;
+}
+
+.navSearchButton {
+  cursor: pointer;
+  display: flex;
+  border: #555555 20px solid;
+  color: #a1c900;
+  background-color: #555555;
+}
+
+.actions {
+  cursor: pointer;
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  justify-self: end;
+}
+
+.easyTagger {
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  padding: 15px;
+}
+
+.easyTagger:hover {
+  color: #a1c900;
 }
 
 .bottomNavBar {
-  display: block;
+  display: flex;
   color: white;
+  white-space: nowrap;
 }
 
 .bottomNavItems {
+  cursor: pointer;
   padding-top: 5px;
   padding-right: 10px;
   color: white;
@@ -56,5 +145,12 @@
 }
 
 .bottomNavItems:hover {
-  color: green;
+  color: #a1c900;
+}
+
+.bottomNavItemsArrow {
+  padding-top: 5px;
+  padding-right: 10px;
+  color: #a1c900;
+  font-size: 14px;
 }

@@ -47,43 +47,89 @@ class App extends React.Component {
   render() {
     return (
       <div id="navigation">
-        <div className="topNavBar">
-          <span className="topNavItems">{this.state.upperNav[0]}</span>
-          <span className="topNavItems">{this.state.upperNav[1]}</span>
-          <span className="topNavItems">{this.state.upperNav[2]}</span>
-          <span className="topNavItems">{this.state.upperNav[3]}</span>
-          <span className="topNavItems">{this.state.upperNav[4]}</span>
-          <span className="topNavItems">{this.state.upperNav[5]}</span>
-          <span className="topNavItems">{this.state.upperNav[6]}</span>
-          <span className="topNavItems">{this.state.upperNav[7]}</span>
-          <span className="topNavItems">{this.state.upperNav[8]}</span>
-          <span className="topNavItems">{this.state.upperNav[9]}</span>
-        </div>
+        <nav className="topNavBar">
+          <ul className="topNavList">
+            <li className="topNavItems test">
+              <p>{this.state.upperNav[0]}</p>
+            </li>
+            <li className="topNavItems">
+              <p>{this.state.upperNav[1]}</p>
+            </li>
+            <li className="topNavItems">
+              <p>{this.state.upperNav[2]}</p>
+            </li>
+            <li className="topNavItems">
+              <p>{this.state.upperNav[3]}</p>
+            </li>
+            <li className="topNavItems">
+              <p>{this.state.upperNav[4]}</p>
+            </li>
+            <li className="topNavItems">
+              <p>{this.state.upperNav[5]}</p>
+            </li>
+            <li className="topNavItems">
+              <p>{this.state.upperNav[6]}</p>
+            </li>
+            <li className="topNavItems">
+              <p>{this.state.upperNav[7]}</p>
+            </li>
+            <li className="topNavItems">
+              <p>{this.state.upperNav[8]}</p>
+            </li>
+          </ul>
+        </nav>
         <div className="navBar">
-          
-          <aside className="navImage">
+          <div className="navImage">
             <img
               src="//satchel.rei.com/media/img/header/rei-co-op-logo-white.svg"
               alt="Go to REI.com Home Page"
             ></img>
-          </aside>
+          </div>
 
           <div className="navBarRight">
-
             <div className="navBarRightUpper">
-
               <form className="navSearchForm" onSubmit={this.onSubmitHandler}>
-                <input className="navSearchInput" placeholder="Search for great gear & clothing"/>
+                <input
+                  className="navSearchInput"
+                  placeholder="Search for great gear & clothing"
+                />
                 <button className="navSearchButton">
                   <span className="glyphicon glyphicon-search"></span>
                 </button>
               </form>
 
+              <div className="actions">
+                {this.state.loggedIn ? (
+                  <div
+                    className="easyTagger"
+                    name="myaccount"
+                    onClick={() => this.setState({ loggedIn: false })}
+                  >
+                    MY ACCOUNT
+                  </div>
+                ) : (
+                  <div
+                    className="easyTagger"
+                    name="signin"
+                    onClick={() => this.setState({ loggedIn: true })}
+                  >
+                    SIGN IN
+                  </div>
+                )}
+
+                <div className="easyTagger" name="stores">
+                  STORES
+                </div>
+
+                <div className="easyTagger" name="cart">
+                  CART
+                </div>
+              </div>
             </div>
 
             <hr />
 
-            <div className="bottomNavBar">
+            <nav className="bottomNavBar">
               <span className="bottomNavItems">{this.state.lowerNav[0]}</span>
               <span className="bottomNavItems">{this.state.lowerNav[1]}</span>
               <span className="bottomNavItems">{this.state.lowerNav[2]}</span>
@@ -97,7 +143,9 @@ class App extends React.Component {
               <span className="bottomNavItems">{this.state.lowerNav[10]}</span>
               <span className="bottomNavItems">{this.state.lowerNav[11]}</span>
               <span className="bottomNavItems">{this.state.lowerNav[12]}</span>
-            </div>
+              <span className="bottomNavItems">REI Outlet</span>
+              <span className="bottomNavItemsArrow">></span>
+            </nav>
           </div>
         </div>
       </div>
@@ -106,41 +154,3 @@ class App extends React.Component {
 }
 
 module.exports = App;
-
-// {this.state.loggedIn ?
-//   (<div name="myaccount" onClick={() => this.setState({ loggedIn: false })}>
-//     MY ACCOUNT
-//   </div>
-//   ) : (
-//   <div name="signin" onClick={() => this.setState({ loggedIn: true })}>
-//     SIGN IN
-//   </div>
-// )}
-
-{
-  /*
-
-{this.state.loggedIn ? (
-<div
-  className="easyTagger"
-  name="myaccount"
-  onClick={() => this.setState({ loggedIn: false })}
->
-  MY ACCOUNT
-</div>
-) : (
-<div
-  className="easyTagger"
-  name="signin"
-  onClick={() => this.setState({ loggedIn: true })}
->
-  SIGN IN
-</div>
-)}
-<div className="easyTagger" name="stores">
-STORES
-</div>
-<div className="easyTagger" name="cart">
-CART
-</div> */
-}
