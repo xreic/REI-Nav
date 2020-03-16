@@ -3,22 +3,17 @@
 #navBody {
   font-family: 'Rubik', 'Roboto Condensed', 'Helvetica Neue', Arial, sans-serif;
   background-color: black;
-
   display: block;
   text-align: center;
-
   margin: 0;
   padding: 0;
-
   overflow: hidden;
 }
 
 .topNavBar {
   background-color: #555555;
-
   display: flex;
   justify-content: center;
-
   overflow: hidden;
 }
 
@@ -27,11 +22,8 @@
   justify-content: center;
   flex-flow: row nowrap;
   list-style: none;
-
   margin: 0;
-
   white-space: nowrap;
-
   overflow-x: scroll;
   overflow-y: hidden;
 }
@@ -53,13 +45,7 @@
 .topNavItems:hover {
   color: white;
 }
-
-.test {
-  border-bottom: 1px solid #f00;
-}
-
 .navBar {
-  border: red dotted 1px;
   display: inline-flex;
   justify-content: center;
   flex-flow: row nowrap;
@@ -67,12 +53,10 @@
 }
 
 .navImage {
-  border: red dotted 1px;
   display: inline-block;
 }
 
 .navBarRight {
-  border: red dotted 1px;
   display: inline-block;
   justify-content: center;
   flex-flow: column;
@@ -132,8 +116,17 @@
 
 .bottomNavBar {
   display: flex;
-  color: white;
+  justify-content: center;
+}
+
+.bottomNavList {
+  display: inline-flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   white-space: nowrap;
+  color: white;
 }
 
 .bottomNavItems {

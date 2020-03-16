@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 
+import TopNav from './TopNavBar.jsx';
+import BottomNav from './BottomNavBar.jsx';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -47,37 +50,7 @@ class App extends React.Component {
   render() {
     return (
       <div id="navigation">
-        <nav className="topNavBar">
-          <ul className="topNavList">
-            <li className="topNavItems test">
-              <p>{this.state.upperNav[0]}</p>
-            </li>
-            <li className="topNavItems">
-              <p>{this.state.upperNav[1]}</p>
-            </li>
-            <li className="topNavItems">
-              <p>{this.state.upperNav[2]}</p>
-            </li>
-            <li className="topNavItems">
-              <p>{this.state.upperNav[3]}</p>
-            </li>
-            <li className="topNavItems">
-              <p>{this.state.upperNav[4]}</p>
-            </li>
-            <li className="topNavItems">
-              <p>{this.state.upperNav[5]}</p>
-            </li>
-            <li className="topNavItems">
-              <p>{this.state.upperNav[6]}</p>
-            </li>
-            <li className="topNavItems">
-              <p>{this.state.upperNav[7]}</p>
-            </li>
-            <li className="topNavItems">
-              <p>{this.state.upperNav[8]}</p>
-            </li>
-          </ul>
-        </nav>
+        <TopNav list={this.state.upperNav} classType={'topNavItems'} />
         <div className="navBar">
           <div className="navImage">
             <img
@@ -116,11 +89,9 @@ class App extends React.Component {
                     SIGN IN
                   </div>
                 )}
-
                 <div className="easyTagger" name="stores">
                   STORES
                 </div>
-
                 <div className="easyTagger" name="cart">
                   CART
                 </div>
@@ -129,23 +100,10 @@ class App extends React.Component {
 
             <hr />
 
-            <nav className="bottomNavBar">
-              <span className="bottomNavItems">{this.state.lowerNav[0]}</span>
-              <span className="bottomNavItems">{this.state.lowerNav[1]}</span>
-              <span className="bottomNavItems">{this.state.lowerNav[2]}</span>
-              <span className="bottomNavItems">{this.state.lowerNav[3]}</span>
-              <span className="bottomNavItems">{this.state.lowerNav[4]}</span>
-              <span className="bottomNavItems">{this.state.lowerNav[5]}</span>
-              <span className="bottomNavItems">{this.state.lowerNav[6]}</span>
-              <span className="bottomNavItems">{this.state.lowerNav[7]}</span>
-              <span className="bottomNavItems">{this.state.lowerNav[8]}</span>
-              <span className="bottomNavItems">{this.state.lowerNav[9]}</span>
-              <span className="bottomNavItems">{this.state.lowerNav[10]}</span>
-              <span className="bottomNavItems">{this.state.lowerNav[11]}</span>
-              <span className="bottomNavItems">{this.state.lowerNav[12]}</span>
-              <span className="bottomNavItems">REI Outlet</span>
-              <span className="bottomNavItemsArrow">></span>
-            </nav>
+            <BottomNav
+              list={this.state.lowerNav}
+              classType={'bottomNavItems'}
+            />
           </div>
         </div>
       </div>
