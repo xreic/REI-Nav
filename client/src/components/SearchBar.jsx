@@ -19,9 +19,9 @@ class SearchBar extends React.Component {
     }, () => {
       axios.post('/api/searchbar/', {})
         .then(({ data }) => console.log(data))
-        .then(() => console.log('-------- SearchBar / Axios / Post / End --------'))
-        .catch((err) => {console.error(err)});
-    })
+        .catch((err) => { console.error(err); });
+      }
+    );
   }
 
   //prettier-ignore
