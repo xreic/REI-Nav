@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 
 class NavModal extends React.Component {
   constructor(props) {
@@ -28,7 +27,7 @@ class NavModal extends React.Component {
         className="modal"
         onClick={(e) => {
           if (e.target.closest('div').className === 'modal') {
-            this.props.hideModal(e);
+            this.props.hideModal();
           }
         }}
       >

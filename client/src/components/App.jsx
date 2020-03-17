@@ -52,7 +52,7 @@ class App extends React.Component {
     });
   }
 
-  hideModal(e) {
+  hideModal() {
     this.setState({
       activeCategory: '',
       showModal: false
@@ -67,6 +67,7 @@ class App extends React.Component {
           lowerNav={this.state.lowerNav}
           activeCategory={this.state.activeCategory}
           changeActive={this.changeActive}
+          hideModal={this.hideModal}
         />
         {this.state.showModal ? (
           <BottomNavModal

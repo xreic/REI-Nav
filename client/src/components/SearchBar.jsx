@@ -30,6 +30,7 @@ class SearchBar extends React.Component {
     this.setState({
       colored: true
     });
+    this.props.hideModal();
   }
 
   //prettier-ignore

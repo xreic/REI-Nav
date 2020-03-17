@@ -4,7 +4,7 @@ import SearchBar from './SearchBar.jsx';
 import Actions from './Actions.jsx';
 import BottomNav from './BottomNavBar.jsx';
 
-const CentralNav = ({ lowerNav, activeCategory, changeActive }) => (
+const CentralNav = ({ lowerNav, activeCategory, changeActive, hideModal }) => (
   <div className="navBarWrapper">
     <div className="navBar">
       <div className="navImage">
@@ -16,7 +16,7 @@ const CentralNav = ({ lowerNav, activeCategory, changeActive }) => (
 
       <div className="navBarRight">
         <div className="navBarRightUpper">
-          <SearchBar />
+          <SearchBar hideModal={hideModal} />
           <Actions />
         </div>
         <hr className="middleRule" />

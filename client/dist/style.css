@@ -6,7 +6,7 @@ body {
 
 #somethingBelow {
   position: absolute;
-  background-color: #efeee2;
+  background-color: lightsalmon;
   width: 100%;
   height: 100%;
   display: block;
@@ -146,6 +146,7 @@ body {
   width: 100%;
   height: 42px;
   padding: 0;
+  z-index: 2;
 }
 
 .navSearchInput {
@@ -179,6 +180,8 @@ body {
   width: 100%;
   color: white;
   justify-self: end;
+  height: 0%;
+  align-self: center;
 }
 
 .actions {
@@ -210,7 +213,7 @@ body {
 }
 
 .bottomNavList {
-  position: relative;
+  position: absolute;
   align-self: end;
   display: flex;
   justify-content: space-between;
@@ -229,6 +232,7 @@ body {
   padding: 16px 3px 20px 3px;
   font-size: 18px;
   color: white;
+  z-index: 2;
 }
 
 .bottomNavItemsActive {
@@ -262,7 +266,7 @@ body {
   border-bottom: 18px solid #efeee2;
   position: absolute;
   left: 50%;
-  transform: translate(-30px, 25px);
+  transform: translate(-30px, 29px);
 }
 
 .bottomNavText::after {
@@ -274,7 +278,7 @@ body {
   border-bottom: 15px solid #efeee2;
   position: absolute;
   left: 50%;
-  transform: translate(-5px, 28px);
+  transform: translate(-5px, 32px);
 }
 
 .modal {
@@ -283,19 +287,18 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  /* background: rgba(0, 0, 0, 0.6); */
-  z-index: 2;
+  z-index: 1;
 }
 
 .modal-main {
   position: fixed;
-  background: white;
-  width: 80%;
+  background: #efeee2;
+  max-width: 1200px;
+  width: 100%;
   height: auto;
-  top: 50%;
+  top: 188px;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
 }
 
 .modal-display-block {
@@ -332,4 +335,18 @@ body {
 
 ::placeholder {
   color: white;
+}
+
+@-moz-document url-prefix() {
+  .bottomNavList {
+    position: relative;
+  }
+
+  .bottomNavText::before {
+    transform: translate(-30px, 27px);
+  }
+
+  .bottomNavText::after {
+    transform: translate(-5px, 30px);
+  }
 }
