@@ -1,30 +1,47 @@
 @import url('http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css');
 
+body {
+  margin: 0;
+}
+
+#somethingBelow {
+  position: absolute;
+  background-color: #efeee2;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 #navBody {
+  /*! position: relative; */
   font-family: 'Rubik', 'Roboto Condensed', 'Helvetica Neue', Arial, sans-serif;
   background-color: black;
-  display: block;
-  text-align: center;
   margin: 0;
   padding: 0;
+  display: block;
+  text-align: center;
 }
 
 #navigation {
+  /*! position: relative; */
   display: grid;
-  grid-template-rows: 1.5fr 7fr;
+  grid-template-rows: 39px 126px;
   grid-template-columns: 1fr;
 }
 
 .topNavBar {
+  /*! position: relative; */
   grid-row: 1/2;
   grid-column: 1/-1;
   background-color: #555555;
   display: flex;
   justify-content: center;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .topNavList {
+  position: relative;
   max-width: 1200px;
   margin: 0;
   padding: 0;
@@ -37,105 +54,148 @@
   scrollbar-width: none;
   overflow-x: scroll;
   overflow-y: hidden;
+  /*! position: relative; */
+  height: 100%;
 }
 
 .topNavItems {
+  position: relative;
   font-size: 12px;
   padding: 0 5px;
   color: lightgrey;
   cursor: pointer;
+  border-bottom: 1px solid transparent;
+  height: 100%;
 }
 
 .topNavItemsActive {
   color: white;
+  border-bottom: 1px solid white;
 }
 
 .topNavItems:hover {
   color: white;
 }
 
+.topNavText::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-13px, 19px);
+}
+
+.topNavText::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid white;
+  position: absolute;
+  left: 50%;
+  transform: translate(0px, 22px);
+}
+
 .navBarWrapper {
+  /*! position: relative; */
   grid-row: 2/3;
   grid-column: 1/-1;
   padding-top: 20px;
   justify-self: center;
   max-width: 1200px;
   width: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .navBar {
+  position: absolute;
   display: grid;
   grid-template-rows: 1fr 20px;
   grid-template-columns: 158px 20px 1fr;
   padding: 0;
 }
 
-.navImage {
-  display: flex;
-}
-
 .navBarRight {
-  grid-row: 1/2;
+  position: absolute;
+  grid-row: 1/-1;
   grid-column: 3/4;
-
   display: grid;
-  grid-template-rows: 1fr 10px 1fr;
+  grid-template-rows: 42px 25% auto;
   grid-template-columns: 1fr;
-
-  overflow: hidden;
+  flex-basis: 100%;
 }
 
 .navBarRightUpper {
+  position: relative;
+  grid-row: 1/2;
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 2fr 10px 1.7fr;
+  grid-template-columns: 3fr auto 4fr;
 }
 
 .navSearchForm {
+  position: relative;
   grid-column: 1;
   display: flex;
+  width: 100%;
+  height: 42px;
+  padding: 0;
 }
 
 .navSearchInput {
-  display: flex;
+  position: relative;
   flex-basis: 100%;
-  color: white;
-  border: #555555 20px solid;
+  padding: 0 0 0 15px;
+  border: transparent;
   background-color: #555555;
-}
-
-.navSearchInput::placeholder {
   color: white;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .navSearchButton {
+  position: relative;
   cursor: pointer;
-  display: flex;
-  border: #555555 20px solid;
-  color: #a1c900;
+  display: inline-block;
+  border: transparent;
+  padding-right: 15px;
+  vertical-align: middle;
   background-color: #555555;
+  color: white;
+}
+
+.navSearchButtonGreen {
+  color: #a1c900;
 }
 
 .middleRule {
+  position: relative;
   grid-row: 2/3;
-  align-self: start;
+  align-self: end;
   width: 100%;
   color: white;
 }
 
 .actions {
+  position: relative;
   cursor: pointer;
   grid-column: 3;
   align-items: center;
   display: flex;
   justify-self: end;
+  overflow-x: hidden;
 }
 
 .actionItems {
+  position: relative;
   display: flex;
   justify-content: flex-end;
-  padding: 15px 0 15px 15px;
+  padding: 0 0 0 15px;
   color: white;
 }
 
@@ -145,29 +205,38 @@
 
 .bottomNavBar {
   grid-row: 3/4;
+  display: flex;
+  height: 100%;
 }
 
 .bottomNavList {
+  position: relative;
+  align-self: end;
   display: flex;
   justify-content: space-between;
   flex-flow: row nowrap;
-  flex-basis: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
   white-space: nowrap;
   list-style: none;
-  white-space: nowrap;
+  border: 1px solid transparent;
 }
 
 .bottomNavItems {
+  position: relative;
   cursor: pointer;
-  padding: 5px 3px 0px 3px;
+  padding: 3px 3px 20px 3px;
   font-size: 18px;
   color: white;
 }
 
 .bottomNavItemsActive {
   color: #a1c900;
+}
+
+.lowerActive {
+  border-bottom: 1px solid white;
 }
 
 .exitArrow {
@@ -181,10 +250,57 @@
 
 .bottomNavItems p {
   display: inline-flex;
+  margin: 0;
+}
+
+.bottomNavText::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 18px solid white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-30px, 24px);
+}
+
+.bottomNavText::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-5px, 27px);
 }
 
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
   background: transparent;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+}
+
+:-ms-input-placeholder {
+  color: white;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: white;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
+}
+
+::placeholder {
+  color: white;
 }

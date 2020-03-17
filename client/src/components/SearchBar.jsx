@@ -5,10 +5,12 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productName: ''
+      productName: '',
+      colored: false
     };
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
   }
 
@@ -22,6 +24,12 @@ class SearchBar extends React.Component {
         .catch((err) => { console.error(err); });
       }
     );
+  }
+
+  onClickHandler(e) {
+    this.setState({
+      colored: true
+    });
   }
 
   //prettier-ignore
@@ -42,8 +50,15 @@ class SearchBar extends React.Component {
           className="navSearchInput"
           placeholder="Search for great gear & clothing"
           onChange={this.onChangeHandler}
+          onClick={this.onClickHandler}
         />
-        <button className="navSearchButton">
+        <button
+          className={
+            this.state.colored
+              ? 'navSearchButton navSearchButtonGreen'
+              : 'navSearchButton'
+          }
+        >
           <span className="glyphicon glyphicon-search"></span>
         </button>
       </form>

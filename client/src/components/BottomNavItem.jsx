@@ -8,7 +8,7 @@ const BottomNavItem = ({ index, item, classType, activeIndex, onClickHandler }) 
       className={index === activeIndex ? `${classType} ${classType}Active` : classType}
       onClick={() => onClickHandler(index)}
     >
-      <p>{item}</p>
+      <p className={index === activeIndex ? "bottomNavText" : "doNothing"}>{item}</p>
     </li>
   );
 };
