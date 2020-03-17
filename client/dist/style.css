@@ -11,7 +11,7 @@
 
 #navigation {
   display: grid;
-  grid-template-rows: 2fr 7fr 1.5fr;
+  grid-template-rows: 1.5fr 7fr;
   grid-template-columns: 1fr;
 }
 
@@ -26,11 +26,12 @@
 
 .topNavList {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   display: flex;
   justify-content: flex-start;
   flex-flow: row nowrap;
+  flex-basis: 100%;
   white-space: nowrap;
   list-style: none;
   scrollbar-width: none;
@@ -45,48 +46,43 @@
   cursor: pointer;
 }
 
+.topNavItemsActive {
+  color: white;
+}
+
 .topNavItems:hover {
   color: white;
 }
 
 .navBarWrapper {
   grid-row: 2/3;
-  justify-self: center;
-
+  grid-column: 1/-1;
   padding-top: 20px;
-
-  display: flex;
-  justify-content: center;
-
-  scrollbar-width: none;
-  overflow-x: scroll;
+  justify-self: center;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .navBar {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0;
-
   display: grid;
   grid-template-rows: 1fr 20px;
-  grid-template-columns: 1fr 20px 4.5fr;
+  grid-template-columns: 158px 20px 1fr;
+  padding: 0;
 }
 
 .navImage {
   display: flex;
-  justify-items: flex-start;
-  flex-flow: row nowrap;
-  scrollbar-width: none;
 }
 
 .navBarRight {
   grid-row: 1/2;
   grid-column: 3/4;
-  justify-self: stretch;
 
   display: grid;
   grid-template-rows: 1fr 10px 1fr;
   grid-template-columns: 1fr;
+
+  overflow: hidden;
 }
 
 .navBarRightUpper {
@@ -123,7 +119,7 @@
 
 .middleRule {
   grid-row: 2/3;
-  align-self: center;
+  align-self: start;
   width: 100%;
   color: white;
 }
@@ -131,16 +127,16 @@
 .actions {
   cursor: pointer;
   grid-column: 3;
-  display: flex;
   align-items: center;
+  display: flex;
   justify-self: end;
 }
 
 .actionItems {
   display: flex;
   justify-content: flex-end;
+  padding: 15px 0 15px 15px;
   color: white;
-  padding: 15px;
 }
 
 .actionItems:hover {
@@ -149,45 +145,42 @@
 
 .bottomNavBar {
   grid-row: 3/4;
-  align-self: center;
-
-  display: inline-flex;
-  justify-content: center;
 }
 
 .bottomNavList {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-flow: row nowrap;
   flex-basis: 100%;
-
   margin: 0;
   padding: 0;
-
   white-space: nowrap;
   list-style: none;
-
   white-space: nowrap;
-  scrollbar-width: none;
-  overflow-x: scroll;
-  overflow-y: hidden;
 }
 
 .bottomNavItems {
-  font-size: 14px;
-  padding: 10px 3px 0px 3px;
-  color: white;
   cursor: pointer;
+  padding: 5px 3px 0px 3px;
+  font-size: 18px;
+  color: white;
+}
+
+.bottomNavItemsActive {
+  color: #a1c900;
+}
+
+.exitArrow {
+  color: #a1c900;
+  padding-left: 10px;
 }
 
 .bottomNavItems:hover {
   color: #a1c900;
 }
 
-.bottomNavItemsArrow {
-  font-size: 14px;
-  padding: 10px 3px 0px 3px;
-  color: #a1c900;
+.bottomNavItems p {
+  display: inline-flex;
 }
 
 ::-webkit-scrollbar {

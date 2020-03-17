@@ -1,9 +1,16 @@
 import React from 'react';
 
-const BottomNavItem = ({ index, item, classType }) => (
-  <li className={classType} key={index}>
-    <p>{item}</p>
-  </li>
-);
+//prettier-ignore
+const BottomNavItem = ({ index, item, classType, activeIndex, onClickHandler }) => {
+  return (
+    <li
+      key={index}
+      className={index === activeIndex ? `${classType} ${classType}Active` : classType}
+      onClick={() => onClickHandler(index)}
+    >
+      <p>{item}</p>
+    </li>
+  );
+};
 
 module.exports = BottomNavItem;

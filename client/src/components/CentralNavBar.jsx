@@ -31,10 +31,7 @@ class CentralNav extends React.Component {
       <div className="navBarWrapper">
         <div className="navBar">
           <div className="navImage">
-            <img
-              src="//satchel.rei.com/media/img/header/rei-co-op-logo-white.svg"
-              alt="Go to REI.com Home Page"
-            />
+            <img src="//satchel.rei.com/media/img/header/rei-co-op-logo-white.svg" alt="Go to REI.com Home Page"/>
           </div>
 
           <div className="navBarRight">
@@ -43,10 +40,7 @@ class CentralNav extends React.Component {
               <Actions />
             </div>
             <hr className="middleRule" />
-            <BottomNav
-              list={this.state.lowerNav}
-              classType={'bottomNavItems'}
-            />
+            <BottomNav list={this.state.lowerNav} classType={'bottomNavItems'}/>
           </div>
         </div>
       </div>
