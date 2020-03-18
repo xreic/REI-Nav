@@ -39,6 +39,8 @@ class App extends React.Component {
 
       showModal: false,
       modalData: [],
+      modalAdverts: [],
+      modalClickables: [],
       activeCategory: ''
     };
 
@@ -53,6 +55,8 @@ class App extends React.Component {
         this.setState({
           showModal: true,
           modalData: data[0]['category'],
+          modalAdverts: data[0]['other'],
+          modalClickables: data[0]['actions'],
           activeCategory: data[0]['title']
         })
       )
@@ -83,11 +87,9 @@ class App extends React.Component {
           <div
             className="modalClose"
             onClick={(e) => {
-              if (e.target.closest('div').className === 'modalClose') {
-                this.hideModal();
-              }
+              if (e.target.closest('div').className === 'modalClose') { this.hideModal(); }
             }}
-          ></div>
+          />
         ) : (
           <div></div>
         )}
@@ -96,6 +98,8 @@ class App extends React.Component {
             <BottomNavModal
               activeCategory={this.state.activeCategory}
               modalData={this.state.modalData}
+              modalAdverts={this.state.modalAdverts}
+              modalClickables={this.state.modalClickables}
             />
           </div>
         ) : (

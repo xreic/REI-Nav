@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/REI-NavBar', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/REINavBar', { useNewUrlParser: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -21,7 +21,9 @@ const UsersSchema = mongoose.Schema({
 
 const CategorySchema = mongoose.Schema({
   title: String,
-  category: [{}]
+  category: [{}],
+  other: Array,
+  actions: [{}]
 });
 
 const Items = mongoose.model('Items', ItemSchema);
