@@ -61,19 +61,32 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id="navigation">
-        <TopNav list={this.state.upperNav} classType={'topNavItems'} />
-        <CentralNav
-          lowerNav={this.state.lowerNav}
-          activeCategory={this.state.activeCategory}
-          changeActive={this.changeActive}
-          hideModal={this.hideModal}
-        />
-        {this.state.showModal ? (
-          <BottomNavModal
+      <div>
+        <div id="navigation">
+          <TopNav list={this.state.upperNav} classType={'topNavItems'} />
+          <CentralNav
+            lowerNav={this.state.lowerNav}
             activeCategory={this.state.activeCategory}
+            changeActive={this.changeActive}
             hideModal={this.hideModal}
           />
+        </div>
+        {this.state.showModal ? (
+          <div
+            className="modalClose"
+            onClick={(e) => {
+              if (e.target.closest('div').className === 'modalClose') {
+                this.hideModal();
+              }
+            }}
+          ></div>
+        ) : (
+          <div></div>
+        )}
+        {this.state.showModal ? (
+          <div className="modalWrapper">
+            <BottomNavModal activeCategory={this.state.activeCategory} />
+          </div>
         ) : (
           <div></div>
         )}

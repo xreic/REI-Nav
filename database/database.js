@@ -19,10 +19,17 @@ const UsersSchema = mongoose.Schema({
   password: String
 });
 
+const CategorySchema = mongoose.Schema({
+  title: String,
+  category: [{}]
+});
+
 const Items = mongoose.model('Items', ItemSchema);
 const Users = mongoose.model('Users', UsersSchema);
+const Categories = mongoose.model('Categories', CategorySchema);
 
 module.exports = {
   Items,
-  Users
+  Users,
+  Categories
 };
