@@ -309,31 +309,73 @@ body {
 }
 
 .modalContent {
-  padding: 20px;
+  padding: 20px 35px 30px 35px;
   font-family: 'Noto Serif', serif;
+  width: 100%;
 }
 
 .modalCategory {
   font-weight: bold;
   font-size: 28px;
   display: block;
+  padding-bottom: 20px;
+}
+
+.modalCategory h3 {
+  cursor: pointer;
+  margin: 0px;
+  display: inline-block;
+}
+
+.modalCategory h3:hover {
+  text-decoration: underline;
 }
 
 .modalSubCategories {
   display: grid;
-  padding-top: 20px;
+  justify-self: stretch;
   column-gap: 10px;
-  grid-template-columns: 4fr 2fr;
+  grid-template-columns: 17% 17% 17% 17% 32%;
   grid-template-rows: auto;
 }
 
+.modalSideBar {
+  grid-column: 5/6;
+}
+
 .modalSubCategory {
+  grid-column: 1/5;
   display: grid;
-  align-self: start;
   column-gap: 10px;
   row-gap: 15px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.modalSubTitles {
+  text-align: left;
+  font-size: 14px;
+}
+
+.modalListitems {
+  list-style: none;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 2;
+}
+
+.modalCategory p,
+.modalSubTitles p {
+  cursor: pointer;
+  margin: 0px;
+  display: inline-block;
+}
+
+.modalSubTitles p:hover,
+.modalListitems p:hover {
+  text-decoration: underline;
 }
 
 ::-webkit-scrollbar {

@@ -12,13 +12,16 @@ const NavModal = ({ activeCategory, modalData }) => {
   return (
     <div className="modalLayout">
       <div className="modalContent">
-        <div className="modalCategory">{activeCategory}</div>
+        <div className="modalCategory">
+          <h3>{activeCategory}</h3>
+        </div>
         <div className="modalSubCategories">
           <div className="modalSubCategory">
             {modalData.map((item, index) => (
               <Subcategories key={index} index={index} subcategorySet={item} />
             ))}
           </div>
+          <div className="modalSideBar">Something</div>
         </div>
       </div>
     </div>
