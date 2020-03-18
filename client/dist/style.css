@@ -298,7 +298,7 @@ body {
   float: left;
 }
 
-.modalContent {
+.modalLayout {
   background: #efeee2;
   position: relative;
   max-width: 1200px;
@@ -306,6 +306,34 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.modalContent {
+  padding: 20px;
+  font-family: 'Noto Serif', serif;
+}
+
+.modalCategory {
+  font-weight: bold;
+  font-size: 28px;
+  display: block;
+}
+
+.modalSubCategories {
+  display: grid;
+  padding-top: 20px;
+  column-gap: 10px;
+  grid-template-columns: 4fr 2fr;
+  grid-template-rows: auto;
+}
+
+.modalSubCategory {
+  display: grid;
+  align-self: start;
+  column-gap: 10px;
+  row-gap: 15px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
 }
 
 ::-webkit-scrollbar {

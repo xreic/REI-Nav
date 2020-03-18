@@ -1,21 +1,21 @@
 const faker = require('faker');
 const { Items, Users, Categories } = require('./database/database.js');
 
-let searchables = [];
+const itemList = [];
 
 for (var i = 1; i <= 100; i++) {
-  searchables.push({
+  itemList.push({
     productID: i,
     productName: faker.fake('{{commerce.productName}}'),
     productImage: faker.fake('{{image.image}}')
   });
 }
 
-Items.insertMany(searchables)
+Items.insertMany(itemList)
   .then(() => console.log('Items seeded!'))
   .catch((err) => console.error(err));
 
-const data = [
+const categoriesList = [
   {
     title: 'Camp & Hike',
     category: [
@@ -443,7 +443,7 @@ const data = [
     category: [
       {
         subcategory: "Men's Running Shoes",
-        item: [
+        items: [
           'Trail-Running',
           'Road-Running',
           'Cross-Training',
@@ -453,7 +453,7 @@ const data = [
       },
       {
         subcategory: "Men's Running Clothing",
-        item: [
+        items: [
           'Jackets',
           'Vests',
           'Shirts',
@@ -464,7 +464,7 @@ const data = [
       },
       {
         subcategory: "Women's Running Shoes",
-        item: [
+        items: [
           'Trail-Running',
           'Road-Running',
           'Cross-Training',
@@ -474,7 +474,7 @@ const data = [
       },
       {
         subcategory: "Women's Running Clothing",
-        item: [
+        items: [
           'Jackets',
           'Vests',
           'Shirts',
@@ -486,11 +486,11 @@ const data = [
       },
       {
         subcategory: 'Injury Prevention & Recovery',
-        item: ['Foam Rollers', 'Massagers', 'Support Braces & Tape']
+        items: ['Foam Rollers', 'Massagers', 'Support Braces & Tape']
       },
       {
         subcategory: 'Electronics',
-        item: [
+        items: [
           'Activity Trackers',
           'Heart Rate Monitors',
           'GPS Sports Watches',
@@ -500,7 +500,7 @@ const data = [
       },
       {
         subcategory: 'Running Packs',
-        item: [
+        items: [
           'Hydration Belts',
           'Hydration Vests & Packs',
           'Race Belts',
@@ -509,7 +509,7 @@ const data = [
       },
       {
         subcategory: 'Accessories',
-        item: [
+        items: [
           'Energy Food & Drinks',
           'Reflective Gear',
           'Running Lights',
@@ -518,7 +518,7 @@ const data = [
       },
       {
         subcategory: 'Run Deals',
-        item: [
+        items: [
           'Men’s Clothing Deals',
           'Men’s Shoe Deals',
           'Women’s Clothing Deals',
@@ -528,7 +528,7 @@ const data = [
       },
       {
         subcategory: 'Brands',
-        item: [
+        items: [
           'Altra',
           'Brooks',
           'HOKA ONE ONE',
@@ -1150,6 +1150,23 @@ const data = [
   }
 ];
 
-Categories.insertMany(data)
+Categories.insertMany(categoriesList)
   .then(() => console.log('Categories seeded!'))
+  .catch((err) => console.error(err));
+
+const usersList = [
+  {
+    name: 'Eric Lau',
+    username: 'ericlau',
+    password: 'hunter1'
+  },
+  {
+    name: 'Duder McGuy',
+    username: 'personman',
+    password: 'hunter1'
+  }
+];
+
+Users.insertMany(usersList)
+  .then(() => console.log('Users seeded!'))
   .catch((err) => console.error(err));
