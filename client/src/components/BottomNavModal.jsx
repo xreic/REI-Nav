@@ -4,7 +4,12 @@ import Subcategories from './Subcategories.jsx';
 import Adverts from './Adverts.jsx';
 import Clickables from './Clickables.jsx';
 
-const NavModal = ({ activeCategory, modalData, modalAdverts, modalClickables }) => {
+const NavModal = ({
+  activeCategory,
+  modalData,
+  modalAdverts,
+  modalClickables
+}) => {
   return (
     <div className="modalLayout">
       <div className="modalContent">
@@ -31,7 +36,7 @@ const NavModal = ({ activeCategory, modalData, modalAdverts, modalClickables }) 
           <div className="modalSideBar">
             <div className="modalSideUpper">
               <div className="modalSideUpperOne">
-                <img src="https://picsum.photos/252/125" />
+                <img src="https://i.picsum.photos/id/614/252/125.jpg" />
               </div>
               <ul className="modalSideUpperTwo">
                 {modalAdverts.map((item, index) => (
