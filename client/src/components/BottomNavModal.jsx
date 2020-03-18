@@ -18,10 +18,23 @@ const NavModal = ({ activeCategory, modalData }) => {
         <div className="modalSubCategories">
           <div className="modalSubCategory">
             {modalData.map((item, index) => (
-              <Subcategories key={index} index={index} subcategorySet={item} />
+              <Subcategories
+                key={index}
+                index={index}
+                subcategorySet={item}
+                activeCategory={activeCategory}
+              />
             ))}
           </div>
-          <div className="modalSideBar">Something</div>
+          <div className="modalSideBar">
+            <div className="modalSideUpper">
+              <div className="modalSideUpperOne">
+                <img src="https://picsum.photos/252/125" />
+              </div>
+              <div className="modalSideUpperTwo">Something</div>
+            </div>
+            <div className="modalSideLower">Something V2</div>
+          </div>
         </div>
       </div>
     </div>

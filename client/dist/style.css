@@ -13,7 +13,6 @@ body {
 }
 
 #navBody {
-  /*! position: relative; */
   font-family: 'Rubik', 'Roboto Condensed', 'Helvetica Neue', Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -30,7 +29,6 @@ body {
 }
 
 .topNavBar {
-  /*! position: relative; */
   grid-row: 1/2;
   grid-column: 1/-1;
   background-color: #555555;
@@ -102,7 +100,6 @@ body {
 }
 
 .navBarWrapper {
-  /*! position: relative; */
   grid-row: 2/3;
   grid-column: 1/-1;
   padding-top: 20px;
@@ -335,19 +332,55 @@ body {
   display: grid;
   justify-self: stretch;
   column-gap: 10px;
-  grid-template-columns: 17% 17% 17% 17% 32%;
+  grid-template-columns: 18.5% 18.5% 18.5% 18.5% auto;
   grid-template-rows: auto;
 }
 
 .modalSideBar {
   grid-column: 5/6;
+  box-sizing: border-box;
+  border-left: 1px solid rgba(192, 192, 192, 0.6);
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 40% auto;
+}
+
+.modalSideUpper {
+  grid-row: 1/2;
+  box-sizing: border-box;
+  border-left: 0.5px solid rgba(192, 192, 192, 0.4);
+  border-bottom: 0.5px solid rgba(192, 192, 192, 0.4);
+  display: grid;
+  grid-template-rows: 40% auto;
+}
+
+.modalSideUpperOne {
+  grid-row: 1/2;
+  display: block;
+}
+
+.modalSideUpperOne img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.modalSideUpperTwo {
+  grid-row: 2/3;
+}
+
+.modalSideLower {
+  grid-row: 2/3;
+  box-sizing: border-box;
+  border-left: 0.5px solid rgba(192, 192, 192, 0.4);
+  border-top: 0.5px solid rgba(192, 192, 192, 0.4);
 }
 
 .modalSubCategory {
   grid-column: 1/5;
   display: grid;
   column-gap: 10px;
-  row-gap: 15px;
+  row-gap: 20px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   font-weight: bold;
