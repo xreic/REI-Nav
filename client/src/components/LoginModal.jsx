@@ -5,12 +5,14 @@ class LoginModal extends React.Component {
     super(props);
     this.state = {
       loginFormUser: '',
-      loginFormPassword: ''
+      loginFormPassword: '',
+      showPassword: false
     };
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onSigninClick = this.onSigninClick.bind(this);
     this.onCreateClick = this.onCreateClick.bind(this);
+    this.passwordToggle = this.passwordToggle.bind(this);
   }
 
   onChangeHandler(e) {
@@ -25,6 +27,12 @@ class LoginModal extends React.Component {
 
   onCreateClick(e) {
     console.log('Redirect to account creation.');
+  }
+
+  passwordToggle() {
+    this.setState({
+      showPassword: !this.state.showPassword
+    });
   }
 
   render() {
@@ -44,14 +52,29 @@ class LoginModal extends React.Component {
 
             <p className="inputPasswordTitle">Password</p>
             <form className="passwordForm" onSubmit={(e) => e.preventDefault()}>
-              <input
-                name="loginFormPassword"
-                className="formInputPassword"
-                type="password"
-                onChange={this.onChangeHandler}
-                autoComplete="off"
-              />
-              <button className="formButtonPassword">Show</button>
+              {this.state.showPassword ? (
+                <input
+                  name="loginFormPassword"
+                  className="formInputPassword"
+                  type="text"
+                  onChange={this.onChangeHandler}
+                  autoComplete="off"
+                />
+              ) : (
+                <input
+                  name="loginFormPassword"
+                  className="formInputPassword"
+                  type="password"
+                  onChange={this.onChangeHandler}
+                  autoComplete="off"
+                />
+              )}
+              <button
+                className="formButtonPassword"
+                onClick={() => this.passwordToggle()}
+              >
+                {this.state.showPassword ? 'Hide' : 'Show'}
+              </button>
             </form>
 
             <p className="loginForgot">Forgot Password?</p>
