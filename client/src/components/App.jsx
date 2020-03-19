@@ -43,7 +43,9 @@ class App extends React.Component {
       modalData: [],
       modalAdverts: [],
       modalClickables: [],
-      activeCategory: ''
+      activeCategory: '',
+
+      showLoginModal: false
     };
 
     this.changeActive = this.changeActive.bind(this);
@@ -95,9 +97,7 @@ class App extends React.Component {
               }
             }}
           />
-        ) : (
-          <div></div>
-        )}
+        ) : null}
         {this.state.showMainModal ? (
           <div className="modalWrapper">
             <BottomNavModal
@@ -108,9 +108,7 @@ class App extends React.Component {
               hideModal={this.hideModal}
             />
           </div>
-        ) : (
-          <div></div>
-        )}
+        ) : null}
       </div>
     );
   }

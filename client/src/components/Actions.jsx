@@ -32,9 +32,7 @@ class Actions extends React.Component {
           <img src="./assets/navTBox.png" alt="Image of a cart" />
           {this.props.cartItems > 0 ? (
             <div className="cartQuantity">{this.props.cartItems}</div>
-          ) : (
-            <div />
-          )}
+          ) : null}
           <div>CART</div>
         </div>
       </div>
