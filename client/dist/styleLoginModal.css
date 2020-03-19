@@ -1,39 +1,66 @@
-/*
-.modalMainWrapper {
-  display: inline-flex;
-  justify-content: center;
-  background-color: transparent;
-  width: 100%;
-  float: left;
-}
-
-.modalLoginWrapper {
+.loginModalContainer {
   float: right;
+  width: 100%;
+  z-index: 3;
   position: relative;
-  z-index: 3;
-  background-color: #efeee2;
-  padding: 50px;
-  transform: translate(-386px, -58px);
 }
 
-.modalLoginLayout {
-}
-
-.modalMainContent {
-}
-*/
-
-.testWrapper {
-  display: inline-flex;
-  justify-content: center;
-  background-color: transparent;
-  width: 100%;
-  float: left;
-}
-
-.test {
-  background-color: #efeee2;
+.loginModalWrapper {
+  display: flex;
+  justify-content: flex-end;
   max-width: 1200px;
+  margin: auto;
+}
+
+.loginModal {
+  background-color: white;
+  color: black;
+  padding: 25px;
+  display: flex;
+  transform: translate(-115px, -54px);
+}
+
+#loginForm {
+  display: grid;
+  row-gap: 10px;
+  width: 250px;
+}
+
+#loginForm label {
+  text-align: left;
+  font-size: 12px;
+}
+
+#loginForm input {
+  height: 2.5em;
   width: 100%;
-  z-index: 3;
+}
+
+.formBorderTriangles {
+}
+
+.loginFormUser {
+  display: flex;
+}
+
+.loginFormPassword {
+  display: flex;
+}
+
+.formLabelPassword button {
+}
+
+.loginFormSignin {
+  border: 1px solid blue;
+  background-color: blue;
+  color: white;
+  display: flex;
+  justify-content: center;
+  height: 2.5em;
+}
+
+.loginFormCreate {
+  border: 1px solid grey;
+  background-color: white;
+  height: 2.5em;
 }

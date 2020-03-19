@@ -17,7 +17,6 @@ class Actions extends React.Component {
         loggedIn: !this.state.loggedIn
       });
     } else {
-      this.props.hidaAllModals();
       this.setState({
         loggedIn: !this.state.loggedIn
       });
