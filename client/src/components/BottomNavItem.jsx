@@ -1,7 +1,7 @@
 import React from 'react';
 
 //prettier-ignore
-const BottomNavItem = ({ index, item, classType, activeCategory, changeActive}) => {
+const BottomNavItem = ({ index, item, classType, activeCategory, changeActive }) => {
   return (
     <li
       key={index}

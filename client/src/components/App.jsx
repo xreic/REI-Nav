@@ -37,6 +37,8 @@ class App extends React.Component {
         'More'
       ],
 
+      cartItems: 2,
+
       showModal: false,
       modalData: [],
       modalAdverts: [],
@@ -77,6 +79,7 @@ class App extends React.Component {
         <div id="navigation">
           <TopNav list={this.state.upperNav} classType={'topNavItems'} />
           <CentralNav
+            cartItems={this.state.cartItems}
             lowerNav={this.state.lowerNav}
             activeCategory={this.state.activeCategory}
             changeActive={this.changeActive}
@@ -87,7 +90,9 @@ class App extends React.Component {
           <div
             className="modalClose"
             onClick={(e) => {
-              if (e.target.closest('div').className === 'modalClose') { this.hideModal(); }
+              if (e.target.closest('div').className === 'modalClose') {
+                this.hideModal();
+              }
             }}
           />
         ) : (

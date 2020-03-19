@@ -181,7 +181,7 @@ body {
   align-self: center;
 }
 
-.actions {
+.navActions {
   position: relative;
   cursor: pointer;
   grid-column: 3;
@@ -191,16 +191,59 @@ body {
   overflow-x: hidden;
 }
 
-.actionItems {
+.actionItemsAccount,
+.actionItemsLocation,
+.actionItemsCart {
   position: relative;
   display: flex;
   justify-content: flex-end;
-  padding: 0 0 0 15px;
   color: white;
+  margin: 0px 0px 0px 20px;
 }
 
-.actionItems:hover {
+.cartQuantity {
+  position: absolute;
   color: #a1c900;
+  padding-right: 70%;
+  font-size: 8px;
+}
+
+.actionItemsAccount div,
+.actionItemsLocation div,
+.actionItemsCart div {
+  padding-left: 5px;
+}
+
+.actionItemsAccount:hover div,
+.actionItemsLocation:hover div,
+.actionItemsCart:hover div {
+  color: #a1c900;
+}
+
+.actionItemsAccount img {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('./assets/navLoginU.png') no-repeat;
+}
+.actionItemsLocation img {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('./assets/navStoreU.png') no-repeat;
+}
+.actionItemsCart img {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('./assets/navCartU.png') no-repeat;
+}
+
+.actionItemsAccount:hover img {
+  background: url('./assets/navLoginC.png') no-repeat;
+}
+.actionItemsLocation:hover img {
+  background: url('./assets/navStoreC.png') no-repeat;
+}
+.actionItemsCart:hover img {
+  background: url('./assets/navCartC.png') no-repeat;
 }
 
 .bottomNavBar {
@@ -393,6 +436,10 @@ body {
   list-style: none;
   text-align: left;
   padding-bottom: 10px;
+}
+
+.modalSideLower img {
+  cursor: pointer;
 }
 
 .modalSideLower p {

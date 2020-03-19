@@ -6,12 +6,8 @@ const BottomNav = ({ list, classType, activeCategory, changeActive }) => (
     <ul className="bottomNavList">
       {list.map((item, index) => (
         <BottomNavItem
-          key={index}
-          index={index}
-          item={item}
-          classType={classType}
-          activeCategory={activeCategory}
-          changeActive={changeActive}
+          key={index} index={index} item={item} classType={classType}
+          activeCategory={activeCategory} changeActive={changeActive}
         />
       ))}
       <li className="bottomNavItems">

@@ -10,18 +10,29 @@ class Actions extends React.Component {
 
   render() {
     return (
-      <div className="actions">
+      <div className="navActions">
         {this.state.loggedIn ? (
-          <div className="actionItems" name="myaccount" onClick={() => this.setState({ loggedIn: false })}>
-            MY ACCOUNT
+          <div className="actionItemsAccount">
+            <img src="./assets/navTBox.png" alt="Image of a person" />
+            <div onClick={() => this.setState({ loggedIn: false })}>
+              MY ACCOUNT
+            </div>
           </div>
         ) : (
-          <div className="actionItems" name="signin" onClick={() => this.setState({ loggedIn: true })}>
-            SIGN IN
+          <div className="actionItemsAccount">
+            <img src="./assets/navTBox.png" alt="Image of a person" />
+            <div onClick={() => this.setState({ loggedIn: true })}>SIGN IN</div>
           </div>
         )}
-        <div className="actionItems" name="stores">STORES</div>
-        <div className="actionItems" name="cart">CART</div>
+        <div className="actionItemsLocation">
+          <img src="./assets/navTBox.png" alt="Image of a location pin" />
+          <div>STORES</div>
+        </div>
+        <div className="actionItemsCart">
+          <img src="./assets/navTBox.png" alt="Image of a cart" />
+          {this.props.cartItems > 0 ? <div className="cartQuantity">{this.props.cartItems}</div> : <div/>}
+          <div>CART</div>
+        </div>
       </div>
     );
   }
