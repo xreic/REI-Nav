@@ -69,7 +69,6 @@ class LoginModal extends React.Component {
             >
               Sign in
             </button>
-
             <button
               name="create"
               className="loginFormCreate"
