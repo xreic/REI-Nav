@@ -13,14 +13,19 @@ const CentralNav = ({ cartItems, lowerNav, activeCategory, changeActive, hideMod
           alt="Go to REI.com Home Page"
         />
       </div>
-
       <div className="navBarRight">
         <div className="navBarRightUpper">
           <SearchBar hideModal={hideModal} />
-          <Actions cartItems={cartItems}/>
+          <Actions hideModal={hideModal} cartItems={cartItems} />
         </div>
         <hr className="middleRule" />
-        <BottomNav list={lowerNav} classType={'bottomNavItems'} activeCategory={activeCategory} changeActive={changeActive}/>
+        <BottomNav
+          list={lowerNav}
+          classType={'bottomNavItems'}
+          activeCategory={activeCategory}
+          changeActive={changeActive}
+          hideModal={hideModal}
+        />
       </div>
     </div>
   </div>

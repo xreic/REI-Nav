@@ -36,6 +36,7 @@ class SearchBar extends React.Component {
   //prettier-ignore
   onSubmitHandler(e) {
     e.preventDefault();
+    this.props.hideModal();
     console.log('-------- SearchBar / Axios / Post / Start --------');
 
     axios.post('/api/searchbar/', {})

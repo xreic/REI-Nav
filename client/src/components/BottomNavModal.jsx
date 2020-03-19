@@ -4,25 +4,19 @@ import Subcategories from './Subcategories.jsx';
 import Adverts from './Adverts.jsx';
 import Clickables from './Clickables.jsx';
 
-const NavModal = ({
-  activeCategory,
-  modalData,
-  modalAdverts,
-  modalClickables
-}) => {
+const NavModal = ({ activeCategory, modalData, modalAdverts, modalClickables, hideModal }) => {
   return (
     <div className="modalLayout">
       <div className="modalContent">
         <div className="modalCategory">
           <h3>{activeCategory}</h3>
+          <span onClick={hideModal}>
+            <p>✖</p>
+          </span>
         </div>
         <div className="modalSubCategories">
           <div
-            className={
-              activeCategory === 'More'
-                ? ' modalSubCategory modalSubCategoryMini '
-                : 'modalSubCategory'
-            }
+            className={ activeCategory === 'More' ? ' modalSubCategory modalSubCategoryMini ' : 'modalSubCategory' }
           >
             {modalData.map((item, index) => (
               <Subcategories

@@ -1,7 +1,7 @@
 import React from 'react';
 import BottomNavItem from './BottomNavItem.jsx';
 
-const BottomNav = ({ list, classType, activeCategory, changeActive }) => (
+const BottomNav = ({ list, classType, activeCategory, changeActive, hideModal }) => (
   <nav className="bottomNavBar">
     <ul className="bottomNavList">
       {list.map((item, index) => (
@@ -10,7 +10,7 @@ const BottomNav = ({ list, classType, activeCategory, changeActive }) => (
           activeCategory={activeCategory} changeActive={changeActive}
         />
       ))}
-      <li className="bottomNavItems">
+      <li className="bottomNavItems" onClick={hideModal}>
         <p>REI Outlet</p>
         <p className="exitArrow"> &gt;</p>
       </li>

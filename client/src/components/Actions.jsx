@@ -10,7 +10,7 @@ class Actions extends React.Component {
 
   render() {
     return (
-      <div className="navActions">
+      <div className="navActions" onClick={this.props.hideModal}>
         {this.state.loggedIn ? (
           <div className="actionItemsAccount">
             <img src="./assets/navTBox.png" alt="Image of a person" />
@@ -30,7 +30,11 @@ class Actions extends React.Component {
         </div>
         <div className="actionItemsCart">
           <img src="./assets/navTBox.png" alt="Image of a cart" />
-          {this.props.cartItems > 0 ? <div className="cartQuantity">{this.props.cartItems}</div> : <div/>}
+          {this.props.cartItems > 0 ? (
+            <div className="cartQuantity">{this.props.cartItems}</div>
+          ) : (
+            <div />
+          )}
           <div>CART</div>
         </div>
       </div>

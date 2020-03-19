@@ -105,6 +105,7 @@ class App extends React.Component {
               modalData={this.state.modalData}
               modalAdverts={this.state.modalAdverts}
               modalClickables={this.state.modalClickables}
+              hideModal={this.hideModal}
             />
           </div>
         ) : (

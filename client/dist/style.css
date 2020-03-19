@@ -199,6 +199,7 @@ body {
   justify-content: flex-end;
   color: white;
   margin: 0px 0px 0px 20px;
+  z-index: 3;
 }
 
 .cartQuantity {
@@ -369,6 +370,25 @@ body {
 
 .modalCategory h3:hover {
   text-decoration: underline;
+}
+
+.modalCategory span {
+  background-color: #efeee2;
+  border-radius: 50%;
+  border: 0px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  float: right;
+  font-size: 18px;
+}
+
+.modalCategory span:hover {
+  background-color: #dfdfdf;
+}
+
+.modalCategory p {
+  vertical-align: middle;
 }
 
 .modalSubCategories {
