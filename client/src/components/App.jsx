@@ -39,7 +39,7 @@ class App extends React.Component {
 
       cartItems: 2,
 
-      showModal: false,
+      showMainModal: false,
       modalData: [],
       modalAdverts: [],
       modalClickables: [],
