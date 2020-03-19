@@ -1,2 +1,39 @@
+/*
+.modalMainWrapper {
+  display: inline-flex;
+  justify-content: center;
+  background-color: transparent;
+  width: 100%;
+  float: left;
+}
+
 .modalLoginWrapper {
+  float: right;
+  position: relative;
+  z-index: 3;
+  background-color: #efeee2;
+  padding: 50px;
+  transform: translate(-386px, -58px);
+}
+
+.modalLoginLayout {
+}
+
+.modalMainContent {
+}
+*/
+
+.testWrapper {
+  display: inline-flex;
+  justify-content: center;
+  background-color: transparent;
+  width: 100%;
+  float: left;
+}
+
+.test {
+  background-color: #efeee2;
+  max-width: 1200px;
+  width: 100%;
+  z-index: 3;
 }

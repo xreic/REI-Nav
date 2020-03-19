@@ -12,20 +12,20 @@ const NavModal = ({
   hideMainModal
 }) => {
   return (
-    <div className="modalLayout">
-      <div className="modalContent">
-        <div className="modalCategory">
+    <div className="modalMainLayout">
+      <div className="modalMainContent">
+        <div className="modalMainCategory">
           <h3>{activeCategory}</h3>
           <span onClick={hideMainModal}>
             <p>✖</p>
           </span>
         </div>
-        <div className="modalSubCategories">
+        <div className="modalMainSubs">
           <div
             className={
               activeCategory === 'More'
-                ? ' modalSubCategory modalSubCategoryMini '
-                : 'modalSubCategory'
+                ? ' modalMainSubItem modalMainSubItemMini '
+                : 'modalMainSubItem'
             }
           >
             {modalData.map((item, index) => (
@@ -37,12 +37,12 @@ const NavModal = ({
               />
             ))}
           </div>
-          <div className="modalSideBar">
+          <div className="modalMainSide">
             <div className="modalSideUpper">
-              <div className="modalSideUpperOne">
+              <div className="modalSideOne">
                 <img src="https://i.picsum.photos/id/614/252/125.jpg" />
               </div>
-              <ul className="modalSideUpperTwo">
+              <ul className="modalSideTwo">
                 {modalAdverts.map((item, index) => (
                   <Adverts key={index} index={index} item={item} />
                 ))}

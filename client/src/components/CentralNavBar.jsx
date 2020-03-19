@@ -10,7 +10,6 @@ const CentralNav = ({
   activeCategory,
   activateMainModal,
   activateLoginModal,
-  hideMainModal,
   hideLoginModal,
   hidaAllModals
 }) => (
@@ -37,7 +36,7 @@ const CentralNav = ({
           classType={'bottomNavItems'}
           activeCategory={activeCategory}
           activateMainModal={activateMainModal}
-          hideMainModal={hideMainModal}
+          hidaAllModals={hidaAllModals}
         />
       </div>
     </div>

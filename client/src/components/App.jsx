@@ -1,9 +1,10 @@
 import React from 'react';
+import axios from 'axios';
 
 import TopNav from './TopNavBar.jsx';
 import CentralNav from './CentralNavBar.jsx';
 import BottomNavModal from './BottomNavModal.jsx';
-import axios from 'axios';
+import LoginModal from './LoginModal.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -83,10 +84,12 @@ class App extends React.Component {
   }
 
   activateLoginModal() {
-    this.hideMainModal();
-    this.setState({
-      showLoginModal: true
-    });
+    this.setState(
+      {
+        showLoginModal: true
+      },
+      () => this.hideMainModal()
+    );
   }
 
   hideLoginModal() {
@@ -111,7 +114,6 @@ class App extends React.Component {
             activeCategory={this.state.activeCategory}
             activateMainModal={this.activateMainModal}
             activateLoginModal={this.activateLoginModal}
-            hideMainModal={this.hideMainModal}
             hideLoginModal={this.hideLoginModal}
             hidaAllModals={this.hidaAllModals}
           />
@@ -138,11 +140,21 @@ class App extends React.Component {
           </div>
         ) : null}
         {this.state.showLoginModal ? (
-          <div className="modalLoginWrapper">Something</div>
+          <div
+            className="modalClose"
+            onClick={(e) => {
+              if (e.target.closest('div').className === 'modalClose') {
+                this.hideLoginModal();
+              }
+            }}
+          />
         ) : null}
+        {this.state.showLoginModal ? <LoginModal /> : null}
       </div>
     );
   }
 }
 
 module.exports = App;
+
+// test

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Items = ({ index, item }) => {
   return (
-    <div className="modalListitems" key={index}>
+    <div className="modalMainLists" key={index}>
       <p>{item}</p>
     </div>
   );
