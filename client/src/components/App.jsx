@@ -55,7 +55,7 @@ class App extends React.Component {
       .post('/api/navbar/', { title: active })
       .then(({ data }) =>
         this.setState({
-          showModal: true,
+          showMainModal: true,
           modalData: data[0]['category'],
           modalAdverts: data[0]['other'],
           modalClickables: data[0]['actions'],
@@ -67,7 +67,7 @@ class App extends React.Component {
 
   hideModal() {
     this.setState({
-      showModal: false,
+      showMainModal: false,
       modalData: [],
       activeCategory: ''
     });
@@ -86,7 +86,7 @@ class App extends React.Component {
             hideModal={this.hideModal}
           />
         </div>
-        {this.state.showModal ? (
+        {this.state.showMainModal ? (
           <div
             className="modalClose"
             onClick={(e) => {
@@ -98,7 +98,7 @@ class App extends React.Component {
         ) : (
           <div></div>
         )}
-        {this.state.showModal ? (
+        {this.state.showMainModal ? (
           <div className="modalWrapper">
             <BottomNavModal
               activeCategory={this.state.activeCategory}
