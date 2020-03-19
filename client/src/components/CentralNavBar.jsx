@@ -8,9 +8,11 @@ const CentralNav = ({
   cartItems,
   lowerNav,
   activeCategory,
-  changeMainModal,
+  activateMainModal,
+  activateLoginModal,
   hideMainModal,
-  activateLoginModal
+  hideLoginModal,
+  hidaAllModals
 }) => (
   <div className="navBarWrapper">
     <div className="navBar">
@@ -22,11 +24,14 @@ const CentralNav = ({
       </div>
       <div className="navBarRight">
         <div className="navBarRightUpper">
-          <SearchBar hideMainModal={hideMainModal} />
+          <SearchBar
+            hidaAllModals={hidaAllModals}
+          />
           <Actions
-            hideMainModal={hideMainModal}
             cartItems={cartItems}
             activateLoginModal={activateLoginModal}
+            hideLoginModal={hideLoginModal}
+            hidaAllModals={hidaAllModals}
           />
         </div>
         <hr className="middleRule" />
@@ -34,7 +39,7 @@ const CentralNav = ({
           list={lowerNav}
           classType={'bottomNavItems'}
           activeCategory={activeCategory}
-          changeMainModal={changeMainModal}
+          activateMainModal={activateMainModal}
           hideMainModal={hideMainModal}
         />
       </div>

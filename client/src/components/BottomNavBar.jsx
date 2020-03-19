@@ -5,7 +5,7 @@ const BottomNav = ({
   list,
   classType,
   activeCategory,
-  changeMainModal,
+  activateMainModal,
   hideMainModal
 }) => (
   <nav className="bottomNavBar">
@@ -17,7 +17,7 @@ const BottomNav = ({
           item={item}
           classType={classType}
           activeCategory={activeCategory}
-          changeMainModal={changeMainModal}
+          activateMainModal={activateMainModal}
         />
       ))}
       <li className="bottomNavItems" onClick={hideMainModal}>

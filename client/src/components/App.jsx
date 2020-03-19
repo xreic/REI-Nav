@@ -48,13 +48,16 @@ class App extends React.Component {
       showLoginModal: false
     };
 
-    this.changeMainModal = this.changeMainModal.bind(this);
+    this.activateMainModal = this.activateMainModal.bind(this);
     this.hideMainModal = this.hideMainModal.bind(this);
+
     this.activateLoginModal = this.activateLoginModal.bind(this);
     this.hideLoginModal = this.hideLoginModal.bind(this);
+
+    this.hidaAllModals = this.hidaAllModals.bind(this);
   }
 
-  changeMainModal(active) {
+  activateMainModal(active) {
     this.hideLoginModal();
 
     axios
@@ -80,18 +83,21 @@ class App extends React.Component {
   }
 
   activateLoginModal() {
-    this.setState(
-      {
-        showLoginModal: true
-      },
-      () => this.hideMainModal()
-    );
+    this.hideMainModal();
+    this.setState({
+      showLoginModal: true
+    });
   }
 
   hideLoginModal() {
     this.setState({
       showLoginModal: false
     });
+  }
+
+  hidaAllModals() {
+    this.hideMainModal();
+    this.hideLoginModal();
   }
 
   render() {
@@ -103,9 +109,11 @@ class App extends React.Component {
             cartItems={this.state.cartItems}
             lowerNav={this.state.lowerNav}
             activeCategory={this.state.activeCategory}
-            changeMainModal={this.changeMainModal}
-            hideMainModal={this.hideMainModal}
+            activateMainModal={this.activateMainModal}
             activateLoginModal={this.activateLoginModal}
+            hideMainModal={this.hideMainModal}
+            hideLoginModal={this.hideLoginModal}
+            hidaAllModals={this.hidaAllModals}
           />
         </div>
         {this.state.showMainModal ? (

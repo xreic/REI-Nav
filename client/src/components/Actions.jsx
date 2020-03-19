@@ -22,11 +22,11 @@ class Actions extends React.Component {
             <div onClick={this.props.activateLoginModal}>SIGN IN</div>
           </div>
         )}
-        <div className="actionItemsLocation" onClick={this.props.hideMainModal}>
+        <div className="actionItemsLocation" onClick={this.props.hidaAllModals}>
           <img src="./assets/navTBox.png" alt="Image of a location pin" />
           <div>STORES</div>
         </div>
-        <div className="actionItemsCart" onClick={this.props.hideMainModal}>
+        <div className="actionItemsCart" onClick={this.props.hidaAllModals}>
           <img src="./assets/navTBox.png" alt="Image of a cart" />
           {this.props.cartItems > 0 ? (
             <div className="cartQuantity">{this.props.cartItems}</div>

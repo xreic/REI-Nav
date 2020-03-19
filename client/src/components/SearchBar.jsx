@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
+//prettier-ignore
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,6 @@ class SearchBar extends React.Component {
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
   }
 
-  //prettier-ignore
   onChangeHandler(e) {
     this.setState({
       productName: e.target.value
@@ -27,16 +27,15 @@ class SearchBar extends React.Component {
   }
 
   onClickHandler(e) {
+    this.props.hidaAllModals();
     this.setState({
       colored: true
     });
-    this.props.hideMainModal();
   }
 
-  //prettier-ignore
   onSubmitHandler(e) {
     e.preventDefault();
-    this.props.hideMainModal();
+    this.props.hidaAllModals();
     console.log('-------- SearchBar / Axios / Post / Start --------');
 
     axios.post('/api/searchbar/', {})
@@ -55,12 +54,7 @@ class SearchBar extends React.Component {
           onClick={this.onClickHandler}
         />
         <button
-          className={
-            this.state.colored
-              ? 'navSearchButton navSearchButtonGreen'
-              : 'navSearchButton'
-          }
-        >
+          className={ this.state.colored ? 'navSearchButton navSearchButtonGreen' : 'navSearchButton' }>
           <span className="glyphicon glyphicon-search"></span>
         </button>
       </form>
