@@ -1,0 +1,191 @@
+.modalMainWrapper {
+  display: inline-flex;
+  justify-content: center;
+  background-color: transparent;
+  width: 100%;
+  float: left;
+}
+
+.modalLayout {
+  background: #efeee2;
+  position: relative;
+  max-width: 1200px;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.modalContent {
+  padding: 20px 55px 50px 55px;
+  font-family: 'Noto Serif', serif;
+  width: 100%;
+}
+
+.modalCategory {
+  font-weight: bold;
+  font-size: 28px;
+  display: block;
+  padding-bottom: 20px;
+}
+
+.modalCategory h3 {
+  cursor: pointer;
+  margin: 0px;
+  display: inline-block;
+}
+
+.modalCategory h3:hover {
+  text-decoration: underline;
+}
+
+.modalCategory span {
+  background-color: #efeee2;
+  border-radius: 50%;
+  border: 0px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  float: right;
+  font-size: 18px;
+}
+
+.modalCategory span:hover {
+  background-color: #dfdfdf;
+}
+
+.modalCategory p {
+  vertical-align: middle;
+}
+
+.modalSubCategories {
+  display: grid;
+  justify-self: stretch;
+  column-gap: 10px;
+  grid-template-columns: 18% 18% 18% 18% auto;
+  grid-template-rows: auto;
+}
+
+.modalSideBar {
+  grid-column: 5/6;
+  box-sizing: border-box;
+}
+
+.modalSideUpper {
+  grid-row: 1/2;
+  box-sizing: border-box;
+}
+
+.modalSideUpperOne {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+.modalSideUpperOne img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.modalSideUpperTwo {
+  display: block;
+  text-align: start;
+  padding: 0px;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.modalSideUpperTwo li {
+  list-style: none;
+}
+
+.modalSideUpperTwo h4 {
+  margin: 0;
+  padding: 5px 0px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.modalSideUpperTwo h4:hover {
+  text-decoration: underline;
+}
+
+.modalSideLower {
+  grid-row: 2;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.modalSideLower li {
+  list-style: none;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+.modalSideLower img {
+  cursor: pointer;
+}
+
+.modalSideLower p {
+  margin: 0;
+  color: darkgreen;
+  display: inline;
+  cursor: pointer;
+}
+.clickableTop {
+  font-size: 18px;
+}
+
+.clickableBottom {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.modalSubCategory {
+  grid-column: 1/5;
+  display: grid;
+  column-gap: 5px;
+  row-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.modalSubCategoryMini {
+  height: 33%;
+}
+
+.modalSubTitles {
+  text-align: left;
+  font-size: 14px;
+}
+
+.modalListitems {
+  list-style: none;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 2;
+}
+
+.modalCategory p,
+.modalSubTitles p {
+  cursor: pointer;
+  margin: 0px;
+  display: inline-block;
+}
+
+.modalSubTitles p:hover,
+.modalListitems p:hover {
+  text-decoration: underline;
+}
+
+.clickableImages,
+.clickableContainer {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 5px;
+}

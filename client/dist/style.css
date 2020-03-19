@@ -28,75 +28,13 @@ body {
   background-color: black;
 }
 
-.topNavBar {
-  grid-row: 1/2;
-  grid-column: 1/-1;
-  background-color: #555555;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.topNavList {
-  position: relative;
-  max-width: 1200px;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: flex-start;
-  flex-flow: row nowrap;
-  flex-basis: 100%;
-  white-space: nowrap;
-  list-style: none;
-  scrollbar-width: none;
-  overflow-x: scroll;
-  overflow-y: hidden;
+.modalClose {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-}
-
-.topNavItems {
-  position: relative;
-  font-size: 12px;
-  padding: 0 5px;
-  color: lightgrey;
-  cursor: pointer;
-  border-bottom: 1px solid transparent;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.topNavItemsActive {
-  color: white;
-  border-bottom: 1px solid white;
-}
-
-.topNavItems:hover {
-  color: white;
-}
-
-.topNavText::before {
-  content: '';
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid white;
-  position: absolute;
-  left: 50%;
-  transform: translate(-13px, 19px);
-}
-
-.topNavText::after {
-  content: '';
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid white;
-  position: absolute;
-  left: 50%;
-  transform: translate(0px, 22px);
+  z-index: 2;
 }
 
 .navBarWrapper {
@@ -113,9 +51,9 @@ body {
 .navBar {
   position: absolute;
   display: grid;
-  grid-template-rows: 1fr 20px;
   grid-template-columns: 158px 20px 1022px;
   padding: 0;
+  grid-template-rows: 1fr 20px;
 }
 
 .navBarRight {
@@ -171,86 +109,11 @@ body {
   color: #a1c900;
 }
 
-.middleRule {
-  position: relative;
-  grid-row: 2/3;
-  width: 100%;
-  color: white;
-  justify-self: end;
-  height: 0%;
-  align-self: center;
-}
-
-.navActions {
-  position: relative;
-  cursor: pointer;
-  grid-column: 3;
-  align-items: center;
-  display: flex;
-  justify-self: end;
-  overflow-x: hidden;
-}
-
-.actionItemsAccount,
-.actionItemsLocation,
-.actionItemsCart {
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-  color: white;
-  margin: 0px 0px 0px 20px;
-  z-index: 3;
-}
-
-.cartQuantity {
-  position: absolute;
-  color: #a1c900;
-  padding-right: 70%;
-  font-size: 10px;
-}
-
-.actionItemsAccount div,
-.actionItemsLocation div,
-.actionItemsCart div {
-  padding-left: 5px;
-}
-
-.actionItemsAccount:hover div,
-.actionItemsLocation:hover div,
-.actionItemsCart:hover div {
-  color: #a1c900;
-}
-
-.actionItemsAccount img {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: url('./assets/navLoginU.png') no-repeat;
-}
-.actionItemsLocation img {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: url('./assets/navStoreU.png') no-repeat;
-}
-.actionItemsCart img {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: url('./assets/navCartU.png') no-repeat;
-}
-
-.actionItemsAccount:hover img {
-  background: url('./assets/navLoginC.png') no-repeat;
-}
-.actionItemsLocation:hover img {
-  background: url('./assets/navStoreC.png') no-repeat;
-}
-.actionItemsCart:hover img {
-  background: url('./assets/navCartC.png') no-repeat;
-}
-
 .bottomNavBar {
   grid-row: 3/4;
   display: flex;
   height: 100%;
+  padding-top: 10px;
 }
 
 .bottomNavList {
@@ -265,6 +128,7 @@ body {
   white-space: nowrap;
   list-style: none;
   border: 1px solid transparent;
+  border-top: 1px solid white;
 }
 
 .bottomNavItems {
@@ -320,247 +184,4 @@ body {
   position: absolute;
   left: 50%;
   transform: translate(-5px, 32px);
-}
-
-.modalClose {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-}
-
-.modalWrapper {
-  display: inline-flex;
-  justify-content: center;
-  background-color: transparent;
-  width: 100%;
-  float: left;
-}
-
-.modalLayout {
-  background: #efeee2;
-  position: relative;
-  max-width: 1200px;
-  z-index: 3;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.modalContent {
-  padding: 20px 55px 50px 55px;
-  font-family: 'Noto Serif', serif;
-  width: 100%;
-}
-
-.modalCategory {
-  font-weight: bold;
-  font-size: 28px;
-  display: block;
-  padding-bottom: 20px;
-}
-
-.modalCategory h3 {
-  cursor: pointer;
-  margin: 0px;
-  display: inline-block;
-}
-
-.modalCategory h3:hover {
-  text-decoration: underline;
-}
-
-.modalCategory span {
-  background-color: #efeee2;
-  border-radius: 50%;
-  border: 0px;
-  height: 30px;
-  width: 30px;
-  cursor: pointer;
-  float: right;
-  font-size: 18px;
-}
-
-.modalCategory span:hover {
-  background-color: #dfdfdf;
-}
-
-.modalCategory p {
-  vertical-align: middle;
-}
-
-.modalSubCategories {
-  display: grid;
-  justify-self: stretch;
-  column-gap: 10px;
-  grid-template-columns: 18% 18% 18% 18% auto;
-  grid-template-rows: auto;
-}
-
-.modalSideBar {
-  grid-column: 5/6;
-  box-sizing: border-box;
-}
-
-.modalSideUpper {
-  grid-row: 1/2;
-  box-sizing: border-box;
-}
-
-.modalSideUpperOne {
-  display: block;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 10px;
-}
-
-.modalSideUpperOne img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.modalSideUpperTwo {
-  display: block;
-  text-align: start;
-  padding: 0px;
-  margin-bottom: 20px;
-  font-size: 18px;
-}
-
-.modalSideUpperTwo li {
-  list-style: none;
-}
-
-.modalSideUpperTwo h4 {
-  margin: 0;
-  padding: 5px 0px;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.modalSideUpperTwo h4:hover {
-  text-decoration: underline;
-}
-
-.modalSideLower {
-  grid-row: 2;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-.modalSideLower li {
-  list-style: none;
-  text-align: left;
-  padding-bottom: 10px;
-}
-
-.modalSideLower img {
-  cursor: pointer;
-}
-
-.modalSideLower p {
-  margin: 0;
-  color: darkgreen;
-  display: inline;
-  cursor: pointer;
-}
-.clickableTop {
-  font-size: 18px;
-}
-
-.clickableBottom {
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.modalSubCategory {
-  grid-column: 1/5;
-  display: grid;
-  column-gap: 5px;
-  row-gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
-  font-weight: bold;
-  white-space: nowrap;
-}
-
-.modalSubCategoryMini {
-  height: 33%;
-}
-
-.modalSubTitles {
-  text-align: left;
-  font-size: 14px;
-}
-
-.modalListitems {
-  list-style: none;
-  font-size: 12px;
-  font-weight: normal;
-  line-height: 2;
-}
-
-.modalCategory p,
-.modalSubTitles p {
-  cursor: pointer;
-  margin: 0px;
-  display: inline-block;
-}
-
-.modalSubTitles p:hover,
-.modalListitems p:hover {
-  text-decoration: underline;
-}
-
-.clickableImages,
-.clickableContainer {
-  display: inline-block;
-  vertical-align: middle;
-  padding-right: 5px;
-}
-
-::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-  background: transparent;
-}
-
-::-webkit-input-placeholder {
-  color: white;
-}
-
-:-ms-input-placeholder {
-  color: white;
-}
-
-:-moz-placeholder {
-  /* Firefox 18- */
-  color: white;
-}
-
-::-moz-placeholder {
-  /* Firefox 19+ */
-  color: white;
-}
-
-::placeholder {
-  color: white;
-}
-
-@-moz-document url-prefix() {
-  .bottomNavList {
-    position: relative;
-  }
-
-  .bottomNavText::before {
-    transform: translate(-30px, 27px);
-  }
-
-  .bottomNavText::after {
-    transform: translate(-5px, 30px);
-  }
 }

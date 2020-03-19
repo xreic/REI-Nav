@@ -24,9 +24,7 @@ const CentralNav = ({
       </div>
       <div className="navBarRight">
         <div className="navBarRightUpper">
-          <SearchBar
-            hidaAllModals={hidaAllModals}
-          />
+          <SearchBar hidaAllModals={hidaAllModals} />
           <Actions
             cartItems={cartItems}
             activateLoginModal={activateLoginModal}
@@ -34,7 +32,6 @@ const CentralNav = ({
             hidaAllModals={hidaAllModals}
           />
         </div>
-        <hr className="middleRule" />
         <BottomNav
           list={lowerNav}
           classType={'bottomNavItems'}
