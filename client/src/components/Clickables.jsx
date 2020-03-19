@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Clickables = ({ index, icon, top, bottom }) => {
-  console.log(icon);
   return (
     <li key={index}>
       <img

@@ -1,13 +1,13 @@
 import React from 'react';
 
 //prettier-ignore
-const BottomNavItem = ({ index, item, classType, activeCategory, changeActive }) => {
+const BottomNavItem = ({ index, item, classType, activeCategory, changeMainModal }) => {
   return (
     <li
       key={index}
       className={ item === activeCategory ? `${classType} ${classType}Active` : classType }
       onClick={() => {
-        changeActive(item);
+        changeMainModal(item);
       }}
     >
       <p className={item === activeCategory ? 'bottomNavText' : 'doNothing'}>

@@ -4,7 +4,14 @@ import SearchBar from './SearchBar.jsx';
 import Actions from './Actions.jsx';
 import BottomNav from './BottomNavBar.jsx';
 
-const CentralNav = ({ cartItems, lowerNav, activeCategory, changeActive, hideModal }) => (
+const CentralNav = ({
+  cartItems,
+  lowerNav,
+  activeCategory,
+  changeMainModal,
+  hideMainModal,
+  activateLoginModal
+}) => (
   <div className="navBarWrapper">
     <div className="navBar">
       <div className="navImage">
@@ -15,16 +22,20 @@ const CentralNav = ({ cartItems, lowerNav, activeCategory, changeActive, hideMod
       </div>
       <div className="navBarRight">
         <div className="navBarRightUpper">
-          <SearchBar hideModal={hideModal} />
-          <Actions hideModal={hideModal} cartItems={cartItems} />
+          <SearchBar hideMainModal={hideMainModal} />
+          <Actions
+            hideMainModal={hideMainModal}
+            cartItems={cartItems}
+            activateLoginModal={activateLoginModal}
+          />
         </div>
         <hr className="middleRule" />
         <BottomNav
           list={lowerNav}
           classType={'bottomNavItems'}
           activeCategory={activeCategory}
-          changeActive={changeActive}
-          hideModal={hideModal}
+          changeMainModal={changeMainModal}
+          hideMainModal={hideMainModal}
         />
       </div>
     </div>

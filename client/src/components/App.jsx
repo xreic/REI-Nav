@@ -48,11 +48,15 @@ class App extends React.Component {
       showLoginModal: false
     };
 
-    this.changeActive = this.changeActive.bind(this);
-    this.hideModal = this.hideModal.bind(this);
+    this.changeMainModal = this.changeMainModal.bind(this);
+    this.hideMainModal = this.hideMainModal.bind(this);
+    this.activateLoginModal = this.activateLoginModal.bind(this);
+    this.hideLoginModal = this.hideLoginModal.bind(this);
   }
 
-  changeActive(active) {
+  changeMainModal(active) {
+    this.hideLoginModal();
+
     axios
       .post('/api/navbar/', { title: active })
       .then(({ data }) =>
@@ -67,11 +71,26 @@ class App extends React.Component {
       .catch((err) => console.error(err));
   }
 
-  hideModal() {
+  hideMainModal() {
     this.setState({
       showMainModal: false,
       modalData: [],
       activeCategory: ''
+    });
+  }
+
+  activateLoginModal() {
+    this.setState(
+      {
+        showLoginModal: true
+      },
+      () => this.hideMainModal()
+    );
+  }
+
+  hideLoginModal() {
+    this.setState({
+      showLoginModal: false
     });
   }
 
@@ -84,8 +103,9 @@ class App extends React.Component {
             cartItems={this.state.cartItems}
             lowerNav={this.state.lowerNav}
             activeCategory={this.state.activeCategory}
-            changeActive={this.changeActive}
-            hideModal={this.hideModal}
+            changeMainModal={this.changeMainModal}
+            hideMainModal={this.hideMainModal}
+            activateLoginModal={this.activateLoginModal}
           />
         </div>
         {this.state.showMainModal ? (
@@ -93,7 +113,7 @@ class App extends React.Component {
             className="modalClose"
             onClick={(e) => {
               if (e.target.closest('div').className === 'modalClose') {
-                this.hideModal();
+                this.hideMainModal();
               }
             }}
           />
@@ -105,9 +125,12 @@ class App extends React.Component {
               modalData={this.state.modalData}
               modalAdverts={this.state.modalAdverts}
               modalClickables={this.state.modalClickables}
-              hideModal={this.hideModal}
+              hideMainModal={this.hideMainModal}
             />
           </div>
+        ) : null}
+        {this.state.showLoginModal ? (
+          <div className="test">Something</div>
         ) : null}
       </div>
     );
