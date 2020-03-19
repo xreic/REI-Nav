@@ -16,43 +16,65 @@
   background-color: white;
   color: black;
   padding: 25px;
-  display: flex;
   transform: translate(-115px, -54px);
-}
-
-#loginForm {
   display: grid;
-  row-gap: 10px;
   width: 250px;
 }
 
-#loginForm label {
+.inputUserTitle,
+.inputPasswordTitle {
   text-align: left;
   font-size: 12px;
+  display: flex;
+  margin: 0px;
 }
 
-#loginForm input {
-  height: 2.5em;
+.formInputUser,
+.formInputPassword {
+  box-sizing: border-box;
+  margin: 3px 0px 12px 0px;
+  padding: 6px;
+  height: 3em;
+}
+
+.passwordForm {
+  display: flex;
   width: 100%;
+  height: 42px;
+  padding: 0px;
 }
 
-.formBorderTriangles {
+.formInputPassword {
+  width: 100%;
+  border: 1px solid #a9a9a9;
+  border-right: 0px;
 }
 
-.loginFormUser {
-  display: flex;
+.formButtonPassword {
+  margin-top: 3px;
+  border: 1px solid #a9a9a9;
+  border-left: 0px;
+  background-color: white;
 }
 
-.loginFormPassword {
-  display: flex;
+.loginForgot {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1f4e99;
+  cursor: pointer;
+  text-align: left;
 }
 
-.formLabelPassword button {
+.loginFormAgreement {
+  margin: 0px;
+  font-size: 10px;
+  text-align: left;
 }
 
 .loginFormSignin {
-  border: 1px solid blue;
-  background-color: blue;
+  border: 1px solid #2b60b5;
+  background-color: #2b60b5;
   color: white;
   display: flex;
   justify-content: center;
@@ -63,4 +85,13 @@
   border: 1px solid grey;
   background-color: white;
   height: 2.5em;
+}
+
+mark.blue {
+  color: #1f4e99;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.formBorderTriangles {
 }

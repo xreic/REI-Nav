@@ -32,43 +32,51 @@ class LoginModal extends React.Component {
       <div className="loginModalContainer">
         <div className="loginModalWrapper">
           <div className="loginModal">
-            <form id="loginForm" onSubmit={(e) => e.preventDefault()}>
-              <label className="formBorderTriangles" />
-              <label className="formLabelUser">
-                Email
-                <input
-                  name="loginFormUser"
-                  className="loginFormUser"
-                  type="text"
-                  onChange={this.onChangeHandler}
-                />
-              </label>
-              <label className="formLabelPassword">
-                Password
-                <input
-                  name="loginFormPassword"
-                  className="loginFormPassword"
-                  type="password"
-                  onChange={this.onChangeHandler}
-                  autoComplete="off"
-                />
-                {/* <button>✖</button> */}
-              </label>
-              <button
-                name="signin"
-                className="loginFormSignin"
-                onClick={this.onSigninClick}
-              >
-                Sign in
-              </button>
-              <button
-                name="create"
-                className="loginFormCreate"
-                onClick={this.onCreateClick}
-              >
-                Create an account
-              </button>
+            <div className="formBorderTriangles" />
+
+            <p className="inputUserTitle">Email</p>
+            <input
+              name="loginFormUser"
+              className="formInputUser"
+              type="text"
+              onChange={this.onChangeHandler}
+            />
+
+            <p className="inputPasswordTitle">Password</p>
+            <form className="passwordForm" onSubmit={(e) => e.preventDefault()}>
+              <input
+                name="loginFormPassword"
+                className="formInputPassword"
+                type="password"
+                onChange={this.onChangeHandler}
+                autoComplete="off"
+              />
+              <button className="formButtonPassword">Show</button>
             </form>
+
+            <p className="loginForgot">Forgot Password?</p>
+
+            <p className="loginFormAgreement">
+              By signing into your account, you agree to REI's{' '}
+              <mark class="blue">Terms of Use</mark> and acknowledge you have
+              read its <mark class="blue">Privacy Policy</mark>.
+            </p>
+
+            <button
+              name="signin"
+              className="loginFormSignin"
+              onClick={this.onSigninClick}
+            >
+              Sign in
+            </button>
+
+            <button
+              name="create"
+              className="loginFormCreate"
+              onClick={this.onCreateClick}
+            >
+              Create an account
+            </button>
           </div>
         </div>
       </div>
