@@ -764,7 +764,11 @@ const categoriesList = [
         top: 'Gear Rentals',
         bottom: 'Outdoor rental equipment'
       },
-      { 'Ski Boot Fit Wizard': 'Find the right boots for you' }
+      {
+        icon: 'actionMagic',
+        top: 'Ski Boot Fit Wizard',
+        bottom: 'Find the right boots for you'
+      }
     ]
   },
   {

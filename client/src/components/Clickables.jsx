@@ -3,7 +3,12 @@ import React from 'react';
 const Clickables = ({ index, icon, top, bottom }) => {
   console.log(icon);
   return (
-    <li className={icon} key={index}>
+    <li key={index}>
+      <img
+        className={`clickableImages ${icon}`}
+        src={`./assets/${icon}.png`}
+        alt={icon}
+      />
       <div className="clickableContainer">
         <p className="clickableTop">{top}</p>
         <br />
