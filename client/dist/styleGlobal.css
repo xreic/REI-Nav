@@ -25,17 +25,3 @@
 ::placeholder {
   color: white;
 }
-
-@-moz-document url-prefix() {
-  .bottomNavList {
-    position: relative;
-  }
-
-  .bottomNavText::before {
-    transform: translate(-30px, 27px);
-  }
-
-  .bottomNavText::after {
-    transform: translate(-5px, 30px);
-  }
-}
