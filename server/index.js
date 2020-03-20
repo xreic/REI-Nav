@@ -17,8 +17,15 @@ server.use(express.static(path.join(__dirname, '../client/dist')));
 server.post('/api/searchbar/', (req, res) => {
   console.log('-------- POST (Search Bar) REQUEST --------');
 
-  //prettier-ignore
   Items.find(req.body)
+    .then((result) => res.status(200).send(result).end())
+    .catch((err) => res.status(400).send(err).end());
+});
+
+server.post('/api/cart/:id', (req, res) => {
+  console.log('-------- POST (Cart) REQUEST --------');
+
+  Items.find({ productID: req.params.id })
     .then((result) => res.status(200).send(result).end())
     .catch((err) => res.status(400).send(err).end());
 });
@@ -26,7 +33,6 @@ server.post('/api/searchbar/', (req, res) => {
 server.post('/api/navbar/', (req, res) => {
   console.log('-------- POST (Lower Nav Bar) REQUEST --------');
 
-  // prettier-ignore
   Categories.find(req.body)
     .then((result) => res.status(200).send(result).end())
     .catch((err) => res.status(400).send(err).end());
@@ -35,7 +41,6 @@ server.post('/api/navbar/', (req, res) => {
 server.post('/api/login/', (req, res) => {
   console.log('-------- POST (Login Modal) REQUEST --------');
 
-  // prettier-ignore
   Users.find(req.body)
     .then((result) => res.status(200).send(result).end())
     .catch((err) => res.status(400).send(err).end());

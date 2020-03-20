@@ -35,7 +35,7 @@
   margin: 3px 0px 12px 0px;
   padding: 6px;
   height: 3em;
-  cursor: default;
+  cursor: pointer;
 }
 
 .formInputUser {
@@ -71,6 +71,7 @@
   margin-top: 3px;
   align-items: center;
   color: #2b60b5;
+  cursor: pointer;
 }
 
 .loginForgot {
@@ -78,7 +79,7 @@
   font-size: 16px;
   font-weight: bold;
   color: #1f4e99;
-  cursor: default;
+  cursor: pointer;
   text-align: left;
 }
 
@@ -94,12 +95,14 @@
   color: white;
   height: 2.5em;
   margin: 1em 0;
+  cursor: pointer;
 }
 
 .loginFormCreate {
   border: 1px solid grey;
   background-color: white;
   height: 2.5em;
+  cursor: pointer;
 }
 
 .failedGrid {
@@ -132,6 +135,7 @@
   color: #1f4e99;
   margin: 0;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .memeberBenefits {
@@ -160,6 +164,7 @@
   color: #2ba2c9;
   list-style: none;
   text-align: left;
+  cursor: pointer;
 }
 
 .becomeMember:hover,
@@ -193,7 +198,7 @@
 mark.blue {
   color: #1f4e99;
   background-color: transparent;
-  cursor: default;
+  cursor: pointer;
 }
 
 .loginModalClose {
@@ -202,7 +207,7 @@ mark.blue {
   border: 0px;
   height: 30px;
   width: 30px;
-  cursor: default;
+  cursor: pointer;
   float: right;
   font-size: 18px;
   position: absolute;

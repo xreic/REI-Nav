@@ -30,7 +30,7 @@
 }
 
 .modalMainCategory h3 {
-  cursor: default;
+  cursor: pointer;
   margin: 0px;
   display: inline-block;
 }
@@ -45,7 +45,7 @@
   border: 0px;
   height: 30px;
   width: 30px;
-  cursor: default;
+  cursor: pointer;
   float: right;
   font-size: 18px;
 }
@@ -105,7 +105,7 @@
   margin: 0;
   padding: 5px 0px;
   display: inline-block;
-  cursor: default;
+  cursor: pointer;
 }
 
 .modalSideTwo h4:hover {
@@ -126,14 +126,14 @@
 }
 
 .modalSideLower img {
-  cursor: default;
+  cursor: pointer;
 }
 
 .modalSideLower p {
   margin: 0;
   color: darkgreen;
   display: inline;
-  cursor: default;
+  cursor: pointer;
 }
 .clickableTop {
   font-size: 18px;
@@ -173,7 +173,7 @@
 
 .modalMainCategory p,
 .modalMainSubTitles p {
-  cursor: default;
+  cursor: pointer;
   margin: 0px;
   display: inline-block;
 }

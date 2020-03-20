@@ -39,7 +39,8 @@ class App extends React.Component {
         'More'
       ],
 
-      cartItems: 2,
+      cartQuantity: 2,
+      cartItem: {},
       showCartModal: false,
 
       showMainModal: false,
@@ -66,6 +67,17 @@ class App extends React.Component {
 
     this.changeLogin = this.changeLogin.bind(this);
     this.retrieveUserdata = this.retrieveUserdata.bind(this);
+  }
+
+  componentDidMount() {
+    axios
+      .post(`/api/cart/${Math.ceil(Math.random() * 100)}`)
+      .then(({ data }) =>
+        this.setState({
+          cartItem: data[0]
+        })
+      )
+      .catch((err) => console.error(err));
   }
 
   hidaAllModals() {
@@ -159,7 +171,7 @@ class App extends React.Component {
         <div id="navigation">
           <TopNav list={this.state.upperNav} classType={'topNavItems'} />
           <CentralNav
-            cartItems={this.state.cartItems}
+            cartQuantity={this.state.cartQuantity}
             userLoggedin={this.state.userLoggedin}
             lowerNav={this.state.lowerNav}
             activeCategory={this.state.activeCategory}
@@ -211,7 +223,8 @@ class App extends React.Component {
         ) : null}
         {this.state.showCartModal ? (
           <CartModal
-            cartItems={this.state.cartItems}
+            cartQuantity={this.state.cartQuantity}
+            cartItem={this.state.cartItem}
             hideCartModal={this.hideCartModal}
           />
         ) : null}

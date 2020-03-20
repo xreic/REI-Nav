@@ -1,6 +1,6 @@
 .navActions {
   position: relative;
-  cursor: default;
+  cursor: pointer;
   grid-column: 3;
   align-items: center;
   display: flex;

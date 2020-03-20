@@ -5,7 +5,7 @@ import Actions from './Actions.jsx';
 import BottomNav from './BottomNavBar.jsx';
 
 const CentralNav = ({
-  cartItems,
+  cartQuantity,
   userLoggedin,
   lowerNav,
   activeCategory,
@@ -26,7 +26,7 @@ const CentralNav = ({
         <div className="navBarRightUpper">
           <SearchBar hidaAllModals={hidaAllModals} />
           <Actions
-            cartItems={cartItems}
+            cartQuantity={cartQuantity}
             userLoggedin={userLoggedin}
             activateLoginModal={activateLoginModal}
             activateCartModal={activateCartModal}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Actions = ({
-  cartItems,
+  cartQuantity,
   userLoggedin,
   activateLoginModal,
   activateCartModal,
@@ -24,7 +24,9 @@ const Actions = ({
       onMouseEnter={activateCartModal}
     >
       <img src="./assets/navTBox.png" alt="Image of a cart" />
-      {cartItems > 0 ? <div className="cartQuantity">{cartItems}</div> : null}
+      {cartQuantity > 0 ? (
+        <div className="cartQuantity">{cartQuantity}</div>
+      ) : null}
       <div>CART</div>
     </div>
   </div>
