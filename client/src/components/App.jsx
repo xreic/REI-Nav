@@ -47,7 +47,8 @@ class App extends React.Component {
       activeCategory: '',
 
       showLoginModal: false,
-      userLoggedin: false
+      userLoggedin: false,
+      userFullame: ''
     };
 
     this.activateMainModal = this.activateMainModal.bind(this);
@@ -59,6 +60,7 @@ class App extends React.Component {
     this.hidaAllModals = this.hidaAllModals.bind(this);
 
     this.changeLogin = this.changeLogin.bind(this);
+    this.retrieveUserdata = this.retrieveUserdata.bind(this);
   }
 
   activateMainModal(active) {
@@ -108,8 +110,30 @@ class App extends React.Component {
 
   changeLogin() {
     this.setState({
-      userLoggedin: !this.state.userLoggedin
+      userLoggedin: !this.state.userLoggedin,
+      userFullame: ''
     });
+  }
+
+  retrieveUserdata(userObject, callback) {
+    axios
+      .post('/api/login/', userObject)
+      .then(({ data }) => {
+        if (data.length > 0) {
+          document.getElementById('doubleForm1').reset();
+          document.getElementById('doubleForm2').reset();
+
+          this.changeLogin();
+          callback(false);
+
+          this.setState({
+            userFullame: data[0]['name']
+          });
+        } else {
+          callback(true);
+        }
+      })
+      .catch((err) => console.error(err));
   }
 
   render() {
@@ -160,8 +184,10 @@ class App extends React.Component {
         ) : null}
         {this.state.showLoginModal ? (
           <LoginModal
+            userFullame={this.state.userFullame}
             changeLogin={this.changeLogin}
             userLoggedin={this.state.userLoggedin}
+            retrieveUserdata={this.retrieveUserdata}
           />
         ) : null}
       </div>

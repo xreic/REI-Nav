@@ -25,33 +25,22 @@ class LoginModal extends React.Component {
 
   onSigninClick(e) {
     e.preventDefault();
-
     let auth = {
       username: this.state.username,
       password: this.state.password
     };
 
-    console.log(auth);
-
-    axios
-      .post('/api/login/', auth)
-      .then(({ data }) => {
-        if (data.length > 0) {
-          document.getElementById('doubleForm1').reset();
-          document.getElementById('doubleForm2').reset();
-          this.props.changeLogin();
-          this.setState({
-            failed: false,
-            username: '',
-            password: ''
-          });
-        } else {
-          this.setState({
-            failed: true
-          });
-        }
-      })
-      .catch((err) => console.error(err));
+    this.props.retrieveUserdata(auth, (err) => {
+      if (err) {
+        this.setState({ failed: true });
+      } else {
+        this.setState({
+          failed: false,
+          username: '',
+          password: ''
+        });
+      }
+    });
   }
 
   onCreateClick(e) {
@@ -65,11 +54,30 @@ class LoginModal extends React.Component {
   }
 
   render() {
-    if (this.props.userLoggedin) {
+    if (this.props.userFullame !== '') {
       return (
         <div className="loginModalContainer">
           <div className="loginModalWrapper">
-            <div className="loginModal">Something</div>
+            <div className="loginModal">
+              <div className="formBorderTriangles" />
+              <p className="loggedFullname">{this.props.userFullame}</p>
+              <p className="becomeMember">Become an REI member</p>
+              <p className="memeberBenefits">
+                Earn an Annual Dividend, plus get access to exclusive products,
+                events and offers.
+              </p>
+              <ul className="accountActionsLogged">
+                <li className="accountViewAccount">My account</li>
+                <li className="accountViewHistory">Purchase history</li>
+                <li className="accountViewWish">Wish lists</li>
+              </ul>
+              <p
+                className="logoutAccount"
+                onClick={() => this.props.changeLogin()}
+              >
+                Sign out
+              </p>
+            </div>
           </div>
         </div>
       );
