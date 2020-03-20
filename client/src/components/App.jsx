@@ -6,6 +6,7 @@ import CentralNav from './CentralNavBar.jsx';
 import BottomNavModal from './BottomNavModal.jsx';
 import LoginModal from './LoginModal.jsx';
 import CartModal from './CartModal.jsx';
+import SearchModal from './SearchModal.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -51,7 +52,10 @@ class App extends React.Component {
 
       showLoginModal: false,
       userLoggedin: false,
-      userFullame: ''
+      userFullame: '',
+
+      showSearches: false,
+      searchData: []
     };
 
     this.activateMainModal = this.activateMainModal.bind(this);
@@ -67,6 +71,10 @@ class App extends React.Component {
 
     this.changeLogin = this.changeLogin.bind(this);
     this.retrieveUserdata = this.retrieveUserdata.bind(this);
+
+    this.activateSearches = this.activateSearches.bind(this);
+    this.hideSearches = this.hideSearches.bind(this);
+    this.searchDropdown = this.searchDropdown.bind(this);
   }
 
   componentDidMount() {
@@ -83,6 +91,7 @@ class App extends React.Component {
   hidaAllModals() {
     this.hideMainModal();
     this.hideLoginModal();
+    this.hideSearches();
   }
 
   activateMainModal(active) {
@@ -111,12 +120,10 @@ class App extends React.Component {
   }
 
   activateLoginModal() {
-    this.setState(
-      {
-        showLoginModal: true
-      },
-      () => this.hideMainModal()
-    );
+    this.setState({
+      showLoginModal: true,
+      showSearches: false
+    }, () => this.hideMainModal());
   }
 
   hideLoginModal() {
@@ -165,6 +172,29 @@ class App extends React.Component {
       .catch((err) => console.error(err));
   }
 
+  activateSearches() {
+    this.setState({
+      showSearches: true
+    });
+  }
+
+  hideSearches() {
+    this.setState({
+      showSearches: false
+    });
+  }
+
+  searchDropdown(data) {
+    if (data === []) {
+      this.hideSearches();
+    } else {
+      this.setState({
+        showSearches: true,
+        searchData: data
+      });
+    }
+  }
+
   render() {
     return (
       <div>
@@ -178,15 +208,19 @@ class App extends React.Component {
             activateMainModal={this.activateMainModal}
             activateLoginModal={this.activateLoginModal}
             activateCartModal={this.activateCartModal}
+            activateSearches={this.activateSearches}
             hidaAllModals={this.hidaAllModals}
+            searchDropdown={this.searchDropdown}
           />
         </div>
-        {this.state.showMainModal ? (
+        {this.state.showMainModal ||
+        this.state.showLoginModal ||
+        this.state.showSearches !== [] ? (
           <div
             className="modalClose"
             onClick={(e) => {
               if (e.target.closest('div').className === 'modalClose') {
-                this.hideMainModal();
+                this.hidaAllModals();
               }
             }}
           />
@@ -201,16 +235,6 @@ class App extends React.Component {
               hideMainModal={this.hideMainModal}
             />
           </div>
-        ) : null}
-        {this.state.showLoginModal ? (
-          <div
-            className="modalClose"
-            onClick={(e) => {
-              if (e.target.closest('div').className === 'modalClose') {
-                this.hideLoginModal();
-              }
-            }}
-          />
         ) : null}
         {this.state.showLoginModal ? (
           <LoginModal
@@ -228,6 +252,7 @@ class App extends React.Component {
             hideCartModal={this.hideCartModal}
           />
         ) : null}
+        {this.state.showSearches ? <SearchModal /> : null}
       </div>
     );
   }

@@ -17,7 +17,7 @@ server.use(express.static(path.join(__dirname, '../client/dist')));
 server.post('/api/searchbar/', (req, res) => {
   console.log('-------- POST (Search Bar) REQUEST --------');
 
-  Items.find(req.body)
+  Items.find({ productName: { $regex : req.body.productName, $options: 'i' }}).sort({_id: -1}).limit(10)
     .then((result) => res.status(200).send(result).end())
     .catch((err) => res.status(400).send(err).end());
 });

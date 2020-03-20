@@ -1,0 +1,29 @@
+.testContainer {
+  float: right;
+  width: 100%;
+  position: absolute;
+}
+
+.testWrapper {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.test1 {
+  display: grid;
+  grid-template-columns: 178px auto 15px;
+  width: 100%;
+}
+
+.test2 {
+  background-color: white;
+  grid-column: 2/3;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 100%;
+  z-index: 3;
+  padding: 35px 50px 50px 50px;
+  box-sizing: border-box;
+}

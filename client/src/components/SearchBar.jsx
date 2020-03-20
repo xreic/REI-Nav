@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-//prettier-ignore
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -13,35 +12,50 @@ class SearchBar extends React.Component {
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onClickHandler = this.onClickHandler.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
+    this.queryItems = this.queryItems.bind(this);
   }
 
   onChangeHandler(e) {
-    this.setState({
-      productName: e.target.value
-    }, () => {
-      axios.post('/api/searchbar/', {})
-        .then(({ data }) => console.log(data))
-        .catch((err) => { console.error(err); });
-      }
+    this.setState(
+      {
+        productName: e.target.value
+      },
+      () => this.queryItems()
     );
   }
 
-  onClickHandler(e) {
+  onClickHandler() {
     this.props.hidaAllModals();
-    this.setState({
-      colored: true
-    });
+    this.setState(
+      {
+        colored: true
+      },
+      () => this.props.activateSearches()
+    );
   }
 
   onSubmitHandler(e) {
     e.preventDefault();
     this.props.hidaAllModals();
+    this.queryItems();
+  }
+
+  queryItems() {
     console.log('-------- SearchBar / Axios / Post / Start --------');
 
-    axios.post('/api/searchbar/', {})
-      .then(({ data }) => console.log(data))
-      .then(() => console.log('-------- SearchBar / Axios / Post / End --------'))
-      .catch((err) => {console.error(err)});
+    if (this.state.productName !== '') {
+      var newSplit = [];
+      for (var item of this.state.productName.split(' ')) {
+        newSplit.push(`(${item})`);
+      }
+
+      axios
+        .post('/api/searchbar/', { productName: newSplit.join('(.*)') })
+        .then(({ data }) => this.props.searchDropdown(data))
+        .catch((err) => console.error(err));
+    } else {
+      this.props.searchDropdown([]);
+    }
   }
 
   render() {
@@ -54,7 +68,12 @@ class SearchBar extends React.Component {
           onClick={this.onClickHandler}
         />
         <button
-          className={ this.state.colored ? 'navSearchButton navSearchButtonGreen' : 'navSearchButton' }>
+          className={
+            this.state.colored
+              ? 'navSearchButton navSearchButtonGreen'
+              : 'navSearchButton'
+          }
+        >
           <span className="glyphicon glyphicon-search"></span>
         </button>
       </form>

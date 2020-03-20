@@ -36,6 +36,8 @@
   padding: 6px;
   height: 3em;
   cursor: pointer;
+  border: 1px solid #a9a9a9;
+  box-sizing: border-box;
 }
 
 .formInputUser {

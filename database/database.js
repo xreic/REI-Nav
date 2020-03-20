@@ -13,6 +13,8 @@ const ItemSchema = mongoose.Schema({
   productImage: String
 });
 
+ItemSchema.index({ productName: 'text' });
+
 const UsersSchema = mongoose.Schema({
   name: String,
   username: String,
@@ -35,3 +37,5 @@ module.exports = {
   Users,
   Categories
 };
+
+;
