@@ -37,14 +37,14 @@ class LoginModal extends React.Component {
       .post('/api/login/', auth)
       .then(({ data }) => {
         if (data.length > 0) {
+          document.getElementById('doubleForm1').reset();
+          document.getElementById('doubleForm2').reset();
           this.props.changeLogin();
           this.setState({
             failed: false,
             username: '',
             password: ''
           });
-          document.getElementById('doubleForm1').reset();
-          document.getElementById('doubleForm2').reset();
         } else {
           this.setState({
             failed: true
@@ -65,101 +65,111 @@ class LoginModal extends React.Component {
   }
 
   render() {
-    return (
-      <div className="loginModalContainer">
-        <div className="loginModalWrapper">
-          <div className="loginModal">
-            <div className="formBorderTriangles" />
-            {this.state.failed ? (
-              <div className="failedGrid">
-                <div className="failedSymbol">🛑</div>
-                <div className="failedLogin">
-                  Hmm, the information you entered doesn't match our records.
-                </div>
-              </div>
-            ) : null}
-
-            <p className="inputUserTitle">Email</p>
-            <form id="doubleForm1" onSubmit={(e) => this.onSigninClick(e)}>
-              <input
-                id="loginInputUser"
-                name="username"
-                className="formInputUser"
-                type="text"
-                onChange={this.onChangeHandler}
-              />
-            </form>
-
-            <p className="inputPasswordTitle">Password</p>
-            <form
-              id="doubleForm2"
-              className="passwordForm"
-              onSubmit={(e) => this.onSigninClick(e)}
-            >
-              {this.state.showPassword ? (
-                <input
-                  type="text"
-                  name="password"
-                  className="formInputPassword"
-                  autoComplete="off"
-                  onKeyDown={(e) => {
-                    if (e.keyCode === 13) {
-                      this.onSigninClick(e);
-                    }
-                  }}
-                  onChange={this.onChangeHandler}
-                />
-              ) : (
-                <input
-                  type="password"
-                  name="password"
-                  className="formInputPassword"
-                  autoComplete="off"
-                  onKeyDown={(e) => {
-                    if (e.keyCode === 13) {
-                      this.onSigninClick(e);
-                    }
-                  }}
-                  onChange={this.onChangeHandler}
-                />
-              )}
-              <button
-                className="formButtonPassword"
-                onClick={(e) => {
-                  e.preventDefault();
-                  this.passwordToggle();
-                }}
-              >
-                {this.state.showPassword ? 'Hide' : 'Show'}
-              </button>
-            </form>
-
-            <p className="loginForgot">Forgot Password?</p>
-
-            <p className="loginFormAgreement">
-              By signing into your account, you agree to REI's{' '}
-              <mark className="blue">Terms of Use</mark> and acknowledge you
-              have read its <mark className="blue">Privacy Policy</mark>.
-            </p>
-
-            <button
-              name="signin"
-              className="loginFormSignin"
-              onClick={this.onSigninClick}
-            >
-              Sign in
-            </button>
-            <button
-              name="create"
-              className="loginFormCreate"
-              onClick={this.onCreateClick}
-            >
-              Create an account
-            </button>
+    if (this.props.userLoggedin) {
+      return (
+        <div className="loginModalContainer">
+          <div className="loginModalWrapper">
+            <div className="loginModal">Something</div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="loginModalContainer">
+          <div className="loginModalWrapper">
+            <div className="loginModal">
+              <div className="formBorderTriangles" />
+              {this.state.failed ? (
+                <div className="failedGrid">
+                  <div className="failedSymbol">🛑</div>
+                  <div className="failedLogin">
+                    Hmm, the information you entered doesn't match our records.
+                  </div>
+                </div>
+              ) : null}
+
+              <p className="inputUserTitle">Email</p>
+              <form id="doubleForm1" onSubmit={(e) => this.onSigninClick(e)}>
+                <input
+                  id="loginInputUser"
+                  name="username"
+                  className="formInputUser"
+                  type="text"
+                  onChange={this.onChangeHandler}
+                />
+              </form>
+
+              <p className="inputPasswordTitle">Password</p>
+              <form
+                id="doubleForm2"
+                className="passwordForm"
+                onSubmit={(e) => this.onSigninClick(e)}
+              >
+                {this.state.showPassword ? (
+                  <input
+                    type="text"
+                    name="password"
+                    className="formInputPassword"
+                    autoComplete="off"
+                    onKeyDown={(e) => {
+                      if (e.keyCode === 13) {
+                        this.onSigninClick(e);
+                      }
+                    }}
+                    onChange={this.onChangeHandler}
+                  />
+                ) : (
+                  <input
+                    type="password"
+                    name="password"
+                    className="formInputPassword"
+                    autoComplete="off"
+                    onKeyDown={(e) => {
+                      if (e.keyCode === 13) {
+                        this.onSigninClick(e);
+                      }
+                    }}
+                    onChange={this.onChangeHandler}
+                  />
+                )}
+                <button
+                  className="formButtonPassword"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    this.passwordToggle();
+                  }}
+                >
+                  {this.state.showPassword ? 'Hide' : 'Show'}
+                </button>
+              </form>
+
+              <p className="loginForgot">Forgot Password?</p>
+
+              <p className="loginFormAgreement">
+                By signing into your account, you agree to REI's{' '}
+                <mark className="blue">Terms of Use</mark> and acknowledge you
+                have read its <mark className="blue">Privacy Policy</mark>.
+              </p>
+
+              <button
+                name="signin"
+                className="loginFormSignin"
+                onClick={this.onSigninClick}
+              >
+                Sign in
+              </button>
+              <button
+                name="create"
+                className="loginFormCreate"
+                onClick={this.onCreateClick}
+              >
+                Create an account
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 }
 

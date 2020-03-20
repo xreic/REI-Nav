@@ -159,7 +159,10 @@ class App extends React.Component {
           />
         ) : null}
         {this.state.showLoginModal ? (
-          <LoginModal changeLogin={this.changeLogin} />
+          <LoginModal
+            changeLogin={this.changeLogin}
+            userLoggedin={this.state.userLoggedin}
+          />
         ) : null}
       </div>
     );

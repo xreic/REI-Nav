@@ -186,9 +186,8 @@ body {
   border-right: 18px solid transparent;
   border-bottom: 18px solid #efeee2;
   position: absolute;
-
   left: 50%;
-  transform: translate(-30px, 29px);
+  transform: translate(-30px, 20px);
 }
 
 .bottomNavText::after {
@@ -199,7 +198,6 @@ body {
   border-right: 15px solid transparent;
   border-bottom: 15px solid #efeee2;
   position: absolute;
-
   left: 50%;
-  transform: translate(-5px, 32px);
+  transform: translate(-5px, 28px);
 }
