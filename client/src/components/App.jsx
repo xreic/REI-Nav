@@ -46,7 +46,8 @@ class App extends React.Component {
       modalClickables: [],
       activeCategory: '',
 
-      showLoginModal: false
+      showLoginModal: false,
+      userLoggedin: false
     };
 
     this.activateMainModal = this.activateMainModal.bind(this);
@@ -56,6 +57,8 @@ class App extends React.Component {
     this.hideLoginModal = this.hideLoginModal.bind(this);
 
     this.hidaAllModals = this.hidaAllModals.bind(this);
+
+    this.changeLogin = this.changeLogin.bind(this);
   }
 
   activateMainModal(active) {
@@ -103,6 +106,12 @@ class App extends React.Component {
     this.hideLoginModal();
   }
 
+  changeLogin() {
+    this.setState({
+      userLoggedin: !this.state.userLoggedin
+    });
+  }
+
   render() {
     return (
       <div>
@@ -110,11 +119,11 @@ class App extends React.Component {
           <TopNav list={this.state.upperNav} classType={'topNavItems'} />
           <CentralNav
             cartItems={this.state.cartItems}
+            userLoggedin={this.state.userLoggedin}
             lowerNav={this.state.lowerNav}
             activeCategory={this.state.activeCategory}
             activateMainModal={this.activateMainModal}
             activateLoginModal={this.activateLoginModal}
-            hideLoginModal={this.hideLoginModal}
             hidaAllModals={this.hidaAllModals}
           />
         </div>
@@ -149,7 +158,9 @@ class App extends React.Component {
             }}
           />
         ) : null}
-        {this.state.showLoginModal ? <LoginModal /> : null}
+        {this.state.showLoginModal ? (
+          <LoginModal changeLogin={this.changeLogin} />
+        ) : null}
       </div>
     );
   }

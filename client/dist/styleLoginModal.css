@@ -1,7 +1,7 @@
 .loginModalContainer {
   float: right;
   width: 100%;
-  z-index: 3;
+  /* z-index: 3; */
   position: relative;
 }
 
@@ -19,6 +19,7 @@
   transform: translate(-115px, -54px);
   display: grid;
   width: 250px;
+  z-index: 3;
 }
 
 .inputUserTitle,
@@ -35,6 +36,11 @@
   margin: 3px 0px 12px 0px;
   padding: 6px;
   height: 3em;
+  cursor: default;
+}
+
+.formInputUser {
+  width: 100%;
 }
 
 .passwordForm {
@@ -64,6 +70,7 @@
   box-sizing: border-box;
   padding: 0 5px;
   margin-top: 3px;
+  align-items: center;
 }
 
 .loginForgot {
@@ -71,7 +78,7 @@
   font-size: 16px;
   font-weight: bold;
   color: #1f4e99;
-  cursor: pointer;
+  cursor: default;
   text-align: left;
 }
 
@@ -98,8 +105,25 @@
 mark.blue {
   color: #1f4e99;
   background-color: transparent;
-  cursor: pointer;
+  cursor: default;
 }
 
 .formBorderTriangles {
+}
+
+.failedGrid {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+}
+
+.failedSymbol {
+  grid-column: 1/2;
+  display: inline-block;
+}
+
+.failedLogin {
+  grid-column: 2/3;
+  color: red;
+  font-size: 16px;
+  text-align: left;
 }

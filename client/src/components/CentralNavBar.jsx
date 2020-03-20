@@ -6,6 +6,7 @@ import BottomNav from './BottomNavBar.jsx';
 
 const CentralNav = ({
   cartItems,
+  userLoggedin,
   lowerNav,
   activeCategory,
   activateMainModal,
@@ -26,8 +27,8 @@ const CentralNav = ({
           <SearchBar hidaAllModals={hidaAllModals} />
           <Actions
             cartItems={cartItems}
+            userLoggedin={userLoggedin}
             activateLoginModal={activateLoginModal}
-            hideLoginModal={hideLoginModal}
             hidaAllModals={hidaAllModals}
           />
         </div>

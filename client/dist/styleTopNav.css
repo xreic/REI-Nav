@@ -30,7 +30,7 @@
   font-size: 12px;
   padding: 0 5px;
   color: lightgrey;
-  cursor: pointer;
+  cursor: default;
   border-bottom: 1px solid transparent;
   height: 100%;
   box-sizing: border-box;

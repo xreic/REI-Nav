@@ -32,4 +32,13 @@ server.post('/api/navbar/', (req, res) => {
     .catch((err) => res.status(400).send(err).end());
 });
 
+server.post('/api/login/', (req, res) => {
+  console.log('-------- POST (Login Modal) REQUEST --------');
+
+  // prettier-ignore
+  Users.find(req.body)
+    .then((result) => res.status(200).send(result).end())
+    .catch((err) => res.status(400).send(err).end());
+});
+
 server.listen(port, () => console.log('Server initialized on port:', port));
