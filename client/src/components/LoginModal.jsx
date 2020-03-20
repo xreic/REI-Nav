@@ -59,6 +59,12 @@ class LoginModal extends React.Component {
         <div className="loginModalContainer">
           <div className="loginModalWrapper">
             <div className="loginModal">
+              <span
+                className="loginModalClose"
+                onClick={this.props.hideLoginModal}
+              >
+                <p>✖</p>
+              </span>
               <div className="formBorderTriangles" />
               <p className="loggedFullname">{this.props.userFullame}</p>
               <p className="becomeMember">Become an REI member</p>
@@ -86,6 +92,12 @@ class LoginModal extends React.Component {
         <div className="loginModalContainer">
           <div className="loginModalWrapper">
             <div className="loginModal">
+              <span
+                className="loginModalClose"
+                onClick={this.props.hideLoginModal}
+              >
+                <p>✖</p>
+              </span>
               <div className="formBorderTriangles" />
               {this.state.failed ? (
                 <div className="failedGrid">

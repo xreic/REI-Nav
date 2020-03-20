@@ -11,7 +11,7 @@ const CentralNav = ({
   activeCategory,
   activateMainModal,
   activateLoginModal,
-  hideLoginModal,
+  activateCartModal,
   hidaAllModals
 }) => (
   <div className="navBarWrapper">
@@ -29,6 +29,7 @@ const CentralNav = ({
             cartItems={cartItems}
             userLoggedin={userLoggedin}
             activateLoginModal={activateLoginModal}
+            activateCartModal={activateCartModal}
             hidaAllModals={hidaAllModals}
           />
         </div>

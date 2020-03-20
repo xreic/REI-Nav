@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Actions = ({cartItems, userLoggedin, activateLoginModal, hidaAllModals }) => (
+const Actions = ({
+  cartItems,
+  userLoggedin,
+  activateLoginModal,
+  activateCartModal,
+  hidaAllModals
+}) => (
   <div className="navActions">
     <div className="actionItemsAccount" onClick={activateLoginModal}>
       <img src="./assets/navTBox.png" alt="Image of a person" />
@@ -12,11 +18,13 @@ const Actions = ({cartItems, userLoggedin, activateLoginModal, hidaAllModals }) 
       <div>STORES</div>
     </div>
 
-    <div className="actionItemsCart" onClick={hidaAllModals}>
+    <div
+      className="actionItemsCart"
+      onClick={hidaAllModals}
+      onMouseEnter={activateCartModal}
+    >
       <img src="./assets/navTBox.png" alt="Image of a cart" />
-      {cartItems > 0 ? (
-        <div className="cartQuantity">{cartItems}</div>
-      ) : null}
+      {cartItems > 0 ? <div className="cartQuantity">{cartItems}</div> : null}
       <div>CART</div>
     </div>
   </div>

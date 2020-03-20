@@ -5,6 +5,7 @@ import TopNav from './TopNavBar.jsx';
 import CentralNav from './CentralNavBar.jsx';
 import BottomNavModal from './BottomNavModal.jsx';
 import LoginModal from './LoginModal.jsx';
+import CartModal from './CartModal.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class App extends React.Component {
       ],
 
       cartItems: 2,
+      showCartModal: false,
 
       showMainModal: false,
       modalData: [],
@@ -57,10 +59,18 @@ class App extends React.Component {
     this.activateLoginModal = this.activateLoginModal.bind(this);
     this.hideLoginModal = this.hideLoginModal.bind(this);
 
+    this.activateCartModal = this.activateCartModal.bind(this);
+    this.hideCartModal = this.hideCartModal.bind(this);
+
     this.hidaAllModals = this.hidaAllModals.bind(this);
 
     this.changeLogin = this.changeLogin.bind(this);
     this.retrieveUserdata = this.retrieveUserdata.bind(this);
+  }
+
+  hidaAllModals() {
+    this.hideMainModal();
+    this.hideLoginModal();
   }
 
   activateMainModal(active) {
@@ -103,9 +113,16 @@ class App extends React.Component {
     });
   }
 
-  hidaAllModals() {
-    this.hideMainModal();
-    this.hideLoginModal();
+  activateCartModal() {
+    this.setState({
+      showCartModal: true
+    });
+  }
+
+  hideCartModal() {
+    this.setState({
+      showCartModal: false
+    });
   }
 
   changeLogin() {
@@ -148,6 +165,7 @@ class App extends React.Component {
             activeCategory={this.state.activeCategory}
             activateMainModal={this.activateMainModal}
             activateLoginModal={this.activateLoginModal}
+            activateCartModal={this.activateCartModal}
             hidaAllModals={this.hidaAllModals}
           />
         </div>
@@ -188,6 +206,13 @@ class App extends React.Component {
             changeLogin={this.changeLogin}
             userLoggedin={this.state.userLoggedin}
             retrieveUserdata={this.retrieveUserdata}
+            hideLoginModal={this.hideLoginModal}
+          />
+        ) : null}
+        {this.state.showCartModal ? (
+          <CartModal
+            cartItems={this.state.cartItems}
+            hideCartModal={this.hideCartModal}
           />
         ) : null}
       </div>

@@ -92,7 +92,7 @@ body {
   height: 42px;
 
   padding: 0;
-  z-index: 3;
+  z-index: 4;
 }
 
 .navSearchInput {
@@ -153,7 +153,7 @@ body {
   font-size: 18px;
 
   color: white;
-  z-index: 3;
+  z-index: 4;
 }
 
 .bottomNavItemsActive {
