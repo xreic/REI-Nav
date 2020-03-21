@@ -1,11 +1,7 @@
 import React from 'react';
 
-const SearchHistory = ({ item, searchDropdownClick }) => {
-  return (
-    <li className="search3-Between" onClick={() => searchDropdownClick(item)}>
-      {item}
-    </li>
-  );
+const SearchHistory = ({ item }) => {
+  return <li className="searchItems-Between">{item}</li>;
 };
 
 module.exports = SearchHistory;

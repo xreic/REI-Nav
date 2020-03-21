@@ -37,10 +37,13 @@ class SearchModal extends React.Component {
       return (
         <div className="searchContainer">
           <div className="searchWrapper">
-            <div className="search1">
-              <div className="search2">
-                <ul className="search3">
-                  <li className="search3-First" onClick={this.props.hideSearches}>
+            <div className="searchLayout">
+              <div className="searchContents">
+                <ul className="searchItems">
+                  <li
+                    className="searchItems-First"
+                    onClick={this.props.hideSearches}
+                  >
                     Search History
                   </li>
                   {this.state.history.map((item, index) => (
@@ -48,10 +51,9 @@ class SearchModal extends React.Component {
                       key={index}
                       index={index}
                       item={item.search}
-                      searchDropdownClick={this.props.searchDropdownClick}
                     />
                   ))}
-                  <li className="search3-Last" onClick={this.onClear}>
+                  <li className="searchItems-Last" onClick={this.onClear}>
                     Clear History
                   </li>
                 </ul>
@@ -64,11 +66,15 @@ class SearchModal extends React.Component {
       return (
         <div className="searchContainer">
           <div className="searchWrapper">
-            <div className="search1">
-              <div className="search2">
-                <ul className="search3">
+            <div className="searchLayout">
+              <div className="searchContents">
+                <ul className="searchItems">
                   {this.props.searchData.map((item, index) => (
-                    <SearchItems key={index} index={index} item={item.productName}/>
+                    <SearchItems
+                      key={index}
+                      index={index}
+                      item={item.productName}
+                    />
                   ))}
                 </ul>
               </div>

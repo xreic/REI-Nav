@@ -11,13 +11,13 @@
   margin: auto;
 }
 
-.search1 {
+.searchLayout {
   display: grid;
   grid-template-columns: 178px 400px;
   width: 100%;
 }
 
-.search2 {
+.searchContents {
   background-color: white;
   grid-column: 2/3;
   z-index: 4;
@@ -25,7 +25,7 @@
   transform: translateY(-79px);
 }
 
-.search2 ul {
+.searchContents ul {
   padding: 0;
   list-style: none;
   margin: 0;
@@ -34,32 +34,32 @@
   border-top: 0px;
 }
 
-.search2 li {
+.searchContents li {
   text-align: left;
   padding: 7.5px 10px;
   cursor: pointer;
   box-sizing: border-box;
 }
 
-.search3-Between {
+.searchItems-Between {
   font-size: 14px;
 }
 
-.search3-First {
+.searchItems-First {
   font-weight: bold;
   font-size: 20px;
   border-bottom: 1px solid #555555;
   margin-bottom: 10px;
 }
 
-.search3-Last {
+.searchItems-Last {
   color: #1f4e99;
   border-top: 1px solid #555555;
   margin-top: 10px;
 }
 
-.search3-Last:hover,
-.search3-Between:hover {
+.searchItems-Last:hover,
+.searchItems-Between:hover {
   text-decoration: underline;
   background-color: #dedede;
 }

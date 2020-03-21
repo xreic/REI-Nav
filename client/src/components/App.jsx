@@ -32,7 +32,6 @@ class App extends React.Component {
       userLoggedin: false,
       userFullame: '',
 
-      searchContent: '',
       showSearches: false,
       searchData: []
     };
@@ -54,7 +53,6 @@ class App extends React.Component {
     this.activateSearches = this.activateSearches.bind(this);
     this.hideSearches = this.hideSearches.bind(this);
     this.searchDropdown = this.searchDropdown.bind(this);
-    this.searchDropdownClick = this.searchDropdownClick.bind(this);
   }
 
   componentDidMount() {
@@ -172,12 +170,6 @@ class App extends React.Component {
     }
   }
 
-  searchDropdownClick(item) {
-    this.setState({
-      searchContent: item
-    });
-  }
-
   render() {
     return (
       <div>
@@ -186,18 +178,13 @@ class App extends React.Component {
           <CentralNav
             userLoggedin={this.state.userLoggedin}
             cartQuantity={this.state.cartQuantity}
-            searchContent={this.state.searchContent}
-
             lowerNav={this.state.lowerNav}
-
             activeCategory={this.state.activeCategory}
             activateMainModal={this.activateMainModal}
             activateLoginModal={this.activateLoginModal}
             activateCartModal={this.activateCartModal}
             activateSearches={this.activateSearches}
-
             searchDropdown={this.searchDropdown}
-
             hidaAllModals={this.hidaAllModals}
           />
         </div>
@@ -241,11 +228,7 @@ class App extends React.Component {
           />
         ) : null}
         {this.state.showSearches ? (
-          <SearchModal
-            searchData={this.state.searchData}
-            hideSearches={this.hideSearches}
-            searchDropdownClick={this.searchDropdownClick}
-          />
+          <SearchModal searchData={this.state.searchData} />
         ) : null}
       </div>
     );

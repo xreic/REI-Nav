@@ -64,21 +64,14 @@ class SearchBar extends React.Component {
   render() {
     return (
       <form className="navSearchForm" onSubmit={this.onSubmitHandler}>
-        {this.props.searchContent !== '' ? (
-          <input
-            className="navSearchInput"
-            placeholder={this.props.searchContent}
-            onChange={this.onChangeHandler}
-            onClick={this.onClickHandler}
-          />
-        ) : (
-          <input
-            className="navSearchInput"
-            placeholder="Search for great gear & clothing"
-            onChange={this.onChangeHandler}
-            onClick={this.onClickHandler}
-          />
-        )}
+        <input
+          id="navSearchInput"
+          className="navSearchInput"
+          placeholder="Search for great gear & clothing"
+          onChange={this.onChangeHandler}
+          onClick={this.onClickHandler}
+          autoComplete="off"
+        />
         <button
           className={
             this.state.colored
