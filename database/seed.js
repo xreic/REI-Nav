@@ -1435,6 +1435,11 @@ const usersList = [
     name: 'Duder McGuy',
     username: 'personman',
     password: 'hunter1'
+  },
+  {
+    name: 'Ms. Lady Woman',
+    username: 'email@email.com',
+    password: 'hunter1'
   }
 ];
 
