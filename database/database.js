@@ -28,14 +28,14 @@ const CategorySchema = mongoose.Schema({
   actions: [{}]
 });
 
+const SearchSchema = mongoose.Schema({
+  search: String
+});
+
 const Items = mongoose.model('Items', ItemSchema);
 const Users = mongoose.model('Users', UsersSchema);
 const Categories = mongoose.model('Categories', CategorySchema);
+const Searches = mongoose.model('Searches', SearchSchema);
 
-module.exports = {
-  Items,
-  Users,
-  Categories
-};
-
-;
+//prettier-ignore
+module.exports = { Items, Users, Categories, Searches };

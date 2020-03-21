@@ -1,5 +1,5 @@
 const faker = require('faker');
-const { Items, Users, Categories } = require('./database.js');
+const { Items, Users, Categories, Searches } = require('./database.js');
 
 const itemList = [];
 
@@ -1452,4 +1452,8 @@ for (var i = 1; i <= 100; i++) {
 
 Items.insertMany(itemList)
   .then(() => console.log('Items seeded!'))
+  .catch((err) => console.error(err));
+
+Searches.create({ search: 'test' })
+  .then(() => Searches.remove({}))
   .catch((err) => console.error(err));

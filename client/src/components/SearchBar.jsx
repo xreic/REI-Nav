@@ -15,29 +15,30 @@ class SearchBar extends React.Component {
     this.queryItems = this.queryItems.bind(this);
   }
 
+  //prettier-ignore
   onChangeHandler(e) {
-    this.setState(
-      {
-        productName: e.target.value
-      },
-      () => this.queryItems()
-    );
+    this.setState({
+      productName: e.target.value
+    }, () => this.queryItems());
   }
 
+  //prettier-ignore
   onClickHandler() {
     this.props.hidaAllModals();
-    this.setState(
-      {
-        colored: true
-      },
-      () => this.props.activateSearches()
-    );
+    this.setState({
+      colored: true
+    }, () => this.props.activateSearches());
   }
 
   onSubmitHandler(e) {
     e.preventDefault();
     this.props.hidaAllModals();
     this.queryItems();
+
+    axios
+      .post('/api/searchbar/history', { search: this.state.productName })
+      .then((result) => console.log(result))
+      .catch((err) => console.error(err));
   }
 
   queryItems() {
@@ -49,9 +50,10 @@ class SearchBar extends React.Component {
         newSplit.push(`(${item})`);
       }
 
+      //prettier-ignore
       axios
         .post('/api/searchbar/', { productName: newSplit.join('(.*)') })
-        .then(({ data }) => this.props.searchDropdown(data))
+        .then(({ data }) => { if (data.length > 1) { this.props.searchDropdown(data);} })
         .catch((err) => console.error(err));
     } else {
       this.props.searchDropdown([]);

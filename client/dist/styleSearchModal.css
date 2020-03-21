@@ -1,29 +1,62 @@
-.testContainer {
+.searchContainer {
   float: right;
   width: 100%;
   position: absolute;
 }
 
-.testWrapper {
+.searchWrapper {
   display: flex;
   justify-content: flex-end;
   max-width: 1200px;
   margin: auto;
 }
 
-.test1 {
+.search1 {
   display: grid;
-  grid-template-columns: 178px auto 15px;
+  grid-template-columns: 178px 400px;
   width: 100%;
 }
 
-.test2 {
+.search2 {
   background-color: white;
   grid-column: 2/3;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  width: 100%;
-  z-index: 3;
-  padding: 35px 50px 50px 50px;
+  z-index: 4;
   box-sizing: border-box;
+  transform: translateY(-79px);
+}
+
+.search2 ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.search2 li {
+  text-align: left;
+  padding: 7.5px 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.search3-Between {
+  font-size: 12px;
+}
+
+.search3-First {
+  font-weight: bold;
+  font-size: 20px;
+  border-bottom: 1px solid #555555;
+  margin-bottom: 10px;
+}
+
+.search3-Last {
+  color: #1f4e99;
+  border-top: 1px solid #555555;
+  margin-top: 10px;
+}
+
+.search3-Last:hover,
+.search3-Between:hover {
+  text-decoration: underline;
+  background-color: #dedede;
 }

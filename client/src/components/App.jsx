@@ -120,10 +120,13 @@ class App extends React.Component {
   }
 
   activateLoginModal() {
-    this.setState({
-      showLoginModal: true,
-      showSearches: false
-    }, () => this.hideMainModal());
+    this.setState(
+      {
+        showLoginModal: true,
+        showSearches: false
+      },
+      () => this.hideMainModal()
+    );
   }
 
   hideLoginModal() {
@@ -252,7 +255,12 @@ class App extends React.Component {
             hideCartModal={this.hideCartModal}
           />
         ) : null}
-        {this.state.showSearches ? <SearchModal /> : null}
+        {this.state.showSearches ? (
+          <SearchModal
+            searchData={this.state.searchData}
+            hideSearches={this.hideSearches}
+          />
+        ) : null}
       </div>
     );
   }
