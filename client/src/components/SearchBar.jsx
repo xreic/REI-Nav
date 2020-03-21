@@ -51,7 +51,7 @@ class SearchBar extends React.Component {
       axios
         .post('/api/searchbar/', { productName: newSplit.join('(.*)') })
         .then(({ data }) => {
-          if (data.length > 1) {
+          if (data.length > 0) {
             this.props.searchDropdown(data);
           }
         })

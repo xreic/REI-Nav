@@ -29,6 +29,9 @@
   padding: 0;
   list-style: none;
   margin: 0;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-top: 0px;
 }
 
 .search2 li {
@@ -39,7 +42,7 @@
 }
 
 .search3-Between {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .search3-First {

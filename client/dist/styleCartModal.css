@@ -1,23 +1,23 @@
-.testContainer {
+.cartContainer {
   float: right;
   width: 100%;
   position: absolute;
 }
 
-.testWrapper {
+.cartWrapper {
   display: flex;
   justify-content: flex-end;
   max-width: 1200px;
   margin: auto;
 }
 
-.test1 {
+.cartWindow {
   display: grid;
   grid-template-columns: 178px auto 15px;
   width: 100%;
 }
 
-.test2 {
+.cartContents {
   background-color: white;
   grid-column: 2/3;
   display: grid;
@@ -28,29 +28,29 @@
   box-sizing: border-box;
 }
 
-.test3,
-.test4 {
+.cartLeft,
+.cartRight {
   display: grid;
   grid-template-rows: 3em auto;
 }
 
-.test3-1 {
+.cartTitle {
   text-align: left;
   font-size: 30px;
   font-weight: bold;
   font-family: initial;
 }
 
-.test3-2 {
+.cartDetails {
   display: inline-flex;
 }
 
-.test3-2-1 {
+.cartImage {
   display: flex;
   margin: 0px 25px 0 50px;
 }
 
-.test3-2-2 {
+.cartDescription {
   display: inline-flex;
   justify-content: flex-start;
   list-style: none;
@@ -59,11 +59,11 @@
   padding: 0;
 }
 
-.test3-2-2 li {
+.cartDescription li {
   padding: 5px 0;
 }
 
-.test4-1 {
+.cartRightDetails {
   box-sizing: border-box;
   border-left: 1px solid #555555;
   padding-left: 35px;
@@ -72,16 +72,16 @@
   display: grid;
 }
 
-.test4-1-1 {
+.cartQuantityModal {
   display: flex;
 }
 
-.test4-1-1 p:last-child {
+.cartQuantityModal p:last-child {
   margin-left: 5px;
   font-weight: bold;
 }
 
-.test4-1-2 {
+.cartCheckout {
   display: block;
   box-sizing: border-box;
   height: 3em;
@@ -92,22 +92,22 @@
   font-size: 18px;
 }
 
-.test4-1-2:hover {
+.cartCheckout:hover {
   background-color: #2e98cc;
 }
 
-.test4-1-3 p:first-child {
+.cartAdditional p:first-child {
   font-weight: bold;
 }
 
-.test3-2-2 li:last-child,
-.test4-1-3 p:last-child {
+.cartDescription li:last-child,
+.cartAdditional p:last-child {
   color: #258abb;
   cursor: pointer;
 }
 
-.test3-2-2 li:last-child:hover,
-.test4-1-3 p:last-child:hover {
+.cartDescription li:last-child:hover,
+.cartAdditional p:last-child:hover {
   text-decoration: underline;
 }
 

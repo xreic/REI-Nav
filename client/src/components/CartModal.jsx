@@ -3,35 +3,35 @@ import React from 'react';
 const CartModal = ({ cartQuantity, cartItem, hideCartModal }) => {
   console.log(cartItem);
   return (
-    <div className="testContainer">
-      <div className="testWrapper">
-        <div className="test1">
-          <div className="test2" onMouseLeave={hideCartModal}>
-            <div className="test3">
-              <div className="test3-1">Added to your cart</div>
-              <div className="test3-2">
+    <div className="cartContainer">
+      <div className="cartWrapper">
+        <div className="cartWindow">
+          <div className="cartContents" onMouseLeave={hideCartModal}>
+            <div className="cartLeft">
+              <div className="cartTitle">Added to your cart</div>
+              <div className="cartDetails">
                 <img
-                  className="test3-2-1"
+                  className="cartImage"
                   src="https://placeimg.com/190/190/tech"
                 />
-                <ul className="test3-2-2">
+                <ul className="cartDescription">
                   <li>{cartItem.productName}</li>
                   <li>Quantity: {cartQuantity}</li>
                   <li>Edit</li>
                 </ul>
               </div>
             </div>
-            <div className="test4">
+            <div className="cartRight">
               <span className="cartModalClose" onClick={hideCartModal}>
                 <p>✖</p>
               </span>
-              <div className="test4-1">
-                <div className="test4-1-1">
+              <div className="cartRightDetails">
+                <div className="cartQuantityModal">
                   <p>Total items added to cart: </p>
                   <p>{cartQuantity}</p>
                 </div>
-                <button className="test4-1-2">Cart and Checkout</button>
-                <div className="test4-1-3">
+                <button className="cartCheckout">Cart and Checkout</button>
+                <div className="cartAdditional">
                   <p>Free Shipping</p>
                   <p>No minimum purchase.</p>
                 </div>

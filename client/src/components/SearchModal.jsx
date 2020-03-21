@@ -40,10 +40,7 @@ class SearchModal extends React.Component {
             <div className="search1">
               <div className="search2">
                 <ul className="search3">
-                  <li
-                    className="search3-First"
-                    onClick={this.props.hideSearches}
-                  >
+                  <li className="search3-First" onClick={this.props.hideSearches}>
                     Search History
                   </li>
                   {this.state.history.map((item, index) => (
