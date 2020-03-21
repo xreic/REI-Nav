@@ -24,7 +24,7 @@ class SearchBar extends React.Component {
 
   //prettier-ignore
   onClickHandler() {
-    this.props.hidaAllModals();
+    this.props.hideAllModals();
     this.setState({
       colored: true
     }, () => this.props.activateSearches());
@@ -32,7 +32,7 @@ class SearchBar extends React.Component {
 
   onSubmitHandler(e) {
     e.preventDefault();
-    this.props.hidaAllModals();
+    this.props.hideAllModals();
     this.queryItems();
 
     axios
@@ -44,8 +44,13 @@ class SearchBar extends React.Component {
   queryItems() {
     if (this.state.productName !== '') {
       var newSplit = [];
-      for (var item of this.state.productName.split(' ')) {
-        newSplit.push(`(${item})`);
+      var jsRegex = [];
+
+      var split = this.state.productName.split(' ');
+
+      for (var i = 0; i < split.length; i++) {
+        newSplit.push(`(${split[i]})`);
+        jsRegex.push(`${split[i]}`);
       }
 
       axios
@@ -53,6 +58,7 @@ class SearchBar extends React.Component {
         .then(({ data }) => {
           if (data.length > 0) {
             this.props.searchDropdown(data);
+            this.props.saveRegex(jsRegex);
           }
         })
         .catch((err) => console.error(err));

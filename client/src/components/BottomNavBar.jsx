@@ -6,7 +6,7 @@ const BottomNav = ({
   classType,
   activeCategory,
   activateMainModal,
-  hidaAllModals
+  hideAllModals
 }) => (
   <nav className="bottomNavBar">
     <ul className="bottomNavList">
@@ -20,7 +20,7 @@ const BottomNav = ({
           activateMainModal={activateMainModal}
         />
       ))}
-      <li className="bottomNavItems" onClick={hidaAllModals}>
+      <li className="bottomNavItems" onClick={hideAllModals}>
         <p>REI Outlet</p>
         <p className="exitArrow"> &gt;</p>
       </li>

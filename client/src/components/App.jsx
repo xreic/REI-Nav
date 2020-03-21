@@ -4,9 +4,9 @@ import axios from 'axios';
 import TopNav from './TopNavBar.jsx';
 import CentralNav from './CentralNavBar.jsx';
 import BottomNavModal from './BottomNavModal.jsx';
-import LoginModal from './modals/LoginModal.jsx';
-import CartModal from './modals/CartModal.jsx';
-import SearchModal from './modals/SearchModal.jsx';
+import LoginModal from './LoginModal.jsx';
+import CartModal from './CartModal.jsx';
+import SearchModal from './SearchModal.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,6 +32,7 @@ class App extends React.Component {
       userLoggedin: false,
       userFullame: '',
 
+      searchRegex: '',
       showSearches: false,
       searchData: []
     };
@@ -45,7 +46,7 @@ class App extends React.Component {
     this.activateCartModal = this.activateCartModal.bind(this);
     this.hideCartModal = this.hideCartModal.bind(this);
 
-    this.hidaAllModals = this.hidaAllModals.bind(this);
+    this.hideAllModals = this.hideAllModals.bind(this);
 
     this.changeLogin = this.changeLogin.bind(this);
     this.retrieveUserdata = this.retrieveUserdata.bind(this);
@@ -53,6 +54,7 @@ class App extends React.Component {
     this.activateSearches = this.activateSearches.bind(this);
     this.hideSearches = this.hideSearches.bind(this);
     this.searchDropdown = this.searchDropdown.bind(this);
+    this.saveRegex = this.saveRegex.bind(this);
   }
 
   componentDidMount() {
@@ -62,7 +64,7 @@ class App extends React.Component {
       .catch((err) => console.error(err));
   }
 
-  hidaAllModals() {
+  hideAllModals() {
     this.hideMainModal();
     this.hideLoginModal();
     this.hideSearches();
@@ -170,11 +172,21 @@ class App extends React.Component {
     }
   }
 
+  saveRegex(regex) {
+    this.setState({
+      searchRegex: regex
+    });
+  }
+
   render() {
     return (
       <div>
         <div id="navigation">
-          <TopNav list={this.state.upperNav} classType={'topNavItems'} />
+          <TopNav
+            list={this.state.upperNav}
+            classType={'topNavItems'}
+            hideAllModals={this.hideAllModals}
+          />
           <CentralNav
             userLoggedin={this.state.userLoggedin}
             cartQuantity={this.state.cartQuantity}
@@ -185,17 +197,18 @@ class App extends React.Component {
             activateCartModal={this.activateCartModal}
             activateSearches={this.activateSearches}
             searchDropdown={this.searchDropdown}
-            hidaAllModals={this.hidaAllModals}
+            hideAllModals={this.hideAllModals}
+            saveRegex={this.saveRegex}
           />
         </div>
         {this.state.showMainModal ||
         this.state.showLoginModal ||
-        this.state.showSearches !== [] ? (
+        this.state.showSearches ? (
           <div
             className="modalClose"
             onClick={(e) => {
               if (e.target.closest('div').className === 'modalClose') {
-                this.hidaAllModals();
+                this.hideAllModals();
               }
             }}
           />
@@ -228,7 +241,10 @@ class App extends React.Component {
           />
         ) : null}
         {this.state.showSearches ? (
-          <SearchModal searchData={this.state.searchData} />
+          <SearchModal
+            searchData={this.state.searchData}
+            searchRegex={this.state.searchRegex}
+          />
         ) : null}
       </div>
     );
