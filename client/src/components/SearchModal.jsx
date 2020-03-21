@@ -31,8 +31,6 @@ class SearchModal extends React.Component {
   }
 
   render() {
-    console.log('Search Data:', this.props.searchData);
-
     if (this.props.searchData.length === 0) {
       return (
         <div className="searchContainer">

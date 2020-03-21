@@ -50,7 +50,10 @@ class SearchBar extends React.Component {
 
       for (var i = 0; i < split.length; i++) {
         newSplit.push(`(${split[i]})`);
-        jsRegex.push(`${split[i]}`);
+
+        if (split[i] !== '') {
+          jsRegex.push(`${split[i]}`);
+        }
       }
 
       axios
@@ -77,6 +80,7 @@ class SearchBar extends React.Component {
           onChange={this.onChangeHandler}
           onClick={this.onClickHandler}
           autoComplete="off"
+          spellCheck="false"
         />
         <button
           className={
