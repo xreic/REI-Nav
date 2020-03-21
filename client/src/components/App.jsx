@@ -11,34 +11,12 @@ import SearchModal from './SearchModal.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      upperNav: [
-        'SHOP REI',
-        'REI OUTLET',
-        'USED GEAR',
-        'REI ADVENTURES',
-        'CLASSES & EVENTS',
-        'EXPERT ADVICE',
-        'CO-OP JOURNAL',
-        'CONVERSATIONS',
-        'CAMPING PROJECT'
-      ],
 
-      lowerNav: [
-        'Camp & Hike',
-        'Climb',
-        'Cycle',
-        'Paddle',
-        'Run',
-        'Snow',
-        'Travel',
-        'Yoga',
-        'Men',
-        'Women',
-        'Kids',
-        'Deals',
-        'More'
-      ],
+    //prettier-ignore
+    this.state = {
+      upperNav: ['SHOP REI','REI OUTLET','USED GEAR','REI ADVENTURES','CLASSES & EVENTS','EXPERT ADVICE','CO-OP JOURNAL','CONVERSATIONS','CAMPING PROJECT' ],
+
+      lowerNav: ['Camp & Hike','Climb','Cycle','Paddle','Run','Snow','Travel','Yoga','Men','Women','Kids','Deals','More' ],
 
       cartQuantity: 2,
       cartItem: {},
@@ -54,6 +32,7 @@ class App extends React.Component {
       userLoggedin: false,
       userFullame: '',
 
+      searchContent: '',
       showSearches: false,
       searchData: []
     };
@@ -75,16 +54,13 @@ class App extends React.Component {
     this.activateSearches = this.activateSearches.bind(this);
     this.hideSearches = this.hideSearches.bind(this);
     this.searchDropdown = this.searchDropdown.bind(this);
+    this.searchDropdownClick = this.searchDropdownClick.bind(this);
   }
 
   componentDidMount() {
     axios
       .post(`/api/cart/${Math.ceil(Math.random() * 100)}`)
-      .then(({ data }) =>
-        this.setState({
-          cartItem: data[0]
-        })
-      )
+      .then(({ data }) => this.setState({ cartItem: data[0] }))
       .catch((err) => console.error(err));
   }
 
@@ -97,6 +73,7 @@ class App extends React.Component {
   activateMainModal(active) {
     this.hideLoginModal();
 
+    //prettier-ignore
     axios
       .post('/api/navbar/', { title: active })
       .then(({ data }) =>
@@ -106,8 +83,7 @@ class App extends React.Component {
           modalAdverts: data[0]['other'],
           modalClickables: data[0]['actions'],
           activeCategory: data[0]['title']
-        })
-      )
+        }))
       .catch((err) => console.error(err));
   }
 
@@ -120,13 +96,11 @@ class App extends React.Component {
   }
 
   activateLoginModal() {
-    this.setState(
-      {
-        showLoginModal: true,
-        showSearches: false
-      },
-      () => this.hideMainModal()
-    );
+    //prettier-ignore
+    this.setState({
+      showLoginModal: true,
+      showSearches: false
+      }, () => this.hideMainModal());
   }
 
   hideLoginModal() {
@@ -198,22 +172,33 @@ class App extends React.Component {
     }
   }
 
+  searchDropdownClick(item) {
+    this.setState({
+      searchContent: item
+    });
+  }
+
   render() {
     return (
       <div>
         <div id="navigation">
           <TopNav list={this.state.upperNav} classType={'topNavItems'} />
           <CentralNav
-            cartQuantity={this.state.cartQuantity}
             userLoggedin={this.state.userLoggedin}
+            cartQuantity={this.state.cartQuantity}
+            searchContent={this.state.searchContent}
+
             lowerNav={this.state.lowerNav}
+
             activeCategory={this.state.activeCategory}
             activateMainModal={this.activateMainModal}
             activateLoginModal={this.activateLoginModal}
             activateCartModal={this.activateCartModal}
             activateSearches={this.activateSearches}
-            hidaAllModals={this.hidaAllModals}
+
             searchDropdown={this.searchDropdown}
+
+            hidaAllModals={this.hidaAllModals}
           />
         </div>
         {this.state.showMainModal ||
@@ -259,6 +244,7 @@ class App extends React.Component {
           <SearchModal
             searchData={this.state.searchData}
             hideSearches={this.hideSearches}
+            searchDropdownClick={this.searchDropdownClick}
           />
         ) : null}
       </div>
@@ -267,5 +253,3 @@ class App extends React.Component {
 }
 
 module.exports = App;
-
-// test

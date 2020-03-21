@@ -37,23 +37,24 @@ class SearchBar extends React.Component {
 
     axios
       .post('/api/searchbar/history', { search: this.state.productName })
-      .then((result) => console.log(result))
+      .then(() => {})
       .catch((err) => console.error(err));
   }
 
   queryItems() {
-    console.log('-------- SearchBar / Axios / Post / Start --------');
-
     if (this.state.productName !== '') {
       var newSplit = [];
       for (var item of this.state.productName.split(' ')) {
         newSplit.push(`(${item})`);
       }
 
-      //prettier-ignore
       axios
         .post('/api/searchbar/', { productName: newSplit.join('(.*)') })
-        .then(({ data }) => { if (data.length > 1) { this.props.searchDropdown(data);} })
+        .then(({ data }) => {
+          if (data.length > 1) {
+            this.props.searchDropdown(data);
+          }
+        })
         .catch((err) => console.error(err));
     } else {
       this.props.searchDropdown([]);
@@ -63,12 +64,21 @@ class SearchBar extends React.Component {
   render() {
     return (
       <form className="navSearchForm" onSubmit={this.onSubmitHandler}>
-        <input
-          className="navSearchInput"
-          placeholder="Search for great gear & clothing"
-          onChange={this.onChangeHandler}
-          onClick={this.onClickHandler}
-        />
+        {this.props.searchContent !== '' ? (
+          <input
+            className="navSearchInput"
+            placeholder={this.props.searchContent}
+            onChange={this.onChangeHandler}
+            onClick={this.onClickHandler}
+          />
+        ) : (
+          <input
+            className="navSearchInput"
+            placeholder="Search for great gear & clothing"
+            onChange={this.onChangeHandler}
+            onClick={this.onClickHandler}
+          />
+        )}
         <button
           className={
             this.state.colored

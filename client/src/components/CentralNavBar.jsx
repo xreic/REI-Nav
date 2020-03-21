@@ -7,14 +7,15 @@ import BottomNav from './BottomNavBar.jsx';
 const CentralNav = ({
   cartQuantity,
   userLoggedin,
+  searchContent,
   lowerNav,
   activeCategory,
   activateMainModal,
   activateLoginModal,
   activateCartModal,
   activateSearches,
-  hidaAllModals,
-  searchDropdown
+  searchDropdown,
+  hidaAllModals
 }) => (
   <div className="navBarWrapper">
     <div className="navBar">
@@ -30,6 +31,7 @@ const CentralNav = ({
             hidaAllModals={hidaAllModals}
             activateSearches={activateSearches}
             searchDropdown={searchDropdown}
+            searchContent={searchContent}
           />
           <Actions
             cartQuantity={cartQuantity}

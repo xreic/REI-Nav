@@ -6,7 +6,6 @@ const path = require('path');
 const server = express();
 const port = 3100;
 
-//prettier-ignore
 const { Items, Users, Categories, Searches } = require('../database/database.js');
 
 server.use(express.json());
@@ -15,7 +14,6 @@ server.use(cors());
 server.use(morgan('dev'));
 server.use(express.static(path.join(__dirname, '../client/dist')));
 
-//prettier-ignore
 server.post('/api/searchbar/', (req, res) => {
   console.log('-------- POST (Search Bar) REQUEST --------');
 
@@ -24,7 +22,6 @@ server.post('/api/searchbar/', (req, res) => {
     .catch((err) => res.status(400).send(err).end());
 });
 
-//prettier-ignore
 server.post('/api/searchbar/history', (req, res) => {
   console.log('-------- POST (Search History) REQUEST --------');
 
@@ -33,25 +30,22 @@ server.post('/api/searchbar/history', (req, res) => {
     .catch((err) => res.status(400).send(err).end());
 });
 
-//prettier-ignore
 server.get('/api/searchbar/history', (req, res) => {
   console.log('-------- GET (Search History) REQUEST --------');
-  res.send();
-  // Searches.find({}).sort({_id: -1}).limit(10)
-  //   .then((result) => res.status(200).send(result).end())
-  //   .catch((err) => res.status(400).send(err).end());
+
+  Searches.find({}).sort({_id: -1}).limit(10)
+    .then((result) => res.status(200).send(result).end())
+    .catch((err) => res.status(400).send(err).end());
 });
 
-//prettier-ignore
 server.delete('/api/searchbar/history', (req, res) => {
   console.log('-------- DELETE (Search History) REQUEST --------');
-  res.send();
-  // Searches.remove({})
-  //   .then((result) => res.status(200).send(result).end())
-  //   .catch((err) => res.status(400).send(err).end());
+
+  Searches.remove({})
+    .then((result) => res.status(200).send(result).end())
+    .catch((err) => res.status(400).send(err).end());
 });
 
-//prettier-ignore
 server.post('/api/navbar/', (req, res) => {
   console.log('-------- POST (Lower Nav Bar) REQUEST --------');
 
@@ -60,7 +54,6 @@ server.post('/api/navbar/', (req, res) => {
     .catch((err) => res.status(400).send(err).end());
 });
 
-//prettier-ignore
 server.post('/api/login/', (req, res) => {
   console.log('-------- POST (Login Modal) REQUEST --------');
 
@@ -69,7 +62,6 @@ server.post('/api/login/', (req, res) => {
     .catch((err) => res.status(400).send(err).end());
 });
 
-//prettier-ignore
 server.post('/api/cart/:id', (req, res) => {
   console.log('-------- POST (Cart) REQUEST --------');
 
