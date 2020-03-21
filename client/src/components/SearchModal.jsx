@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import SearchHistory from './SearchHistory.jsx';
+import SearchItems from './SearchItems.jsx';
 
 class SearchModal extends React.Component {
   constructor(props) {
@@ -67,7 +68,13 @@ class SearchModal extends React.Component {
         <div className="searchContainer">
           <div className="searchWrapper">
             <div className="search1">
-              <div className="search2">Not Empty</div>
+              <div className="search2">
+                <ul className="search3">
+                  {this.props.searchData.map((item, index) => (
+                    <SearchItems key={index} index={index} item={item.productName}/>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
