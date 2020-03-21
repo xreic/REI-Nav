@@ -4,9 +4,9 @@ import axios from 'axios';
 import TopNav from './TopNavBar.jsx';
 import CentralNav from './CentralNavBar.jsx';
 import BottomNavModal from './BottomNavModal.jsx';
-import LoginModal from './LoginModal.jsx';
-import CartModal from './CartModal.jsx';
-import SearchModal from './SearchModal.jsx';
+import LoginModal from './modals/LoginModal.jsx';
+import CartModal from './modals/CartModal.jsx';
+import SearchModal from './modals/SearchModal.jsx';
 
 class App extends React.Component {
   constructor(props) {
