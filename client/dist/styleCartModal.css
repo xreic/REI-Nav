@@ -42,12 +42,37 @@
 }
 
 .cartDetails {
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: 3em 20px 475px 20px 3em;
+}
+
+.cartItems {
+  display: grid;
+  scrollbar-width: none;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  grid-row: 1;
+  justify-self: stretch;
+  column-gap: 30px;
+  grid-column: 3/4;
+  scroll-behavior: smooth;
+}
+
+.cartItems div:last-child {
+  margin-right: 30px;
+}
+
+.cartIndiv {
+  display: grid;
+  box-sizing: border-box;
+  grid-row: 1;
+  grid-template-columns: 190px 20px 260px;
 }
 
 .cartImage {
   display: flex;
-  margin: 0px 25px 0 50px;
+  grid-row: 1;
+  grid-column: 1/2;
 }
 
 .cartDescription {
@@ -57,6 +82,10 @@
   flex-flow: column;
   text-align: left;
   padding: 0;
+  grid-row: 1;
+  white-space: nowrap;
+  width: 220px;
+  grid-column: 3/4;
 }
 
 .cartDescription li {
@@ -133,4 +162,43 @@
 .cartModalClose p {
   margin: 0;
   margin-top: 2px;
+}
+
+.control-prev-btn,
+.control-next-btn {
+  background-color: white;
+  height: 100px;
+  line-height: 100px;
+  width: 3em;
+  text-align: center;
+  user-select: none;
+  color: #444;
+  cursor: pointer;
+  grid-row: 1;
+  align-self: center;
+}
+
+.control-prev-btn {
+  justify-self: flex-start;
+  grid-column: 1/2;
+}
+
+.control-next-btn {
+  justify-self: flex-end;
+  grid-column: 5/6;
+}
+
+.fa-arrow-left::before,
+.fa-arrow-right::before {
+  color: darkgreen;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.fa-arrow-left::before {
+  content: '<';
+}
+
+.fa-arrow-right::before {
+  content: '>';
 }

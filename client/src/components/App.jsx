@@ -18,8 +18,8 @@ class App extends React.Component {
 
       lowerNav: ['Camp & Hike','Climb','Cycle','Paddle','Run','Snow','Travel','Yoga','Men','Women','Kids','Deals','More' ],
 
-      cartQuantity: 2,
-      cartItem: {},
+      cartQuantity: 3,
+      xCoords: 0,
       showCartModal: false,
 
       showMainModal: false,
@@ -45,6 +45,7 @@ class App extends React.Component {
 
     this.activateCartModal = this.activateCartModal.bind(this);
     this.hideCartModal = this.hideCartModal.bind(this);
+    this.setCoords = this.setCoords.bind(this);
 
     this.hideAllModals = this.hideAllModals.bind(this);
 
@@ -55,13 +56,6 @@ class App extends React.Component {
     this.hideSearches = this.hideSearches.bind(this);
     this.searchDropdown = this.searchDropdown.bind(this);
     this.saveRegex = this.saveRegex.bind(this);
-  }
-
-  componentDidMount() {
-    axios
-      .post(`/api/cart/${Math.ceil(Math.random() * 100)}`)
-      .then(({ data }) => this.setState({ cartItem: data[0] }))
-      .catch((err) => console.error(err));
   }
 
   hideAllModals() {
@@ -178,6 +172,12 @@ class App extends React.Component {
     });
   }
 
+  setCoords(coords) {
+    this.setState({
+      xCoords: coords
+    });
+  }
+
   render() {
     return (
       <div>
@@ -236,8 +236,9 @@ class App extends React.Component {
         {this.state.showCartModal ? (
           <CartModal
             cartQuantity={this.state.cartQuantity}
-            cartItem={this.state.cartItem}
             hideCartModal={this.hideCartModal}
+            setCoords={this.setCoords}
+            xCoords={this.state.xCoords}
           />
         ) : null}
         {this.state.showSearches ? (
