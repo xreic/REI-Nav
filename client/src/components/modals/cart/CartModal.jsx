@@ -7,31 +7,12 @@ class CartModal extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      cartItems: []
-    };
-
     this.leftScroll = this.leftScroll.bind(this);
     this.righttScroll = this.righttScroll.bind(this);
   }
 
   componentDidMount() {
-    axios
-      .post('/api/cart/', {
-        items: [
-          Math.floor(Math.random() * 100),
-          Math.floor(Math.random() * 100),
-          Math.floor(Math.random() * 100)
-        ]
-      })
-      .then(({ data }) =>
-        this.setState({ cartItems: data }, () => console.log(this.state))
-      )
-      .then(
-        () =>
-          (document.getElementById('slider').scrollLeft += this.props.xCoords)
-      )
-      .catch((err) => console.error(err));
+    document.getElementById('slider').scrollLeft += this.props.xCoords;
   }
 
   leftScroll() {
@@ -65,7 +46,7 @@ class CartModal extends Component {
                     <i className="fa-arrow-left"></i>
                   </div>
                   <div id="slider" className="cartItems">
-                    {this.state.cartItems.map((item, index) => (
+                    {this.props.cartItems.map((item, index) => (
                       <CartItems
                         key={index}
                         index={index}

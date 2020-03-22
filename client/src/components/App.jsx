@@ -20,6 +20,7 @@ class App extends React.Component {
 
       cartQuantity: 3,
       xCoords: 0,
+      cartItems: [],
       showCartModal: false,
 
       showMainModal: false,
@@ -56,6 +57,17 @@ class App extends React.Component {
     this.hideSearches = this.hideSearches.bind(this);
     this.searchDropdown = this.searchDropdown.bind(this);
     this.saveRegex = this.saveRegex.bind(this);
+  }
+
+  componentDidMount() {
+    let randOne = Math.floor(Math.random() * 100);
+    let randTwo = Math.floor(Math.random() * 100);
+    let randThree = Math.floor(Math.random() * 100);
+
+    axios
+      .post('/api/cart/', { items: [randOne, randTwo, randThree] })
+      .then(({ data }) => this.setState({ cartItems: data }))
+      .catch((err) => console.error(err));
   }
 
   hideAllModals() {
@@ -235,6 +247,7 @@ class App extends React.Component {
         ) : null}
         {this.state.showCartModal ? (
           <CartModal
+            cartItems={this.state.cartItems}
             cartQuantity={this.state.cartQuantity}
             hideCartModal={this.hideCartModal}
             setCoords={this.setCoords}
