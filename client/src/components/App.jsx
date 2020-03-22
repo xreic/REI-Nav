@@ -1,12 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 
-import TopNav from './TopNavBar.jsx';
-import CentralNav from './CentralNavBar.jsx';
-import BottomNavModal from './BottomNavModal.jsx';
-import LoginModal from './LoginModal.jsx';
-import CartModal from './CartModal.jsx';
-import SearchModal from './SearchModal.jsx';
+import TopNav from './topNavigation/TopNavBar.jsx';
+import CentralNav from './mainNavigation/CentralNavBar.jsx';
+import BottomNavModal from './modals/categories/BottomNavModal.jsx';
+import LoginModal from './modals/login/LoginModal.jsx';
+import CartModal from './modals/cart/CartModal.jsx';
+import SearchModal from './modals/search/SearchModal.jsx';
 
 class App extends React.Component {
   constructor(props) {

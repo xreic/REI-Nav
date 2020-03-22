@@ -1,7 +1,6 @@
 import React from 'react';
 
 const CartModal = ({ cartQuantity, cartItem, hideCartModal }) => {
-  console.log(cartItem);
   return (
     <div className="cartContainer">
       <div className="cartWrapper">
