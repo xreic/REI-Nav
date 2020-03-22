@@ -16,12 +16,14 @@ class CartModal extends Component {
   }
 
   componentDidMount() {
-    let randOne = Math.floor(Math.random() * 100);
-    let randTwo = Math.floor(Math.random() * 100);
-    let randThree = Math.floor(Math.random() * 100);
-
     axios
-      .post('/api/cart/', { items: [randOne, randTwo, randThree] })
+      .post('/api/cart/', {
+        items: [
+          Math.floor(Math.random() * 100),
+          Math.floor(Math.random() * 100),
+          Math.floor(Math.random() * 100)
+        ]
+      })
       .then(({ data }) =>
         this.setState({ cartItems: data }, () => console.log(this.state))
       )
@@ -34,20 +36,16 @@ class CartModal extends Component {
 
   leftScroll() {
     document.getElementById('slider').scrollLeft -= 500;
-
     let coords = this.props.xCoords - 500 < 0 ? 0 : this.props.xCoords - 500;
-
     this.props.setCoords(coords);
   }
 
   righttScroll() {
     document.getElementById('slider').scrollLeft += 500;
-
     let coords =
-      this.props.xCoords + 500 < 500 * this.props.cartQuantity
+      this.props.xCoords + 500 < 500 * (this.props.cartQuantity - 1)
         ? this.props.xCoords + 500
-        : 500 * this.props.cartQuantity;
-
+        : 500 * (this.props.cartQuantity - 1);
     this.props.setCoords(coords);
   }
 
