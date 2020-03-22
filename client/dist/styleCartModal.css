@@ -164,8 +164,8 @@
   margin-top: 2px;
 }
 
-.control-prev-btn,
-.control-next-btn {
+.prevButton,
+.nextButton {
   background-color: white;
   height: 100px;
   line-height: 100px;
@@ -178,27 +178,27 @@
   align-self: center;
 }
 
-.control-prev-btn {
+.prevButton {
   justify-self: flex-start;
   grid-column: 1/2;
 }
 
-.control-next-btn {
+.nextButton {
   justify-self: flex-end;
   grid-column: 5/6;
 }
 
-.fa-arrow-left::before,
-.fa-arrow-right::before {
+.buttonLeft::before,
+.buttonRight::before {
   color: darkgreen;
   font-size: 24px;
   font-weight: bold;
 }
 
-.fa-arrow-left::before {
+.buttonLeft::before {
   content: '<';
 }
 
-.fa-arrow-right::before {
+.buttonRight::before {
   content: '>';
 }

@@ -18,7 +18,7 @@ class App extends React.Component {
 
       lowerNav: ['Camp & Hike','Climb','Cycle','Paddle','Run','Snow','Travel','Yoga','Men','Women','Kids','Deals','More' ],
 
-      cartQuantity: 3,
+      cartQuantity: Math.floor(Math.random() * 7),
       xCoords: 0,
       cartItems: [],
       showCartModal: false,
@@ -60,12 +60,16 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let randOne = Math.floor(Math.random() * 100);
-    let randTwo = Math.floor(Math.random() * 100);
-    let randThree = Math.floor(Math.random() * 100);
+    let quant = [];
+
+    for (var i = 0; i < this.state.cartQuantity; i++) {
+      quant.push(Math.floor(Math.random() * 100));
+    }
+
+    console.log(quant);
 
     axios
-      .post('/api/cart/', { items: [randOne, randTwo, randThree] })
+      .post('/api/cart/', { items: quant })
       .then(({ data }) => this.setState({ cartItems: data }))
       .catch((err) => console.error(err));
   }

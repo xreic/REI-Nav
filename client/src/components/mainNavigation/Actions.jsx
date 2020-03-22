@@ -19,7 +19,11 @@ const Actions = ({
     <div
       className="actionItemsCart"
       onClick={hideAllModals}
-      onMouseEnter={activateCartModal}
+      onMouseEnter={() => {
+        if (cartQuantity > 0) {
+          activateCartModal();
+        }
+      }}
     >
       <img src="./assets/navTBox.png" alt="Image of a cart" />
       {cartQuantity > 0 ? (

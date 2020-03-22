@@ -42,9 +42,11 @@ class CartModal extends Component {
               <div className="cartLeft">
                 <div className="cartTitle">Added to your cart</div>
                 <div className="cartDetails">
-                  <div onClick={this.leftScroll} className="control-prev-btn">
-                    <i className="fa-arrow-left"></i>
-                  </div>
+                  {this.props.cartQuantity === 1 ? null : (
+                    <div onClick={this.leftScroll} className="prevButton">
+                      <i className="buttonLeft"></i>
+                    </div>
+                  )}
                   <div id="slider" className="cartItems">
                     {this.props.cartItems.map((item, index) => (
                       <CartItems
@@ -58,9 +60,11 @@ class CartModal extends Component {
                       />
                     ))}
                   </div>
-                  <div onClick={this.righttScroll} className="control-next-btn">
-                    <i className="fa-arrow-right"></i>
-                  </div>
+                  {this.props.cartQuantity === 1 ? null : (
+                    <div onClick={this.righttScroll} className="nextButton">
+                      <i className="buttonRight"></i>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="cartRight">
