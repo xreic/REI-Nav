@@ -14,8 +14,3 @@ const cartItems = ({ index, cartQuantity, productName, productImage }) => {
 };
 
 module.exports = cartItems;
-
-{
-  /* <li>{'this.props.cartItem.productName'}</li>
-<li>Quantity: {this.props.cartQuantity}</li> */
-}

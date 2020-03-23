@@ -60,17 +60,25 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let quant = [];
+    var quantStorage = {};
 
     for (var i = 0; i < this.state.cartQuantity; i++) {
-      quant.push(Math.floor(Math.random() * 100));
+      let rand = Math.ceil(Math.random() * 100);
+
+      if (quantStorage[rand] === undefined) {
+        quantStorage[rand] = 1;
+      } else {
+        quantStorage[rand]++;
+      }
     }
 
-    console.log(quant);
-
     axios
-      .post('/api/cart/', { items: quant })
-      .then(({ data }) => this.setState({ cartItems: data }))
+      .post('/api/cart/', { items: Object.keys(quantStorage) })
+      .then(({ data }) => {
+        this.setState({ cartItems: data }, () =>
+          console.log(this.state.cartItems)
+        );
+      })
       .catch((err) => console.error(err));
   }
 
