@@ -70,7 +70,6 @@ class SearchModal extends React.Component {
                   {this.props.searchData.map((item, index) => (
                     <SearchItems
                       key={index}
-                      index={index}
                       item={item.productName}
                       searchRegex={this.props.searchRegex}
                     />

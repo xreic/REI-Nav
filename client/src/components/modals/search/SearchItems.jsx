@@ -1,19 +1,19 @@
 import React from 'react';
 
 const parse = (regex, item) => {
-  let tempString = item.toLowerCase();
+  let itemLowerCase = item.toLowerCase();
   let storage = [];
   let parsed = '';
 
   for (let i = 0; i < regex.length; i++) {
-    let slice = tempString.slice(0, tempString.indexOf(regex[i]));
+    let slice = itemLowerCase.slice(0, itemLowerCase.indexOf(regex[i]));
 
     storage.push(slice);
-    tempString = tempString.replace(slice, '');
-    tempString = tempString.replace(regex[i], '');
+    itemLowerCase = itemLowerCase.replace(slice, '');
+    itemLowerCase = itemLowerCase.replace(regex[i], '');
 
     if (i === regex.length - 1) {
-      storage.push(tempString);
+      storage.push(itemLowerCase);
     }
   }
 
@@ -28,7 +28,7 @@ const parse = (regex, item) => {
   return parsed;
 };
 
-const SearchItems = ({ index, item, searchRegex }) => {
+const SearchItems = ({ item, searchRegex }) => {
   return (
     <li
       className="searchItems-Between"
