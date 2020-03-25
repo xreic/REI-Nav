@@ -6,11 +6,14 @@ const parse = (regex, item) => {
   let parsed = '';
 
   for (let i = 0; i < regex.length; i++) {
-    let slice = itemLowerCase.slice(0, itemLowerCase.indexOf(regex[i]));
+    let slice = itemLowerCase.slice(
+      0,
+      itemLowerCase.indexOf(regex[i].toLowerCase())
+    );
 
     storage.push(slice);
     itemLowerCase = itemLowerCase.replace(slice, '');
-    itemLowerCase = itemLowerCase.replace(regex[i], '');
+    itemLowerCase = itemLowerCase.replace(regex[i].toLowerCase(), '');
 
     if (i === regex.length - 1) {
       storage.push(itemLowerCase);
@@ -21,7 +24,7 @@ const parse = (regex, item) => {
     parsed += `<strong>${storage[j]}</strong>`;
 
     if (j !== storage.length - 1) {
-      parsed += regex[j];
+      parsed += regex[j].toLowerCase();
     }
   }
 

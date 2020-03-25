@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
-import CartItems from './cartItems.jsx';
+import CartItems from './CartItems.jsx';
 
 class CartModal extends Component {
   constructor(props) {
@@ -37,7 +36,7 @@ class CartModal extends Component {
           <div className="cartWindow">
             <div
               className="cartContents"
-              // onMouseLeave={this.props.hideCartModal}
+              onMouseLeave={this.props.hideCartModal}
             >
               <div className="cartLeft">
                 <div className="cartTitle">Added to your cart</div>

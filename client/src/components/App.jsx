@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 
-import TopNav from './topNavigation/TopNavBar.jsx';
-import CentralNav from './mainNavigation/CentralNavBar.jsx';
-import BottomNavModal from './modals/categories/BottomNavModal.jsx';
+import TopNav from './top-bar/TopNavBar.jsx';
+import CentralNav from './main-bar/CentralNavBar.jsx';
+import BottomNavModal from './modals/category/BottomNavModal.jsx';
 import LoginModal from './modals/login/LoginModal.jsx';
 import CartModal from './modals/cart/CartModal.jsx';
 import SearchModal from './modals/search/SearchModal.jsx';
