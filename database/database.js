@@ -37,5 +37,4 @@ const Users = mongoose.model('Users', UsersSchema);
 const Categories = mongoose.model('Categories', CategorySchema);
 const Searches = mongoose.model('Searches', SearchSchema);
 
-//prettier-ignore
 module.exports = { Items, Users, Categories, Searches };
