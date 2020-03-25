@@ -46,21 +46,27 @@
 }
 
 .actionItemsAccount img {
-  background: url('./assets/navLoginU.png') no-repeat;
+  background: url('https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navLoginU.png')
+    no-repeat;
 }
 .actionItemsLocation img {
-  background: url('./assets/navStoreU.png') no-repeat;
+  background: url('https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navStoreU.png')
+    no-repeat;
 }
 .actionItemsCart img {
-  background: url('./assets/navCartU.png') no-repeat;
+  background: url('https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navCartU.png')
+    no-repeat;
 }
 
 .actionItemsAccount:hover img {
-  background: url('./assets/navLoginC.png') no-repeat;
+  background: url('https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navLoginC.png')
+    no-repeat;
 }
 .actionItemsLocation:hover img {
-  background: url('./assets/navStoreC.png') no-repeat;
+  background: url('https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navStoreC.png')
+    no-repeat;
 }
 .actionItemsCart:hover img {
-  background: url('./assets/navCartC.png') no-repeat;
+  background: url('https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navCartC.png')
+    no-repeat;
 }
