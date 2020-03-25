@@ -21,7 +21,8 @@ const CentralNav = ({
     <div className="navBar">
       <div className="navImage">
         <img
-          src="//satchel.rei.com/media/img/header/rei-co-op-logo-white.svg"
+          className="navLogo"
+          src="https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navTBox.png"
           alt="Go to REI.com Home Page"
         />
       </div>
