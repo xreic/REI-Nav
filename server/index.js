@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const morgan = require('morgan');
 const path = require('path');
 
 const server = express();
@@ -11,7 +10,6 @@ const { Items, Users, Categories, Searches } = require('../database/database.js'
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(cors());
-server.use(morgan('dev'));
 server.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Search bar queries
