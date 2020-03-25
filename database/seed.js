@@ -1,8 +1,6 @@
 const faker = require('faker');
 const { Items, Users, Categories, Searches } = require('./database.js');
 
-const itemList = [];
-
 const categoriesList = [
   {
     title: 'Camp & Hike',
@@ -1447,13 +1445,213 @@ Users.insertMany(usersList)
   .then(() => console.log('Users seeded!'))
   .catch((err) => console.error(err));
 
-for (var i = 1; i <= 100; i++) {
-  itemList.push({
-    productID: i,
-    productName: faker.fake('{{commerce.productName}}'),
-    productImage: 'https://placeimg.com/190/190/tech'
-  });
-}
+const itemList = [
+  { productID: 1, productName: 'Ostritch Etmos AG 50 Backpack' },
+
+  { productID: 2, productName: 'Hillsmith Bugadoo Backpack' },
+
+  { productID: 3, productName: 'Triti Watercontact Lite SL Pack' },
+
+  { productID: 4, productName: 'The South Face Golden Gate 4 Tent' },
+
+  { productID: 5, productName: 'Kingdom Clubs 3 Tent' },
+
+  { productID: 6, productName: 'Melty Wandering 2-Person Camp Bundle' },
+
+  { productID: 7, productName: 'Dukenam 3 Tent' },
+
+  { productID: 8, productName: 'Sleeping Bag' },
+
+  { productID: 9, productName: 'Siesta Sleeping Bag' },
+
+  { productID: 10, productName: 'Big Bobby Double Sleeping Bag' },
+
+  { productID: 11, productName: "Little Joey's Baby Sleeping Bag" },
+
+  { productID: 12, productName: 'Narmot Sleeping Bag' },
+
+  { productID: 13, productName: 'Lady Lucky Sleeping Bag' },
+
+  { productID: 14, productName: 'Malgene Narrow-Mouth Water Bottle' },
+
+  { productID: 15, productName: 'Adequate Aqua-Tainer' },
+
+  { productID: 16, productName: 'Trail Dogo First Aid Kit' },
+
+  { productID: 17, productName: 'Doggy Trekking Boots' },
+
+  { productID: 18, productName: 'Lowland 2-Way Radio' },
+
+  { productID: 19, productName: 'Nicon Waterproof Binoculars' },
+
+  { productID: 20, productName: 'Scalar Climbing Helmet' },
+
+  { productID: 21, productName: 'Tame Country Climbing Ascender' },
+
+  { productID: 22, productName: 'Climbing Rope' },
+
+  { productID: 23, productName: 'Nargacuga Light ML Jacket' },
+
+  { productID: 24, productName: 'Super Mountaineer Socks' },
+
+  { productID: 25, productName: 'Clean Red Hat' },
+
+  { productID: 26, productName: 'Felix-Approved Climbing Shoes' },
+
+  { productID: 27, productName: 'Black Pearl Climbing Shoes' },
+
+  { productID: 28, productName: 'Face Chrono Climbing Shoes' },
+
+  { productID: 29, productName: 'Wall Runner Climbing Helmet' },
+
+  { productID: 30, productName: 'StaySafe Bicycle Lock' },
+
+  { productID: 31, productName: 'Fahgettaboudit Mini U-Lock' },
+
+  { productID: 32, productName: 'The Best Multi-Tool of 2020' },
+
+  { productID: 33, productName: 'v33Tech Hex Wrench' },
+
+  { productID: 34, productName: 'DRT 1.1 Bike' },
+
+  { productID: 35, productName: 'Trail Bike' },
+
+  { productID: 36, productName: '7D Electric Bike' },
+
+  { productID: 37, productName: 'Sigma 17.5T Tandem Kayak' },
+
+  { productID: 38, productName: 'Carbonfiber Paddle' },
+
+  { productID: 39, productName: 'Assemblable 4-Piece Paddel' },
+
+  { productID: 40, productName: 'Rotten Wooden Canoe' },
+
+  { productID: 41, productName: "Speedy Speedster's Canoe" },
+
+  { productID: 42, productName: 'SuperLite Flashlight' },
+
+  { productID: 43, productName: 'Keeps-You-Safe Flashlight' },
+
+  { productID: 44, productName: 'Essential Run Tights' },
+
+  { productID: 45, productName: 'Mntn Goat Tights' },
+
+  { productID: 46, productName: 'Cool Looking Jogger Pants' },
+
+  { productID: 47, productName: 'notApple GPS Smartwatch' },
+
+  { productID: 48, productName: 'Beats-by-Dad Heart Rate Monitor' },
+
+  { productID: 49, productName: 'Comfy Full-Length Plantar Fascia Insoles' },
+
+  {
+    productID: 50,
+    productName: 'Megafoot All-Purpose Cushion and Support Insoles'
+  },
+
+  { productID: 51, productName: 'Megafoot Comfort Hiking Insoles' },
+
+  { productID: 52, productName: 'Road-Running Shoes' },
+
+  { productID: 53, productName: "Athena's Skis with Bindings" },
+
+  { productID: 54, productName: 'The Babaev Experience - Skis' },
+
+  { productID: 55, productName: 'Star Platinum Snowboard' },
+
+  { productID: 56, productName: 'Slide-n-Slip Snowboard' },
+
+  { productID: 57, productName: 'Numkh Ski Poles' },
+
+  { productID: 58, productName: 'Six Pistols Ski Poles' },
+
+  { productID: 59, productName: 'Downhill Ski Bindings' },
+
+  { productID: 60, productName: 'Killer Diamond GW Ski Bindings' },
+
+  { productID: 61, productName: 'Atom Echoes GW Ski Bindings' },
+
+  { productID: 62, productName: 'Achtung Stand Snowshoes' },
+
+  { productID: 63, productName: 'Deluxe Company Snowshoes' },
+
+  { productID: 64, productName: 'Surface Lock Snow Pack' },
+
+  { productID: 65, productName: 'Hermit Necklace Pack' },
+
+  { productID: 66, productName: 'Ratt Queen Pack' },
+
+  { productID: 67, productName: 'Pearl Fire Avalanche Pack' },
+
+  { productID: 68, productName: 'Windy Heart 55L Duffel' },
+
+  { productID: 69, productName: 'Chili Door Duffel Bag' },
+
+  { productID: 70, productName: 'Moodysmith 70L Duffel' },
+
+  { productID: 71, productName: 'BabyMachine Smartphone Bar Mount' },
+
+  { productID: 72, productName: 'StickyFeet Smartphone Stand' },
+
+  { productID: 73, productName: 'Spice Garu Crossback Bra' },
+
+  { productID: 74, productName: 'Mrs.President Seamless High Sports Bra' },
+
+  { productID: 75, productName: 'BeachGirl Sports Bra' },
+
+  { productID: 76, productName: 'GoGo Yoga Mat Bag' },
+
+  { productID: 77, productName: 'Ma-Ma Yo Yoga Mat' },
+
+  { productID: 78, productName: 'OverHeaven All-Purpose Towel' },
+
+  { productID: 79, productName: 'OverHeaven Deluxe All-Purpose Towel' },
+
+  { productID: 80, productName: 'UnderManson Performance Core Roller' },
+
+  { productID: 81, productName: 'D-Moon 22 Original Roller' },
+
+  { productID: 82, productName: "Dragon's Highway Printed Boxer Briefs" },
+
+  { productID: 83, productName: 'JailHouse Ultra Boxer Briefs' },
+
+  { productID: 84, productName: 'Mandom Polarized Sunglasses' },
+
+  { productID: 85, productName: 'HeyWay Polarized Sunglasses' },
+
+  { productID: 86, productName: 'Rainbow Catch Long-Sleeve Shirt' },
+
+  { productID: 87, productName: 'Wired Breeze Shell Jacket' },
+
+  { productID: 88, productName: "TuskTomb Essential Kid's Fleece Hoodie" },
+
+  { productID: 89, productName: '19th Century Boy Splitter Gloves' },
+
+  { productID: 90, productName: 'I-Am-a-Rock Crag Gloves' },
+
+  { productID: 91, productName: "Speedy Speedster's Circuit Crash Pad" },
+
+  {
+    productID: 92,
+    productName: 'Doctor Stand Athletics Patellar Tendon Strap'
+  },
+
+  { productID: 93, productName: 'GoSemiPro Dual Battery Charger' },
+
+  { productID: 94, productName: 'GoSemiPro Bye9 Black Camera' },
+
+  { productID: 95, productName: 'RedMagician Strike Igniter' },
+
+  { productID: 96, productName: 'RedMagician Stormproof Match Kit' },
+
+  { productID: 97, productName: 'Jump King Trail Gaiters' },
+
+  { productID: 98, productName: 'Jump King Crocodile Gaiters' },
+
+  { productID: 99, productName: 'Narwhal Fine Chalk Dust' },
+
+  { productID: 100, productName: 'OnePunch Grip Trainers' }
+];
 
 Items.insertMany(itemList)
   .then(() => console.log('Items seeded!'))

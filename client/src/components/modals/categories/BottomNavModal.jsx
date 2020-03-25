@@ -11,6 +11,12 @@ const NavModal = ({
   modalClickables,
   hideMainModal
 }) => {
+  if (activeCategory === 'Camp & Hike') {
+    var catURL = 'camp_hike';
+  } else {
+    var catURL = activeCategory.toLowerCase();
+  }
+
   return (
     <div className="modalMainLayout">
       <div className="modalMainContent">
@@ -38,17 +44,20 @@ const NavModal = ({
             ))}
           </div>
           <div className="modalMainSide">
-            <div className="modalSideUpper">
-              <div className="modalSideOne">
-                <img src="https://i.picsum.photos/id/614/252/125.jpg" />
-              </div>
-              <ul className="modalSideTwo">
-                {modalAdverts.map((item, index) => (
-                  <Adverts key={index} index={index} item={item} />
-                ))}
-              </ul>
+            <div className="modalSideOne">
+              {activeCategory === 'More' ? null : (
+                <img
+                  className="fade-in"
+                  src={`https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Categories/${catURL}.png`}
+                />
+              )}
             </div>
-            <ul className="modalSideLower">
+            <ul className="modalSideTwo">
+              {modalAdverts.map((item, index) => (
+                <Adverts key={index} index={index} item={item} />
+              ))}
+            </ul>
+            <ul className="modalSideThree">
               {modalClickables.map((item, index) => (
                 <Clickables
                   key={index}

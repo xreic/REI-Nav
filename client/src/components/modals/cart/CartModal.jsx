@@ -37,7 +37,7 @@ class CartModal extends Component {
           <div className="cartWindow">
             <div
               className="cartContents"
-              onMouseLeave={this.props.hideCartModal}
+              // onMouseLeave={this.props.hideCartModal}
             >
               <div className="cartLeft">
                 <div className="cartTitle">Added to your cart</div>
@@ -56,7 +56,7 @@ class CartModal extends Component {
                           this.props.cartQuantity / this.props.cartQuantity
                         }
                         productName={item.productName}
-                        productImage={item.productImage}
+                        productID={item.productID}
                       />
                     ))}
                   </div>
