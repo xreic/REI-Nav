@@ -89,6 +89,7 @@ class App extends React.Component {
   }
 
   activateMainModal(active) {
+    this.hideMainModal();
     this.hideLoginModal();
 
     //prettier-ignore
