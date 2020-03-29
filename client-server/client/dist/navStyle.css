@@ -10,7 +10,7 @@ body {
   padding: 0;
   display: block;
   text-align: center;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 #navigation {
