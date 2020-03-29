@@ -31,13 +31,13 @@ const itemList = [
 
   { productID: 3, productName: 'Triti Watercontact Lite SL Pack' },
 
-  { productID: 4, productName: 'The South Face Golden Gate 4 Tent' },
+  { productID: 4, productName: 'The South Face Golden Gate 8 Tent' },
 
   { productID: 5, productName: 'Kingdom Clubs 3 Tent' },
 
   { productID: 6, productName: 'Melty Wandering 2-Person Camp Bundle' },
 
-  { productID: 7, productName: 'Dukenam 3 Tent' },
+  { productID: 7, productName: 'Dukenam 6 Tent' },
 
   { productID: 8, productName: 'Sleeping Bag' },
 
