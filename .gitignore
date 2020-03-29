@@ -1,4 +1,3 @@
 .git
-client-server/node_modules/
 db-seed/node_modules/
-rei-component.pem
+client-server/node_modules/
