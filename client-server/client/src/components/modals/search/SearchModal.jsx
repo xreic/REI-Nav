@@ -61,7 +61,6 @@ class SearchModal extends React.Component {
         </div>
       );
     } else {
-      console.log(this.props.searchData);
       return (
         <div className="searchContainer">
           <div className="searchWrapper">
