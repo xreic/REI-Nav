@@ -18,9 +18,11 @@ const usersList = [
   }
 ];
 
-Users.insertMany(usersList)
-  .then(() => console.log('Users seeded!'))
-  .catch((err) => console.error(err));
+Users.remove({}).then(() => {
+  Users.insertMany(usersList)
+    .then(() => console.log('Users seeded!'))
+    .catch((err) => console.error(err));
+});
 
 const itemList = [
   { productID: 1, productName: 'Ostritch Etmos AG 50 Backpack' },
@@ -230,9 +232,11 @@ const itemList = [
   { productID: 100, productName: 'OnePunch Grip Trainers' }
 ];
 
-Items.insertMany(itemList)
-  .then(() => console.log('Items seeded!'))
-  .catch((err) => console.error(err));
+Items.remove({}).then(() => {
+  Items.insertMany(itemList)
+    .then(() => console.log('Items seeded!'))
+    .catch((err) => console.error(err));
+});
 
 const categoriesList = [
   {
@@ -1652,9 +1656,11 @@ const categoriesList = [
   }
 ];
 
-Categories.insertMany(categoriesList)
-  .then(() => console.log('Categories seeded!'))
-  .catch((err) => console.error(err));
+Categories.remove({}).then(() => {
+  Categories.insertMany(categoriesList)
+    .then(() => console.log('Categories seeded!'))
+    .catch((err) => console.error(err));
+});
 
 Searches.create({ search: 'test' })
   .then(() => Searches.remove({}))

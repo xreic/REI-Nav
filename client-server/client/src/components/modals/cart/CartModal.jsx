@@ -15,18 +15,22 @@ class CartModal extends Component {
   }
 
   leftScroll() {
-    document.getElementById('slider').scrollLeft -= 500;
-    let coords = this.props.xCoords - 500 < 0 ? 0 : this.props.xCoords - 500;
-    this.props.setCoords(coords);
+    if (this.props.xCoords >= 500) {
+      document.getElementById('slider').scrollLeft -= 500;
+      let coords = this.props.xCoords - 500 < 0 ? 0 : this.props.xCoords - 500;
+      this.props.setCoords(coords);
+    }
   }
 
   righttScroll() {
-    document.getElementById('slider').scrollLeft += 500;
-    let coords =
-      this.props.xCoords + 500 < 500 * (this.props.cartQuantity - 1)
-        ? this.props.xCoords + 500
-        : 500 * (this.props.cartQuantity - 1);
-    this.props.setCoords(coords);
+    if (this.props.xCoords < (this.props.cartQuantity - 1) * 500) {
+      document.getElementById('slider').scrollLeft += 500;
+      let coords =
+        this.props.xCoords + 500 < 500 * (this.props.cartQuantity - 1)
+          ? this.props.xCoords + 500
+          : 500 * (this.props.cartQuantity - 1);
+      this.props.setCoords(coords);
+    }
   }
 
   render() {
