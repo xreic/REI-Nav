@@ -1,0 +1,1101 @@
+@import url('http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css');
+
+body {
+  margin: 0;
+}
+
+#navBody {
+  font-family: 'Rubik', 'Roboto Condensed', 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-align: center;
+}
+
+#navigation {
+  position: relative;
+  display: grid;
+  grid-template-rows: 39px 140px;
+  grid-template-columns: 1fr;
+  background-color: black;
+}
+
+.modalClose {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.navBarWrapper {
+  grid-row: 2/3;
+  grid-column: 1/-1;
+  padding-top: 20px;
+  justify-self: center;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navBar {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 158px 20px 1022px;
+  padding: 0;
+  grid-template-rows: 1fr 20px;
+}
+
+.navLogo {
+  width: 158px;
+  height: 100px;
+  background-image: url(https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/logo.png);
+}
+
+.topNavBar {
+  grid-row: 1/2;
+  grid-column: 1/-1;
+  background-color: #555555;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.topNavList {
+  position: relative;
+  max-width: 1200px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+  flex-basis: 100%;
+  white-space: nowrap;
+  list-style: none;
+  scrollbar-width: none;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 100%;
+}
+
+.topNavItems {
+  position: relative;
+  font-size: 12px;
+  padding: 0 5px;
+  color: lightgrey;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  height: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.topNavItemsActive {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.topNavItems:hover {
+  color: white;
+}
+
+.topNavText::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-13px, 19px);
+}
+
+.topNavText::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid white;
+  position: absolute;
+  left: 50%;
+  transform: translate(0px, 22px);
+}
+
+.navBarRight {
+  position: absolute;
+  grid-row: 1/-1;
+  grid-column: 3/4;
+  display: grid;
+  grid-template-rows: 42px 26% auto;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+.navBarRightUpper {
+  position: relative;
+  grid-row: 1/2;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 3fr auto 4fr;
+}
+
+.navSearchForm {
+  position: relative;
+  grid-column: 1;
+  display: flex;
+  width: 100%;
+  height: 42px;
+  padding: 0;
+  z-index: 4;
+}
+
+.navSearchInput {
+  position: relative;
+  flex-basis: 100%;
+  padding: 0 0 0 15px;
+  border: transparent;
+  background-color: #555555;
+  color: white;
+  font-size: 18px;
+}
+
+.navSearchButton {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  border: transparent;
+  padding-right: 15px;
+  vertical-align: middle;
+  background-color: #555555;
+  color: white;
+}
+
+.navSearchButtonGreen {
+  color: #a1c900;
+}
+
+.navActions {
+  position: relative;
+  cursor: pointer;
+  grid-column: 3;
+  align-items: center;
+  display: flex;
+  justify-self: end;
+  overflow-x: hidden;
+}
+
+.actionItemsAccount,
+.actionItemsLocation,
+.actionItemsCart {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  margin: 0px 0px 0px 20px;
+  z-index: 4;
+}
+
+.cartQuantity {
+  position: absolute;
+  color: #a1c900;
+  padding-right: 70%;
+  font-size: 10px;
+}
+
+.actionItemsAccount div,
+.actionItemsLocation div,
+.actionItemsCart div {
+  padding-left: 5px;
+}
+
+.actionItemsAccount:hover div,
+.actionItemsLocation:hover div,
+.actionItemsCart:hover div {
+  color: #a1c900;
+}
+
+.actionItemsAccount img,
+.actionItemsLocation img,
+.actionItemsCart img {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.actionItemsAccount img {
+  background: url('https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navLoginU.png')
+    no-repeat;
+}
+.actionItemsLocation img {
+  background: url('https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navStoreU.png')
+    no-repeat;
+}
+.actionItemsCart img {
+  background: url('https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navCartU.png')
+    no-repeat;
+}
+
+.actionItemsAccount:hover img {
+  background: url('https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navLoginC.png')
+    no-repeat;
+}
+.actionItemsLocation:hover img {
+  background: url('https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navStoreC.png')
+    no-repeat;
+}
+.actionItemsCart:hover img {
+  background: url('https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navCartC.png')
+    no-repeat;
+}
+
+.bottomNavBar {
+  grid-row: 3/4;
+  display: flex;
+  height: 100%;
+  padding-top: 10px;
+}
+
+.bottomNavList {
+  position: absolute;
+  align-self: end;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  list-style: none;
+  border: 1px solid transparent;
+  border-top: 1px solid white;
+}
+
+.bottomNavItems {
+  position: relative;
+  cursor: pointer;
+  padding: 16px 3px 20px 3px;
+  font-size: 18px;
+  color: white;
+  z-index: 4;
+}
+
+.bottomNavItemsActive {
+  color: #a1c900;
+}
+
+.lowerActive {
+  border-bottom: 1px solid white;
+}
+
+.exitArrow {
+  color: #a1c900;
+  padding-left: 10px;
+}
+
+.bottomNavItems:hover {
+  color: #a1c900;
+}
+
+.bottomNavItems p {
+  display: inline-flex;
+  margin: 0;
+}
+
+.bottomNavText::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 21px solid transparent;
+  border-right: 21px solid transparent;
+  border-bottom: 21px solid #efeee2;
+  position: absolute;
+  left: 50%;
+  transform: translate(-30px, 20px);
+}
+
+.bottomNavText::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 17px solid transparent;
+  border-right: 17px solid transparent;
+  border-bottom: 17px solid #efeee2;
+  position: absolute;
+  left: 50%;
+  transform: translate(-5px, 28px);
+}
+
+.modalMainWrapper {
+  width: 100%;
+  float: left;
+  position: absolute;
+}
+
+.modalMainLayout {
+  background: #efeee2;
+  position: relative;
+  max-width: 1200px;
+  z-index: 4;
+  display: flex;
+  margin: auto;
+}
+
+.modalMainContent {
+  padding: 20px 55px 50px 55px;
+  font-family: 'Noto Serif', serif;
+  width: 100%;
+}
+
+.modalMainCategory {
+  font-weight: bold;
+  font-size: 28px;
+  display: block;
+  padding-bottom: 20px;
+}
+
+.modalMainCategory h3 {
+  cursor: pointer;
+  margin: 0px;
+  display: inline-block;
+}
+
+.modalMainCategory h3:hover {
+  text-decoration: underline;
+}
+
+.modalMainCategory span {
+  background-color: #efeee2;
+  border-radius: 50%;
+  border: 0px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  float: right;
+  font-size: 18px;
+}
+
+.modalMainCategory span:hover {
+  background-color: #dfdfdf;
+}
+
+.modalMainCategory p {
+  vertical-align: middle;
+}
+
+.modalMainSubs {
+  display: grid;
+  justify-self: stretch;
+  column-gap: 10px;
+  grid-template-columns: 18% 18% 18% 18% auto;
+  grid-template-rows: auto;
+}
+
+.modalMainSide {
+  grid-column: 5/6;
+  box-sizing: border-box;
+}
+
+.modalSideOne {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.modalSideOne img {
+  width: 100%;
+  height: 127px;
+  object-fit: contain;
+}
+
+.modalSideTwo {
+  display: block;
+  text-align: start;
+  padding: 0px;
+  font-size: 18px;
+}
+
+.modalSideTwo li {
+  list-style: none;
+}
+
+.modalSideTwo h4 {
+  margin: 0;
+  padding: 5px 0px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.modalSideTwo h4:hover {
+  text-decoration: underline;
+}
+
+.modalSideThree {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.modalSideThree li {
+  list-style: none;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+.modalSideThree img {
+  cursor: pointer;
+}
+
+.modalSideThree p {
+  margin: 0;
+  color: darkgreen;
+  display: inline;
+  cursor: pointer;
+}
+.clickableTop {
+  font-size: 18px;
+}
+
+.clickableBottom {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.modalMainSubItem {
+  grid-column: 1/5;
+  display: grid;
+  column-gap: 5px;
+  row-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.modalMainSubItemMini {
+  height: 33%;
+}
+
+.modalMainSubTitles {
+  text-align: left;
+  font-size: 14px;
+}
+
+.modalMainLists {
+  list-style: none;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 2;
+}
+
+.modalMainCategory p,
+.modalMainSubTitles p {
+  cursor: pointer;
+  margin: 0px;
+  display: inline-block;
+}
+
+.modalMainSubTitles p:hover,
+.modalMainLists p:hover {
+  text-decoration: underline;
+}
+
+.clickableImages,
+.clickableContainer {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 5px;
+}
+
+.clickableImages {
+  width: 46px;
+  height: 46px;
+}
+
+.loginModalContainer {
+  float: right;
+  width: 100%;
+  position: absolute;
+}
+
+.loginModalWrapper {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.loginModal {
+  background-color: white;
+  color: black;
+  padding: 40px 25px;
+  transform: translate(-75px, -58px);
+  display: grid;
+  width: 250px;
+  z-index: 4;
+}
+
+.inputUserTitle,
+.inputPasswordTitle {
+  text-align: left;
+  font-size: 12px;
+  display: flex;
+  margin: 0px;
+}
+
+.formInputUser,
+.formInputPassword {
+  box-sizing: border-box;
+  margin: 3px 0px 12px 0px;
+  padding: 6px;
+  height: 3em;
+  cursor: pointer;
+  border: 1px solid #a9a9a9;
+  box-sizing: border-box;
+}
+
+.formInputUser {
+  width: 100%;
+}
+
+.passwordForm {
+  display: flex;
+  width: 100%;
+  height: 3em;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+.formInputPassword {
+  width: 100%;
+  border: 1px solid #a9a9a9;
+  border-right: 0px;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.formButtonPassword {
+  border: 1px solid #a9a9a9;
+  border-left: 0px;
+  background-color: white;
+  height: 40px;
+  width: auto;
+  display: flex;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0 5px;
+  margin-top: 3px;
+  align-items: center;
+  color: #2b60b5;
+  cursor: pointer;
+}
+
+.loginForgot {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1f4e99;
+  cursor: pointer;
+  text-align: left;
+}
+
+.loginFormAgreement {
+  margin: 0px;
+  font-size: 10px;
+  text-align: left;
+}
+
+.loginFormSignin {
+  border: 1px solid #2b60b5;
+  background-color: #2b60b5;
+  color: white;
+  height: 2.5em;
+  margin: 1em 0;
+  cursor: pointer;
+}
+
+.loginFormCreate {
+  border: 1px solid grey;
+  background-color: white;
+  height: 2.5em;
+  cursor: pointer;
+}
+
+.failedGrid {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+}
+
+.failedSymbol {
+  grid-column: 1/2;
+  display: inline-block;
+}
+
+.failedLogin {
+  grid-column: 2/3;
+  color: red;
+  font-size: 16px;
+  text-align: left;
+}
+
+.loggedFullname {
+  text-align: left;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 16px 0;
+}
+
+.becomeMember {
+  text-align: left;
+  color: #1f4e99;
+  margin: 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.memeberBenefits {
+  text-align: left;
+  margin: 0;
+}
+
+.accountActionsLogged {
+  padding: 0;
+  display: grid;
+  row-gap: 10px;
+  border-top: 1px solid #555555;
+  padding-top: 10px;
+}
+
+.logoutAccount {
+  border-top: 1px solid #555555;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.accountViewAccount,
+.accountViewHistory,
+.accountViewWish,
+.logoutAccount {
+  color: #2ba2c9;
+  list-style: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.becomeMember:hover,
+.accountViewAccount:hover,
+.accountViewHistory:hover,
+.accountViewWish:hover,
+.logoutAccount:hover {
+  text-decoration: underline;
+}
+
+.formBorderTriangles::before,
+.formBorderTriangles::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-34px, -64px);
+}
+
+.formBorderTriangles::after {
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid white;
+  transform: translate(-1px, -59px);
+}
+mark.blue {
+  color: #1f4e99;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.loginModalClose {
+  background-color: white;
+  border-radius: 50%;
+  border: 0px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  float: right;
+  font-size: 18px;
+  position: absolute;
+  left: 100%;
+  transform: translate(-45px, 15px);
+}
+
+.loginModalClose:hover {
+  background-color: #f5f5f5;
+}
+
+.loginModalClose p {
+  margin: 0;
+  margin-top: 2px;
+}
+
+.cartContainer {
+  float: right;
+  width: 100%;
+  position: absolute;
+}
+
+.cartWrapper {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.cartWindow {
+  display: grid;
+  grid-template-columns: 178px auto 15px;
+  width: 100%;
+}
+
+.cartContents {
+  background-color: white;
+  grid-column: 2/3;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 100%;
+  z-index: 3;
+  padding: 35px 50px 50px 50px;
+  box-sizing: border-box;
+}
+
+.cartLeft,
+.cartRight {
+  display: grid;
+  grid-template-rows: 3em auto;
+}
+
+.cartTitle {
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: initial;
+}
+
+.cartDetails {
+  display: grid;
+  grid-template-columns: 3em 20px 475px 20px 3em;
+}
+
+.cartItems {
+  display: grid;
+  scrollbar-width: none;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  grid-row: 1;
+  justify-self: stretch;
+  column-gap: 30px;
+  grid-column: 3/4;
+  scroll-behavior: smooth;
+}
+
+.cartItems div:last-child {
+  margin-right: 30px;
+}
+
+.cartIndiv {
+  display: grid;
+  box-sizing: border-box;
+  grid-row: 1;
+  grid-template-columns: 190px 20px 260px;
+}
+
+.cartImage {
+  display: flex;
+  grid-row: 1;
+  grid-column: 1/2;
+}
+
+.cartDescription {
+  display: inline-flex;
+  justify-content: flex-start;
+  list-style: none;
+  flex-flow: column;
+  text-align: left;
+  padding: 0;
+  grid-row: 1;
+  width: 220px;
+  grid-column: 3/4;
+}
+
+.cartDescription li {
+  padding: 5px 0;
+}
+
+.cartRightDetails {
+  box-sizing: border-box;
+  border-left: 1px solid #555555;
+  padding-left: 35px;
+  text-align: left;
+  grid-row: 2;
+  display: grid;
+}
+
+.cartQuantityModal {
+  display: flex;
+}
+
+.cartQuantityModal p:last-child {
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.cartCheckout {
+  display: block;
+  box-sizing: border-box;
+  height: 3em;
+  border: 0;
+  color: white;
+  background-color: #32a8e1;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.cartCheckout:hover {
+  background-color: #2e98cc;
+}
+
+.cartAdditional p:first-child {
+  font-weight: bold;
+}
+
+.cartDescription li:last-child,
+.cartAdditional p:last-child {
+  color: #258abb;
+  cursor: pointer;
+}
+
+.cartDescription li:last-child:hover,
+.cartAdditional p:last-child:hover {
+  text-decoration: underline;
+}
+
+.cartModalClose {
+  background-color: white;
+  border-radius: 50%;
+  border: 0px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  float: right;
+  font-size: 18px;
+  position: relative;
+  grid-row: 1;
+  left: 100%;
+  transform: translate(0px, -20px);
+}
+
+.cartModalClose:hover {
+  background-color: #f5f5f5;
+}
+
+.cartModalClose p {
+  margin: 0;
+  margin-top: 2px;
+}
+
+.prevButton,
+.nextButton {
+  background-color: white;
+  height: 100px;
+  line-height: 100px;
+  width: 3em;
+  text-align: center;
+  user-select: none;
+  color: #444;
+  cursor: pointer;
+  grid-row: 1;
+  align-self: center;
+}
+
+.prevButton {
+  justify-self: flex-start;
+  grid-column: 1/2;
+}
+
+.nextButton {
+  justify-self: flex-end;
+  grid-column: 5/6;
+}
+
+.buttonLeft::before,
+.buttonRight::before {
+  color: darkgreen;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.buttonLeft::before {
+  content: '<';
+}
+
+.buttonRight::before {
+  content: '>';
+}
+
+.searchContainer {
+  float: right;
+  width: 100%;
+  position: absolute;
+}
+
+.searchWrapper {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.searchLayout {
+  display: grid;
+  grid-template-columns: 178px 400px;
+  width: 100%;
+}
+
+.searchContents {
+  background-color: white;
+  grid-column: 2/3;
+  z-index: 4;
+  box-sizing: border-box;
+  transform: translateY(-79px);
+}
+
+.searchContents ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-top: 0px;
+}
+
+.searchContents li {
+  text-align: left;
+  padding: 7.5px 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.searchItems-Between {
+  font-size: 14px;
+}
+
+.searchItems-First {
+  font-weight: bold;
+  font-size: 20px;
+  border-bottom: 1px solid #555555;
+  margin-bottom: 10px;
+}
+
+.searchItems-Last {
+  color: #1f4e99;
+  border-top: 1px solid #555555;
+  margin-top: 10px;
+}
+
+.searchItems-Last:hover,
+.searchItems-Between:hover {
+  text-decoration: underline;
+  background-color: #dedede;
+}
+
+.fade-in {
+  animation: fadeIn ease 1.5s;
+  -webkit-animation: fadeIn ease 1.5s;
+  -moz-animation: fadeIn ease 1.5s;
+  -o-animation: fadeIn ease 1.5s;
+  -ms-animation: fadeIn ease 1.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-document url-prefix() {
+  .bottomNavList {
+    position: relative;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+}
+
+:-ms-input-placeholder {
+  color: white;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: white;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
+}
+
+::placeholder {
+  color: white;
+}

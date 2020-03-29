@@ -1,0 +1,27 @@
+{
+  "name": "nav-Front",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "Eric Lau",
+  "license": "ISC",
+  "scripts": {
+    "start": "nodemon server/index.js"
+  },
+  "dependencies": {
+    "axios": "0.19.2",
+    "cors": "2.8.5",
+    "express": "4.17.1",
+    "mongoose": "5.9.6",
+    "nodemon": "2.0.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.23.0",
+    "webpack": "^2.2.1"
+  }
+}

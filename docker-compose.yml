@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  db:
+    image: mongo:3
+    ports:
+      - '27017:27017'
+  react-app:
+    build: ./client-server
+    ports:
+      - '3100:3100'
+    links:
+      - db
+      - db-seed
+    environment:
+      - MONGO_CONNECTION_STRING=mongodb://db:27017
+  db-seed:
+    build: ./db-seed
+    links:
+      - db
+    environment:
+      - MONGO_CONNECTION_STRING=mongodb://db:27017
