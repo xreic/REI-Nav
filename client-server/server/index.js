@@ -75,4 +75,11 @@ server.post('/api/cart/', (req, res) => {
     .catch((err) => res.status(400).send(err).end());
 });
 
+server.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'), (err) => {
+    if (err)
+      res.status(400).send(err).end();
+  });
+});
+
 server.listen(port, () => console.log('Server initialized on port:', port));
