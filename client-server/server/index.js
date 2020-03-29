@@ -32,7 +32,7 @@ server.get('/api/searchbar/history', (req, res) => {
 
 // Search bar history insertion
 server.post('/api/searchbar/history', (req, res) => {
-  console.log('-------- Search bar history retrieval and insertion --------');
+  console.log('-------- Search bar history insertion --------');
 
   Searches.findOneAndUpdate(req.body, req.body, {upsert: true})
     .then((result) => res.status(200).send(result).end())
@@ -75,6 +75,7 @@ server.post('/api/cart/', (req, res) => {
     .catch((err) => res.status(400).send(err).end());
 });
 
+// Prevent random requests
 server.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'), (err) => {
     if (err)
