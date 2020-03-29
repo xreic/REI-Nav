@@ -14,7 +14,6 @@ class App extends React.Component {
 
     //prettier-ignore
     this.state = {
-      url: '',
       urlID: '',
 
       upperNav: ['SHOP REI','REI OUTLET','USED GEAR','REI ADVENTURES','CLASSES & EVENTS','EXPERT ADVICE','CO-OP JOURNAL','CONVERSATIONS','CAMPING PROJECT' ],
@@ -67,7 +66,6 @@ class App extends React.Component {
     var urlID = url[url.length - 1];
 
     this.setState({
-      url,
       urlID
     });
 
