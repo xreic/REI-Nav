@@ -71,6 +71,7 @@ class SearchModal extends React.Component {
                     <SearchItems
                       key={index}
                       item={item.productName}
+                      productID={item.productID}
                       searchRegex={this.props.searchRegex}
                     />
                   ))}

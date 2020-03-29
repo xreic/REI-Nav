@@ -31,11 +31,21 @@ const parse = (regex, item) => {
   return parsed;
 };
 
-const SearchItems = ({ item, searchRegex }) => {
+const linkRedirect = (productID) => {
+  var url = window.location.href.toString().split('/');
+  var urlID = url[url.length - 1];
+  var newURL = url.slice(0, 3);
+
+  newURL.push(productID);
+  window.location.href = newURL.join('/');
+};
+
+const SearchItems = ({ item, productID, searchRegex }) => {
   return (
     <li
       className="searchItems-Between"
       dangerouslySetInnerHTML={{ __html: parse(searchRegex, item) }}
+      onClick={() => linkRedirect(productID)}
     />
   );
 };

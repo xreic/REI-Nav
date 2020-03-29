@@ -14,8 +14,6 @@ class App extends React.Component {
 
     //prettier-ignore
     this.state = {
-      urlID: '',
-
       upperNav: ['SHOP REI','REI OUTLET','USED GEAR','REI ADVENTURES','CLASSES & EVENTS','EXPERT ADVICE','CO-OP JOURNAL','CONVERSATIONS','CAMPING PROJECT' ],
 
       lowerNav: ['Camp & Hike','Climb','Cycle','Paddle','Run','Snow','Travel','Yoga','Men','Women','Kids','Deals','More' ],
@@ -62,13 +60,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var url = window.location.href.toString().split('/');
-    var urlID = url[url.length - 1];
-
-    this.setState({
-      urlID
-    });
-
     var quantStorage = {};
 
     for (var i = 0; i < this.state.cartQuantity; i++) {
