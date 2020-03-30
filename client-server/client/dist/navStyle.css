@@ -627,11 +627,19 @@ body {
   cursor: pointer;
 }
 
+.loginFormCreate:hover {
+  background-color: #214e96;
+}
+
 .loginFormCreate {
   border: 1px solid grey;
   background-color: white;
   height: 2.5em;
   cursor: pointer;
+}
+
+.loginFormCreate:hover {
+  background-color: #e6e6e6;
 }
 
 .failedGrid {
@@ -879,13 +887,13 @@ mark.blue:hover {
   height: 3em;
   border: 0;
   color: white;
-  background-color: #32a8e1;
+  background-color: #2b60b5;
   font-weight: bold;
   font-size: 18px;
 }
 
 .cartCheckout:hover {
-  background-color: #2e98cc;
+  background-color: #214e96;
   cursor: pointer;
 }
 
