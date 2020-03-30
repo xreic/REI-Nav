@@ -881,6 +881,10 @@ mark.blue {
   cursor: pointer;
 }
 
+.cartAdditional p {
+  display: inline-block;
+}
+
 .cartAdditional p:first-child {
   font-weight: bold;
 }
