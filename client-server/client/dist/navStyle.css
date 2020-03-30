@@ -557,7 +557,7 @@ body {
   cursor: pointer;
   border: 1px solid #a9a9a9;
   box-sizing: border-box;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .formInputPassword {
@@ -655,7 +655,7 @@ body {
 
 .loginFormSignin,
 .loginFormCreate {
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .failedGrid {
@@ -906,7 +906,7 @@ mark.blue:hover {
   background-color: #2b60b5;
   font-weight: bold;
   font-size: 18px;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .cartCheckout:hover {
