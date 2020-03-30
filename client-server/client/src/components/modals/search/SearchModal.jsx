@@ -24,7 +24,7 @@ class SearchModal extends React.Component {
   onClear() {
     axios
       .delete('/api/searchbar/history')
-      .then(() => console.log('Search history cleared.'))
+      .then(() => {})
       .catch((err) => console.error(err));
 
     this.props.hideSearches();
