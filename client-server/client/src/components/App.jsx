@@ -87,8 +87,7 @@ class App extends React.Component {
   }
 
   activateMainModal(active) {
-    this.hideMainModal();
-    this.hideLoginModal();
+    this.hideAllModals();
 
     //prettier-ignore
     axios
