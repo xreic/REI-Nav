@@ -277,11 +277,11 @@ class App extends React.Component {
             &nbsp;
             <p className="coronaVirusStrand2">{'REI stores are temporarily closed.'}</p>
             &nbsp;
-            <p className="coronaVirusStrand3">{'Learn more.'}</p>
+            <p className="coronaVirusStrand3">{'Learn more on how to stay healthy and wash properly.'}</p>
             &nbsp;
-            <p className="coronaVirusStrand4">{'Free standard shipping during this time.'}</p>
+            <p className="coronaVirusStrand4">{'🧼👏. Free standard shipping during this time.'}</p>
             &nbsp;
-            <p className="coronaVirusStrand5">{'See details'}</p>
+            <p className="coronaVirusStrand5">{'See details.'}</p>
           </div>
         </div>
       </div>
