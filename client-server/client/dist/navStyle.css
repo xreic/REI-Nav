@@ -1012,7 +1012,6 @@ mark.blue:hover {
   margin: 0;
   box-sizing: border-box;
   border: 1px solid black;
-  border-bottom: 0px solid transparent;
   border-top: 0px;
 }
 
@@ -1023,37 +1022,37 @@ mark.blue:hover {
   box-sizing: border-box;
 }
 
-.searchItems li:last-child {
-  border-bottom: 1px solid black;
-}
-
 .searchItems-Between {
   font-size: 14px;
+}
+
+.searchItems-Between:hover {
+  margin: 0px 1px;
 }
 
 .searchItems-First {
   font-weight: bold;
   font-size: 20px;
-  border-bottom: 1px solid #555555;
+  border-bottom: 1px solid black;
   margin-bottom: 10px;
 }
 
 .searchItems-Last {
   color: #1f4e99;
-  border-top: 1px solid #555555;
+  border-top: 1px solid black;
   margin-top: 10px;
-  border-bottom: 1px solid black;
 }
 
 .searchItems-Last:hover,
 .searchItems-Between:hover {
   text-decoration: underline;
   background-color: #e6e6e6;
-  border-left: 1px solid black;
+  margin-bottom: 0.25px;
 }
 
 .searchItems-Last:hover {
-  border-bottom: 1px solid black;
+  margin-left: 0.25px;
+  margin-right: 0.25px;
 }
 
 .fade-in {

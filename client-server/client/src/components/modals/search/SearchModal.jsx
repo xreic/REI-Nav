@@ -37,7 +37,7 @@ class SearchModal extends React.Component {
           <div className="searchWrapper">
             <div className="searchLayout">
               <div className="searchContents">
-                <ul className="searchItems">
+                <ul className="searchHistory">
                   <li
                     className="searchItems-First"
                     onClick={this.props.hideSearches}
