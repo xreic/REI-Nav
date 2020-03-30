@@ -604,6 +604,10 @@ body {
   text-align: left;
 }
 
+.loginForgot:hover {
+  text-decoration: underline;
+}
+
 .loginFormAgreement {
   margin: 0px;
   font-size: 10px;
@@ -837,6 +841,12 @@ mark.blue {
   padding: 5px 0;
 }
 
+.cartDescription li p {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+
 .cartRightDetails {
   box-sizing: border-box;
   border-left: 1px solid #555555;
@@ -868,19 +878,20 @@ mark.blue {
 
 .cartCheckout:hover {
   background-color: #2e98cc;
+  cursor: pointer;
 }
 
 .cartAdditional p:first-child {
   font-weight: bold;
 }
 
-.cartDescription li:last-child,
+.cartDescription li:last-child p,
 .cartAdditional p:last-child {
   color: #258abb;
   cursor: pointer;
 }
 
-.cartDescription li:last-child:hover,
+.cartDescription li:last-child p:hover,
 .cartAdditional p:last-child:hover {
   text-decoration: underline;
 }
