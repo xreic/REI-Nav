@@ -271,6 +271,19 @@ class App extends React.Component {
             hideSearches={this.hideSearches}
           />
         ) : null}
+        <div className="coronaVirus">
+          <div className="coronaVirusRNA">
+            <p className="coronaVirusStrand1">{'COVID-19 UPDATE.'}</p>
+            &nbsp;
+            <p className="coronaVirusStrand2">{'REI stores are temporarily closed.'}</p>
+            &nbsp;
+            <p className="coronaVirusStrand3">{'Learn more.'}</p>
+            &nbsp;
+            <p className="coronaVirusStrand4">{'Free standard shipping during this time.'}</p>
+            &nbsp;
+            <p className="coronaVirusStrand5">{'See details'}</p>
+          </div>
+        </div>
       </div>
     );
   }

@@ -21,6 +21,31 @@ body {
   background-color: black;
 }
 
+.coronaVirus {
+  background-color: #efede2;
+}
+
+.coronaVirusRNA {
+  display: inline-flex;
+  padding: 15px 0px;
+}
+
+.coronaVirus p {
+  margin: 0;
+}
+
+.coronaVirusStrand1,
+.coronaVirusStrand3,
+.coronaVirusStrand5 {
+  font-weight: bold;
+}
+
+.coronaVirusStrand3,
+.coronaVirusStrand5 {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .modalClose {
   position: fixed;
   top: 0;
