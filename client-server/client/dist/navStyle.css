@@ -30,11 +30,12 @@ body {
 }
 
 .coronaVirusRNA {
-  display: inline-flex;
+  display: inline-block;
   padding: 15px 0px;
 }
 
 .coronaVirus p {
+  display: inline-block;
   margin: 0;
 }
 
