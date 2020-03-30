@@ -91,7 +91,7 @@ body {
   border-bottom: 1px solid transparent;
   height: 100%;
   box-sizing: border-box;
-  z-index: 3;
+  z-index: 5;
 }
 
 .topNavItemsActive {
