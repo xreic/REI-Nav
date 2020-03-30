@@ -557,6 +557,17 @@ body {
   cursor: pointer;
   border: 1px solid #a9a9a9;
   box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.formInputPassword {
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+}
+
+.formButtonPassword {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .formInputUser {
@@ -640,6 +651,11 @@ body {
 
 .loginFormCreate:hover {
   background-color: #e6e6e6;
+}
+
+.loginFormSignin,
+.loginFormCreate {
+  border-radius: 5px;
 }
 
 .failedGrid {
@@ -890,6 +906,7 @@ mark.blue:hover {
   background-color: #2b60b5;
   font-weight: bold;
   font-size: 18px;
+  border-radius: 5px;
 }
 
 .cartCheckout:hover {
