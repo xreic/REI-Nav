@@ -595,6 +595,10 @@ body {
   cursor: pointer;
 }
 
+.formButtonPassword:hover {
+  background-color: #e6e6e6;
+}
+
 .loginForgot {
   margin-top: 5px;
   font-size: 16px;
