@@ -1012,6 +1012,7 @@ mark.blue:hover {
   margin: 0;
   box-sizing: border-box;
   border: 1px solid black;
+  border-bottom: 0px solid transparent;
   border-top: 0px;
 }
 
@@ -1020,6 +1021,10 @@ mark.blue:hover {
   padding: 7.5px 10px;
   cursor: pointer;
   box-sizing: border-box;
+}
+
+.searchItems li:last-child {
+  border-bottom: 1px solid black;
 }
 
 .searchItems-Between {
@@ -1037,12 +1042,18 @@ mark.blue:hover {
   color: #1f4e99;
   border-top: 1px solid #555555;
   margin-top: 10px;
+  border-bottom: 1px solid black;
 }
 
 .searchItems-Last:hover,
 .searchItems-Between:hover {
   text-decoration: underline;
-  background-color: #dedede;
+  background-color: #e6e6e6;
+  border-left: 1px solid black;
+}
+
+.searchItems-Last:hover {
+  border-bottom: 1px solid black;
 }
 
 .fade-in {
