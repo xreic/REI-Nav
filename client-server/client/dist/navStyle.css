@@ -4,6 +4,11 @@ body {
   margin: 0;
 }
 
+.noComponentPlaceholderImages {
+  display: block;
+  text-align: center;
+}
+
 #navBody {
   font-family: 'Rubik', 'Roboto Condensed', 'Helvetica Neue', Arial, sans-serif;
   margin: 0;
