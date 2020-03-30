@@ -729,6 +729,10 @@ mark.blue {
   cursor: pointer;
 }
 
+mark.blue:hover {
+  text-decoration: underline;
+}
+
 .loginModalClose {
   background-color: white;
   border-radius: 50%;
