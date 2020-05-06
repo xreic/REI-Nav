@@ -5,7 +5,7 @@ const Clickables = ({ index, icon, top, bottom }) => {
     <li key={index}>
       <img
         className={`clickableImages ${icon}`}
-        src={`https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/${icon}.png`}
+        src={`/assets/other/${icon}.png`}
         alt={icon}
       />
       <div className="clickableContainer">

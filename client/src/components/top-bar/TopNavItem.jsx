@@ -1,17 +1,34 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const TopNavItem = ({ index, item, classType, hideAllModals }) => (
-  <li
-    key={index}
-    className={index === 0 ? `${classType} ${classType}Active` : classType}
-  >
-    <p
-      className={index === 0 ? 'topNavText' : 'doNothing'}
-      onClick={hideAllModals}
+import { hideMain, hideLogin, hideSearch } from '../../redux/actions';
+
+const mapDispatchToProps = (dispatch) => ({
+  hideMain: () => dispatch(hideMain()),
+  hideLogin: () => dispatch(hideLogin()),
+  hideSearch: () => dispatch(hideSearch())
+});
+
+const TopNavItem = (props) => {
+  const { index, item, hideAllModals } = props;
+  return (
+    <li
+      key={index}
+      className={index === 0 ? 'topNavItems topNavItemsActive' : 'topNavItems'}
     >
-      {item}
-    </p>
-  </li>
-);
+      <p
+        className={index === 0 ? 'topNavText' : 'doNothing'}
+        onClick={() => {
+          props.hideMain();
+          props.hideLogin();
+          props.hideSearch();
+          hideAllModals();
+        }}
+      >
+        {item}
+      </p>
+    </li>
+  );
+};
 
-export default TopNavItem;
+export default connect(null, mapDispatchToProps)(TopNavItem);

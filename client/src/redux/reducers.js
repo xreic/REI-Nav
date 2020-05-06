@@ -35,9 +35,9 @@ const main = (
 ) => {
   switch (action.type) {
     case 'SHOW_MAIN':
-      return { ...state, ...action.payload };
+      return { ...state, visible: true, ...action.payload };
     case 'HIDE_MAIN':
-      return { ...state, visible: false };
+      return { ...state, visible: false, active: '' };
     default:
       return state;
   }
@@ -82,9 +82,9 @@ const login = (state = { visible: false, user: false, name: '' }, action) => {
 const search = (state = { visible: false, regex: '', data: [] }, action) => {
   switch (action.type) {
     case 'SHOW_SEARCHES':
-      return true;
+      return { ...state, visible: true };
     case 'HIDE_SEARCHES':
-      return false;
+      return { ...state, visible: false };
     default:
       return state;
   }

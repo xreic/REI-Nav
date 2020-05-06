@@ -10,9 +10,9 @@ import CartModal from './modals/cart/CartModal.jsx';
 import SearchModal from './modals/search/SearchModal.jsx';
 
 // Redux
-import { getCart, showMain } from '../redux/actions.js';
+import { getCart } from '../redux/actions.js';
+
 const mapDispatchToProps = (dispatch) => ({
-  showMain: (query) => dispatch(showMain(query)),
   getCart: (query) => dispatch(getCart(query))
 });
 class App extends React.Component {
@@ -21,10 +21,6 @@ class App extends React.Component {
 
     //prettier-ignore
     this.state = {
-      upperNav: ['SHOP REI','REI OUTLET','USED GEAR','REI ADVENTURES','CLASSES & EVENTS','EXPERT ADVICE','CO-OP JOURNAL','CONVERSATIONS','CAMPING PROJECT' ],
-
-      lowerNav: ['Camp & Hike','Climb','Cycle','Paddle','Run','Snow','Travel','Yoga','Men','Women','Kids','Deals','More' ],
-
       cartQuantity: Math.floor(Math.random() * 7),
       xCoords: 0,
       cartItems: [],
@@ -34,7 +30,6 @@ class App extends React.Component {
       modalData: [],
       modalAdverts: [],
       modalClickables: [],
-      activeCategory: '',
 
       showLoginModal: false,
       userLoggedin: false,
@@ -97,8 +92,6 @@ class App extends React.Component {
 
   activateMainModal(active) {
     this.hideAllModals();
-
-    this.props.showMain({ title: active });
 
     //prettier-ignore
     axios
@@ -215,16 +208,10 @@ class App extends React.Component {
     return (
       <div>
         <div id="navigation">
-          <TopNav
-            list={this.state.upperNav}
-            classType={'topNavItems'}
-            hideAllModals={this.hideAllModals}
-          />
+          <TopNav hideAllModals={this.hideAllModals} />
           <CentralNav
             userLoggedin={this.state.userLoggedin}
             cartQuantity={this.state.cartQuantity}
-            lowerNav={this.state.lowerNav}
-            activeCategory={this.state.activeCategory}
             activateMainModal={this.activateMainModal}
             activateLoginModal={this.activateLoginModal}
             activateCartModal={this.activateCartModal}
@@ -306,6 +293,4 @@ class App extends React.Component {
   }
 }
 
-const ConnectedApp = connect(null, mapDispatchToProps)(App);
-
-export default ConnectedApp;
+export default connect(null, mapDispatchToProps)(App);

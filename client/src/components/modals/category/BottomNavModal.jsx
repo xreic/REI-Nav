@@ -48,7 +48,7 @@ const NavModal = ({
               {activeCategory === 'More' ? null : (
                 <img
                   className="fade-in"
-                  src={`https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Categories/${catURL}.png`}
+                  src={`/assets/categories/${catURL}.png`}
                 />
               )}
             </div>

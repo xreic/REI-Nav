@@ -7,8 +7,6 @@ import BottomNav from './BottomNavBar.jsx';
 const CentralNav = ({
   cartQuantity,
   userLoggedin,
-  lowerNav,
-  activeCategory,
   activateMainModal,
   activateLoginModal,
   activateCartModal,
@@ -22,7 +20,7 @@ const CentralNav = ({
       <div className="navImage">
         <img
           className="navLogo"
-          src="https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/navTBox.png"
+          src="/assets/other/navTBox.png"
           alt="Go to REI.com Home Page"
         />
       </div>
@@ -43,9 +41,6 @@ const CentralNav = ({
           />
         </div>
         <BottomNav
-          list={lowerNav}
-          classType={'bottomNavItems'}
-          activeCategory={activeCategory}
           activateMainModal={activateMainModal}
           hideAllModals={hideAllModals}
         />
