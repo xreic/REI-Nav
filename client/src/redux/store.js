@@ -1,17 +1,7 @@
-// Dependencies
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import { rootReducer } from './reducers';
 import preloadedState from './preloadedState';
-
-// Reducers
-import { upperNav, lowerNav, cartQuantity, xCoords } from './reducers';
-
-const rootReducer = combineReducers({
-  upperNav,
-  lowerNav,
-  cartQuantity,
-  xCoords
-});
 
 const store = createStore(
   rootReducer,
