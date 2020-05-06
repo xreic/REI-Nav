@@ -1,6 +1,6 @@
 const preloadedState = () => ({
-  navLinks: {
-    upperNav: [
+  nav: {
+    upper: [
       'SHOP REI',
       'REI OUTLET',
       'USED GEAR',
@@ -12,7 +12,7 @@ const preloadedState = () => ({
       'CAMPING PROJECT'
     ],
 
-    lowerNav: [
+    lower: [
       'Camp & Hike',
       'Climb',
       'Cycle',

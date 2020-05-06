@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-const navLinks = () => ({
-  upperNav: [
+const nav = () => ({
+  upper: [
     'SHOP REI',
     'REI OUTLET',
     'USED GEAR',
@@ -12,7 +12,7 @@ const navLinks = () => ({
     'CONVERSATIONS',
     'CAMPING PROJECT'
   ],
-  lowerNav: [
+  lower: [
     'Camp & Hike',
     'Climb',
     'Cycle',
@@ -29,73 +29,55 @@ const navLinks = () => ({
   ]
 });
 
-// Cart modal
-const showCartModal = (state = false, action) => {
+const cart = (
+  state = {
+    visible: false,
+    xCoords: 0,
+    data: [],
+    cartQuantity: Math.floor(Math.random() * 7)
+  },
+  action
+) => {
   switch (action.type) {
     case 'SHOW_CART':
-      return true;
+      return { ...state, visible: true };
     case 'HIDE_CART':
-      return false;
+      return { ...state, visible: false };
     default:
       return state;
   }
 };
 
-const xCoords = () => 0;
-
-const cartItems = (state, action) => [];
-
-const cartQuantity = () => Math.floor(Math.random() * 7);
-
-// Main modal
-const showMainModal = (state = false, action) => {
+const main = (
+  state = { visible: false, active: '', data: [], adverts: [], clickables: [] },
+  action
+) => {
   switch (action.type) {
     case 'SHOW_MAIN':
-      return true;
+      return { ...state, visible: true };
     case 'HIDE_MAIN':
-      return false;
+      return { ...state, visible: false };
     default:
       return state;
   }
 };
 
-const modalData = (state, action) => [];
-
-const modalAdverts = (state, action) => [];
-
-const modalClickables = (state, action) => [];
-
-const activeCategory = (state, action) => '';
-
-// Login modal
-const showLoginModal = (state = false, action) => {
+const login = (state = { visible: false, user: false, name: '' }, action) => {
   switch (action.type) {
     case 'SHOW_LOGIN':
-      return true;
+      return { ...state, visible: true };
     case 'HIDE_LOGIN':
-      return false;
-    default:
-      return state;
-  }
-};
-
-const userLoggedin = (state = false, action) => {
-  switch (action.type) {
+      return { ...state, visible: false };
     case 'USER_LOGGED_IN':
-      return true;
+      return { ...state, user: true };
     case 'USER_LOGGED_OUT':
-      return false;
+      return { ...state, user: false };
     default:
       return state;
   }
 };
 
-const userFullname = (state, action) => '';
-
-// Search modal
-const searchRegex = (state, action) => '';
-
-const showSearches = (state = false, action) => {
+const search = (state = { visible: false, regex: '', data: [] }, action) => {
   switch (action.type) {
     case 'SHOW_SEARCHES':
       return true;
@@ -106,23 +88,10 @@ const showSearches = (state = false, action) => {
   }
 };
 
-const searchData = (state, action) => [];
-
 export const rootReducer = combineReducers({
-  navLinks,
-  showCartModal,
-  xCoords,
-  cartItems,
-  cartQuantity,
-  showMainModal,
-  modalData,
-  modalAdverts,
-  modalClickables,
-  activeCategory,
-  showLoginModal,
-  userLoggedin,
-  userFullname,
-  searchRegex,
-  showSearches,
-  searchData
+  nav,
+  cart,
+  main,
+  login,
+  search
 });
