@@ -21,4 +21,4 @@ const Subcategories = ({ index, subcategorySet, activeCategory }) => {
   }
 };
 
-module.exports = Subcategories;
+export default Subcategories;

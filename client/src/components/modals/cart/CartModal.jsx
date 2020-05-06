@@ -97,4 +97,4 @@ class CartModal extends Component {
   }
 }
 
-module.exports = CartModal;
+export default CartModal;

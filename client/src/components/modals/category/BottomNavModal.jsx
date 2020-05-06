@@ -75,4 +75,4 @@ const NavModal = ({
   );
 };
 
-module.exports = NavModal;
+export default NavModal;

@@ -8,4 +8,4 @@ const Adverts = ({ index, item }) => {
   );
 };
 
-module.exports = Adverts;
+export default Adverts;

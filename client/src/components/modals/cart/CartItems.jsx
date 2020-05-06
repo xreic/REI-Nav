@@ -22,4 +22,4 @@ const cartItems = ({ index, cartQuantity, productName, productID }) => {
   );
 };
 
-module.exports = cartItems;
+export default cartItems;

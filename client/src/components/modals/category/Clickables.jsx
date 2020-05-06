@@ -17,4 +17,4 @@ const Clickables = ({ index, icon, top, bottom }) => {
   );
 };
 
-module.exports = Clickables;
+export default Clickables;

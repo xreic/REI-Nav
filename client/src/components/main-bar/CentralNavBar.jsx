@@ -54,4 +54,4 @@ const CentralNav = ({
   </div>
 );
 
-module.exports = CentralNav;
+export default CentralNav;

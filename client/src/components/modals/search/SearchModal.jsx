@@ -85,4 +85,4 @@ class SearchModal extends React.Component {
   }
 }
 
-module.exports = SearchModal;
+export default SearchModal;

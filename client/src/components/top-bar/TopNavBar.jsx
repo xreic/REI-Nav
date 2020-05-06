@@ -18,4 +18,4 @@ const TopNav = ({ list, classType, hideAllModals }) => (
   </nav>
 );
 
-module.exports = TopNav;
+export default TopNav;

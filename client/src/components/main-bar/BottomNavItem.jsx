@@ -17,4 +17,4 @@ const BottomNavItem = ({ index, item, classType, activeCategory, activateMainMod
   );
 };
 
-module.exports = BottomNavItem;
+export default BottomNavItem;

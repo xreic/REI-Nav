@@ -50,4 +50,4 @@ const SearchItems = ({ item, productID, searchRegex }) => {
   );
 };
 
-module.exports = SearchItems;
+export default SearchItems;

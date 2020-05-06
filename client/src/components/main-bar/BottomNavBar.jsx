@@ -28,4 +28,4 @@ const BottomNav = ({
   </nav>
 );
 
-module.exports = BottomNav;
+export default BottomNav;

@@ -43,4 +43,4 @@ const Actions = ({
   </div>
 );
 
-module.exports = Actions;
+export default Actions;

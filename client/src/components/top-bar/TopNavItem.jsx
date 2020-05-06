@@ -14,4 +14,4 @@ const TopNavItem = ({ index, item, classType, hideAllModals }) => (
   </li>
 );
 
-module.exports = TopNavItem;
+export default TopNavItem;

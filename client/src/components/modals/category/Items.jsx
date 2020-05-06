@@ -8,4 +8,4 @@ const Items = ({ index, item }) => {
   );
 };
 
-module.exports = Items;
+export default Items;
