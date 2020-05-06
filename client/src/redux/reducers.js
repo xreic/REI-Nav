@@ -29,6 +29,20 @@ const nav = () => ({
   ]
 });
 
+const main = (
+  state = { visible: false, active: '', data: [], adverts: [], clickables: [] },
+  action
+) => {
+  switch (action.type) {
+    case 'SHOW_MAIN':
+      return { ...state, ...action.payload };
+    case 'HIDE_MAIN':
+      return { ...state, visible: false };
+    default:
+      return state;
+  }
+};
+
 const cart = (
   state = {
     visible: false,
@@ -43,20 +57,8 @@ const cart = (
       return { ...state, visible: true };
     case 'HIDE_CART':
       return { ...state, visible: false };
-    default:
-      return state;
-  }
-};
-
-const main = (
-  state = { visible: false, active: '', data: [], adverts: [], clickables: [] },
-  action
-) => {
-  switch (action.type) {
-    case 'SHOW_MAIN':
-      return { ...state, visible: true };
-    case 'HIDE_MAIN':
-      return { ...state, visible: false };
+    case 'GET_CART':
+      return { ...state, data: action.payload };
     default:
       return state;
   }
@@ -90,8 +92,8 @@ const search = (state = { visible: false, regex: '', data: [] }, action) => {
 
 export const rootReducer = combineReducers({
   nav,
-  cart,
   main,
+  cart,
   login,
   search
 });

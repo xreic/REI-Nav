@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 import TopNav from './top-bar/TopNavBar.jsx';
@@ -8,6 +9,12 @@ import LoginModal from './modals/login/LoginModal.jsx';
 import CartModal from './modals/cart/CartModal.jsx';
 import SearchModal from './modals/search/SearchModal.jsx';
 
+// Redux
+import { getCart, showMain } from '../redux/actions.js';
+const mapDispatchToProps = (dispatch) => ({
+  showMain: (query) => dispatch(showMain(query)),
+  getCart: (query) => dispatch(getCart(query))
+});
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -72,6 +79,8 @@ class App extends React.Component {
       }
     }
 
+    this.props.getCart({ items: Object.keys(quantStorage) });
+
     axios
       .post('/api/cart/', { items: Object.keys(quantStorage) })
       .then(({ data }) => {
@@ -88,6 +97,8 @@ class App extends React.Component {
 
   activateMainModal(active) {
     this.hideAllModals();
+
+    this.props.showMain({ title: active });
 
     //prettier-ignore
     axios
@@ -275,11 +286,17 @@ class App extends React.Component {
           <div className="coronaVirusRNA">
             <p className="coronaVirusStrand1">{'COVID-19 UPDATE.'}</p>
             &nbsp;
-            <p className="coronaVirusStrand2">{'REI stores are temporarily closed.'}</p>
+            <p className="coronaVirusStrand2">
+              {'REI stores are temporarily closed.'}
+            </p>
             &nbsp;
-            <p className="coronaVirusStrand3">{'Learn more on how to stay healthy and wash properly.'}</p>
+            <p className="coronaVirusStrand3">
+              {'Learn more on how to stay healthy and wash properly.'}
+            </p>
             &nbsp;
-            <p className="coronaVirusStrand4">{'🧼👏. Free standard shipping during this time.'}</p>
+            <p className="coronaVirusStrand4">
+              {'🧼👏. Free standard shipping during this time.'}
+            </p>
             &nbsp;
             <p className="coronaVirusStrand5">{'See details.'}</p>
           </div>
@@ -289,4 +306,6 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const ConnectedApp = connect(null, mapDispatchToProps)(App);
+
+export default ConnectedApp;

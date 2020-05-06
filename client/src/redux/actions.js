@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const showCart = () => ({
   type: 'SHOW_CART'
 });
@@ -6,9 +8,18 @@ export const hideCart = () => ({
   type: 'HIDE_CART'
 });
 
-export const showMain = () => ({
-  type: 'SHOW_MAIN'
-});
+export const showMain = (query) => async (dispatch) => {
+  const { data } = await axios.post('/api/navbar/', query);
+  dispatch({
+    type: 'SHOW_MAIN',
+    payload: {
+      active: data[0]['title'],
+      data: data[0]['category'],
+      adverts: data[0]['other'],
+      clickables: data[0]['actions']
+    }
+  });
+};
 
 export const hideMain = () => ({
   type: 'HIDE_MAIN'
@@ -37,3 +48,11 @@ export const showSearch = () => ({
 export const hideSearch = () => ({
   type: 'HIDE_SEARCHES'
 });
+
+export const getCart = (query) => async (dispatch) => {
+  const { data } = await axios.post('/api/cart/', query);
+  dispatch({
+    type: 'GET_CART',
+    payload: data
+  });
+};
