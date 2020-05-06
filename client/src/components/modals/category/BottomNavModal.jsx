@@ -1,27 +1,33 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Subcategories from './Subcategories.jsx';
 import Adverts from './Adverts.jsx';
 import Clickables from './Clickables.jsx';
 
+const mapStateToProps = (state) => ({
+  active: state.main.active
+});
+
 const NavModal = ({
+  active,
   activeCategory,
   modalData,
   modalAdverts,
   modalClickables,
   hideMainModal
 }) => {
-  if (activeCategory === 'Camp & Hike') {
+  if (active === 'Camp & Hike') {
     var catURL = 'camp_hike';
   } else {
-    var catURL = activeCategory.toLowerCase();
+    var catURL = active.toLowerCase();
   }
 
   return (
     <div className="modalMainLayout">
       <div className="modalMainContent">
         <div className="modalMainCategory">
-          <h3>{activeCategory}</h3>
+          <h3>{active}</h3>
           <span onClick={hideMainModal}>
             <p>✖</p>
           </span>
@@ -29,7 +35,7 @@ const NavModal = ({
         <div className="modalMainSubs">
           <div
             className={
-              activeCategory === 'More'
+              active === 'More'
                 ? ' modalMainSubItem modalMainSubItemMini '
                 : 'modalMainSubItem'
             }
@@ -39,13 +45,13 @@ const NavModal = ({
                 key={index}
                 index={index}
                 subcategorySet={item}
-                activeCategory={activeCategory}
+                active={active}
               />
             ))}
           </div>
           <div className="modalMainSide">
             <div className="modalSideOne">
-              {activeCategory === 'More' ? null : (
+              {active === 'More' ? null : (
                 <img
                   className="fade-in"
                   src={`/assets/categories/${catURL}.png`}
@@ -75,4 +81,4 @@ const NavModal = ({
   );
 };
 
-export default NavModal;
+export default connect(mapStateToProps, null)(NavModal);
