@@ -1,10 +1,14 @@
+// Dependencies
 import React from 'react';
 import { connect } from 'react-redux';
 
+// Components
 import Subcategories from './Subcategories.jsx';
 import Adverts from './Adverts.jsx';
 import Clickables from './Clickables.jsx';
 
+// Redux
+import { hideMain } from '../../../redux/actions.js';
 const mapStateToProps = (state) => ({
   active: state.main.active,
   data: state.main.data,
@@ -12,12 +16,16 @@ const mapStateToProps = (state) => ({
   clickables: state.main.clickables
 });
 
-const NavModal = ({ active, data, adverts, clickables, hideMainModal }) => (
+const mapDispatchToProps = (dispatch) => ({
+  hideMain: () => dispatch(hideMain())
+});
+
+const NavModal = ({ active, data, adverts, clickables, hideMain }) => (
   <div className="modalMainLayout">
     <div className="modalMainContent">
       <div className="modalMainCategory">
         <h3>{active}</h3>
-        <span onClick={hideMainModal}>
+        <span onClick={hideMain}>
           <p>✖</p>
         </span>
       </div>
@@ -65,4 +73,4 @@ const NavModal = ({ active, data, adverts, clickables, hideMainModal }) => (
   </div>
 );
 
-export default connect(mapStateToProps)(NavModal);
+export default connect(mapStateToProps, mapDispatchToProps)(NavModal);

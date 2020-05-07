@@ -5,8 +5,6 @@ import Actions from './Actions.jsx';
 import BottomNav from './BottomNavBar.jsx';
 
 const CentralNav = ({
-  cartQuantity,
-  userLoggedin,
   activateMainModal,
   activateLoginModal,
   activateCartModal,
@@ -33,8 +31,6 @@ const CentralNav = ({
             saveRegex={saveRegex}
           />
           <Actions
-            cartQuantity={cartQuantity}
-            userLoggedin={userLoggedin}
             activateLoginModal={activateLoginModal}
             activateCartModal={activateCartModal}
             hideAllModals={hideAllModals}

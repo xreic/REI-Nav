@@ -1,8 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => ({
+  cartQuantity: state.cart.cartQuantity,
+  user: state.login.user
+});
 
 const Actions = ({
   cartQuantity,
-  userLoggedin,
+  user,
   activateLoginModal,
   activateCartModal,
   hideAllModals
@@ -10,7 +16,7 @@ const Actions = ({
   <div className="navActions">
     <div className="actionItemsAccount" onClick={activateLoginModal}>
       <img src={`/assets/other/navTBox.png`} alt="Image of a person" />
-      {userLoggedin ? <div>MY ACCOUNT</div> : <div>SIGN IN</div>}
+      {user ? <div>MY ACCOUNT</div> : <div>SIGN IN</div>}
     </div>
     <div className="actionItemsLocation" onClick={hideAllModals}>
       <img src={`/assets/other/navTBox.png`} alt="Image of a location pin" />
@@ -34,4 +40,4 @@ const Actions = ({
   </div>
 );
 
-export default Actions;
+export default connect(mapStateToProps)(Actions);

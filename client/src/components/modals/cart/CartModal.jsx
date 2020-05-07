@@ -1,16 +1,46 @@
+// Dependencies
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+// Components
 import CartItems from './CartItems.jsx';
+
+// Redux
+import { hideCart, getCart } from '../../../redux/actions.js';
+
+const mapStateToProps = (state) => ({
+  cartQuantity: state.cart.cartQuantity,
+  data: state.cart.data
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getCart: (query) => dispatch(getCart(query)),
+  hideCart: () => dispatch(hideCart())
+});
 
 class CartModal extends Component {
   constructor(props) {
     super(props);
 
     this.leftScroll = this.leftScroll.bind(this);
-    this.righttScroll = this.righttScroll.bind(this);
+    this.rightScroll = this.rightScroll.bind(this);
   }
 
   componentDidMount() {
+    var quantStorage = {};
+
+    for (var i = 0; i < this.props.cartQuantity; i++) {
+      let rand = Math.ceil(Math.random() * 100);
+
+      if (quantStorage[rand] === undefined) {
+        quantStorage[rand] = 1;
+      } else {
+        quantStorage[rand]++;
+      }
+    }
+
+    this.props.getCart({ items: Object.keys(quantStorage) });
+
     document.getElementById('slider').scrollLeft += this.props.xCoords;
   }
 
@@ -22,7 +52,7 @@ class CartModal extends Component {
     }
   }
 
-  righttScroll() {
+  rightScroll() {
     if (this.props.xCoords < (this.props.cartQuantity - 1) * 500) {
       document.getElementById('slider').scrollLeft += 500;
       let coords =
@@ -51,7 +81,7 @@ class CartModal extends Component {
                     </div>
                   )}
                   <div id="slider" className="cartItems">
-                    {this.props.cartItems.map((item, index) => (
+                    {this.props.data.map((item, index) => (
                       <CartItems
                         key={index}
                         index={index}
@@ -64,7 +94,7 @@ class CartModal extends Component {
                     ))}
                   </div>
                   {this.props.cartQuantity === 1 ? null : (
-                    <div onClick={this.righttScroll} className="nextButton">
+                    <div onClick={this.rightScroll} className="nextButton">
                       <i className="buttonRight"></i>
                     </div>
                   )}
@@ -97,4 +127,4 @@ class CartModal extends Component {
   }
 }
 
-export default CartModal;
+export default connect(mapStateToProps, mapDispatchToProps)(CartModal);

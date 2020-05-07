@@ -17,7 +17,6 @@ const BottomNavItem = ({
       }
       onClick={() => {
         showMain({ title: item });
-        activateMainModal(item);
       }}
     >
       <p className={item === active ? 'bottomNavText' : 'doNothing'}>{item}</p>

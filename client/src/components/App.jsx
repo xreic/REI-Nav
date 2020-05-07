@@ -4,16 +4,18 @@ import axios from 'axios';
 
 import TopNav from './top-bar/TopNavBar.jsx';
 import CentralNav from './main-bar/CentralNavBar.jsx';
-import BottomNavModal from './modals/category/BottomNavModal.jsx';
-import LoginModal from './modals/login/LoginModal.jsx';
 import CartModal from './modals/cart/CartModal.jsx';
 import SearchModal from './modals/search/SearchModal.jsx';
+import ModalContainer from './ModalContainer.jsx';
 
 // Redux
-import { getCart } from '../redux/actions.js';
+import { getCart, hideMain, hideLogin, hideSearch } from '../redux/actions.js';
 
 const mapDispatchToProps = (dispatch) => ({
-  getCart: (query) => dispatch(getCart(query))
+  getCart: (query) => dispatch(getCart(query)),
+  hideMain: () => dispatch(hideMain()),
+  hideLogin: () => dispatch(hideLogin()),
+  hideSearch: () => dispatch(hideSearch())
 });
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +23,6 @@ class App extends React.Component {
 
     //prettier-ignore
     this.state = {
-      cartQuantity: Math.floor(Math.random() * 7),
       xCoords: 0,
       cartItems: [],
       showCartModal: false,
@@ -32,7 +33,6 @@ class App extends React.Component {
       modalClickables: [],
 
       showLoginModal: false,
-      userLoggedin: false,
       userFullame: '',
 
       searchRegex: '',
@@ -61,49 +61,22 @@ class App extends React.Component {
     this.saveRegex = this.saveRegex.bind(this);
   }
 
-  componentDidMount() {
-    var quantStorage = {};
-
-    for (var i = 0; i < this.state.cartQuantity; i++) {
-      let rand = Math.ceil(Math.random() * 100);
-
-      if (quantStorage[rand] === undefined) {
-        quantStorage[rand] = 1;
-      } else {
-        quantStorage[rand]++;
-      }
-    }
-
-    this.props.getCart({ items: Object.keys(quantStorage) });
-
-    axios
-      .post('/api/cart/', { items: Object.keys(quantStorage) })
-      .then(({ data }) => {
-        this.setState({ cartItems: data });
-      })
-      .catch((err) => console.error(err));
-  }
-
   hideAllModals() {
     this.hideMainModal();
     this.hideLoginModal();
     this.hideSearches();
+
+    this.props.hideMain();
+    this.props.hideLogin();
+    this.props.hideSearch();
   }
 
   activateMainModal(active) {
     this.hideAllModals();
 
-    //prettier-ignore
     axios
       .post('/api/navbar/', { title: active })
-      .then(({ data }) =>
-        this.setState({
-          showMainModal: true,
-          modalData: data[0]['category'],
-          modalAdverts: data[0]['other'],
-          modalClickables: data[0]['actions'],
-          activeCategory: data[0]['title']
-        }))
+      .then(() => this.setState({ showMainModal: true }))
       .catch((err) => console.error(err));
   }
 
@@ -206,12 +179,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <div id="navigation">
           <TopNav hideAllModals={this.hideAllModals} />
+
           <CentralNav
-            userLoggedin={this.state.userLoggedin}
-            cartQuantity={this.state.cartQuantity}
             activateMainModal={this.activateMainModal}
             activateLoginModal={this.activateLoginModal}
             activateCartModal={this.activateCartModal}
@@ -221,41 +193,17 @@ class App extends React.Component {
             saveRegex={this.saveRegex}
           />
         </div>
-        {this.state.showMainModal ||
-        this.state.showLoginModal ||
-        this.state.showSearches ? (
-          <div
-            className="modalClose"
-            onClick={(e) => {
-              if (e.target.closest('div').className === 'modalClose') {
-                this.hideAllModals();
-              }
-            }}
-          />
-        ) : null}
-        {this.state.showMainModal ? (
-          <div className="modalMainWrapper">
-            <BottomNavModal hideMainModal={this.hideMainModal} />
-          </div>
-        ) : null}
-        {this.state.showLoginModal ? (
-          <LoginModal
-            userFullame={this.state.userFullame}
-            changeLogin={this.changeLogin}
-            userLoggedin={this.state.userLoggedin}
-            retrieveUserdata={this.retrieveUserdata}
-            hideLoginModal={this.hideLoginModal}
-          />
-        ) : null}
+
+        <ModalContainer hideAllModals={this.hideAllModals} />
+
         {this.state.showCartModal ? (
           <CartModal
-            cartItems={this.state.cartItems}
-            cartQuantity={this.state.cartQuantity}
             hideCartModal={this.hideCartModal}
             setCoords={this.setCoords}
             xCoords={this.state.xCoords}
           />
         ) : null}
+
         {this.state.showSearches ? (
           <SearchModal
             searchData={this.state.searchData}
@@ -263,6 +211,7 @@ class App extends React.Component {
             hideSearches={this.hideSearches}
           />
         ) : null}
+
         <div className="coronaVirus">
           <div className="coronaVirusRNA">
             <p className="coronaVirusStrand1">{'COVID-19 UPDATE.'}</p>
@@ -282,7 +231,7 @@ class App extends React.Component {
             <p className="coronaVirusStrand5">{'See details.'}</p>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
