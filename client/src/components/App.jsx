@@ -10,17 +10,14 @@ import ModalContainer from './ModalContainer.jsx';
 import Coronavirus from './Coronavirus.jsx';
 
 // Redux
-import { getCart, hideMain, hideLogin, hideSearch } from '../redux/actions.js';
+import { getCart } from '../redux/actions.js';
 
 const mapStateToProps = (state) => ({
   cartQuantity: state.cart.cartQuantity
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getCart: (payload) => dispatch(getCart(payload)),
-  hideMain: () => dispatch(hideMain()),
-  hideLogin: () => dispatch(hideLogin()),
-  hideSearch: () => dispatch(hideSearch())
+  getCart: (payload) => dispatch(getCart(payload))
 });
 class App extends React.Component {
   componentDidMount = async () => {
@@ -43,43 +40,13 @@ class App extends React.Component {
     this.props.getCart(data);
   };
 
-  changeLogin = () => {
-    this.setState({
-      userLoggedin: !this.state.userLoggedin,
-      userFullame: ''
-    });
-  };
-
-  retrieveUserdata = (userObject, callback) => {
-    axios
-      .post('/api/login/', userObject)
-      .then(({ data }) => {
-        if (data.length > 0) {
-          document.getElementById('doubleForm1').reset();
-          document.getElementById('doubleForm2').reset();
-
-          this.changeLogin();
-          callback(false);
-
-          this.setState({
-            userFullame: data[0]['name']
-          });
-        } else {
-          callback(true);
-        }
-      })
-      .catch((err) => console.error(err));
-  };
-
   render() {
     return (
       <React.Fragment>
         <div id="navigation">
           <TopNav />
-
           <CentralNav />
         </div>
-
         <ModalContainer />
         <Coronavirus />
       </React.Fragment>

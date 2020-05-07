@@ -47,8 +47,9 @@ export const hideLogin = () => ({
   type: 'HIDE_LOGIN'
 });
 
-export const userLogin = () => ({
-  type: 'USER_LOGGED_IN'
+export const userLogin = (payload) => ({
+  type: 'USER_LOGGED_IN',
+  payload
 });
 
 export const userLogout = () => ({

@@ -70,9 +70,9 @@ const login = (state = { visible: false, user: false, name: '' }, action) => {
     case 'HIDE_LOGIN':
       return { ...state, visible: false };
     case 'USER_LOGGED_IN':
-      return { ...state, user: true };
+      return { ...state, user: true, name: action.payload };
     case 'USER_LOGGED_OUT':
-      return { ...state, user: false };
+      return { ...state, user: false, name: '' };
     default:
       return state;
   }
