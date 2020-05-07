@@ -1,8 +1,11 @@
+// Dependencies
 import React from 'react';
 import { connect } from 'react-redux';
 
+// Components
 import BottomNavItem from './BottomNavItem.jsx';
 
+// Redux
 import { showMain } from '../../redux/actions.js';
 
 const mapStateToProps = (state) => ({
@@ -11,7 +14,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  showMain: (query) => dispatch(showMain(query))
+  showMain: (payload) => dispatch(showMain(payload))
 });
 
 const BottomNav = ({

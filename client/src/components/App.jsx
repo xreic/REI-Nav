@@ -14,7 +14,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getCart: (query) => dispatch(getCart(query)),
+  getCart: (payload) => dispatch(getCart(payload)),
   hideMain: () => dispatch(hideMain()),
   hideLogin: () => dispatch(hideLogin()),
   hideSearch: () => dispatch(hideSearch())
@@ -60,7 +60,7 @@ class App extends React.Component {
     this.hideSearches = this.hideSearches.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount = async () => {
     var quantStorage = {};
 
     for (var i = 0; i < this.props.cartQuantity; i++) {
@@ -73,8 +73,12 @@ class App extends React.Component {
       }
     }
 
-    this.props.getCart({ items: Object.keys(quantStorage) });
-  }
+    const { data } = await axios.post('/api/cart/', {
+      items: Object.keys(quantStorage)
+    });
+
+    this.props.getCart(data);
+  };
 
   hideAllModals() {
     this.hideMainModal();
@@ -169,7 +173,6 @@ class App extends React.Component {
     });
   }
 
-
   render() {
     return (
       <React.Fragment>
@@ -187,7 +190,6 @@ class App extends React.Component {
         </div>
 
         <ModalContainer hideAllModals={this.hideAllModals} />
-
 
         <div className="coronaVirus">
           <div className="coronaVirusRNA">

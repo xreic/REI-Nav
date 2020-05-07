@@ -1,20 +1,15 @@
-import axios from 'axios';
-
 /**
  *  Main
  */
-export const showMain = (query) => async (dispatch) => {
-  const { data } = await axios.post('/api/navbar/', query);
-  dispatch({
-    type: 'SHOW_MAIN',
-    payload: {
-      active: data[0]['title'],
-      data: data[0]['category'],
-      adverts: data[0]['other'],
-      clickables: data[0]['actions']
-    }
-  });
-};
+export const showMain = (payload) => ({
+  type: 'SHOW_MAIN',
+  payload: {
+    active: payload['title'],
+    data: payload['category'],
+    adverts: payload['other'],
+    clickables: payload['actions']
+  }
+});
 
 export const hideMain = () => ({
   type: 'HIDE_MAIN'
@@ -31,10 +26,10 @@ export const hideCart = () => ({
   type: 'HIDE_CART'
 });
 
-export const getCart = (query) => async (dispatch) => {
-  const { data } = await axios.post('/api/cart/', query);
-  dispatch({ type: 'GET_CART', payload: data });
-};
+export const getCart = (payload) => ({
+  type: 'GET_CART',
+  payload
+});
 
 export const scrollCart = (payload) => ({
   type: 'SCROLL_CART',
@@ -76,15 +71,14 @@ export const searchItems = (payload) => ({
   payload
 });
 
-export const getHistory = () => async (dispatch) => {
-  const { data } = await axios.get('/api/searchbar/history');
-  dispatch({ type: 'GET_HISTORY', payload: data });
-};
+export const getHistory = (payload) => ({
+  type: 'GET_HISTORY',
+  payload
+});
 
-export const clearHistory = () => async (dispatch) => {
-  await axios.delete('/api/searchbar/history');
-  dispatch({ type: 'CLEAR_HISTORY' });
-};
+export const clearHistory = () => ({
+  type: 'CLEAR_HISTORY'
+});
 
 export const setRegex = (payload) => ({
   type: 'SET_REGEX',

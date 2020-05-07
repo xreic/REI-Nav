@@ -1,6 +1,7 @@
 // Dependencies
 import React from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 // Components
 import SearchHistory from './SearchHistory.jsx';
@@ -20,17 +21,19 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getHistory: () => dispatch(getHistory()),
+  getHistory: (payload) => dispatch(getHistory(payload)),
   clearHistory: () => dispatch(clearHistory()),
   hideSearch: () => dispatch(hideSearch())
 });
 
 class SearchModal extends React.Component {
-  componentDidMount = () => {
-    this.props.getHistory();
+  componentDidMount = async () => {
+    const { data } = await axios.get('/api/searchbar/history');
+    this.props.getHistory(data);
   };
 
-  onClear = () => {
+  onClear = async () => {
+    await axios.delete('/api/searchbar/history');
     this.props.clearHistory();
     this.props.hideSearch();
   };

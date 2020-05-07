@@ -64,7 +64,7 @@ class SearchBar extends React.Component {
         this.props.setRegex(jsRegex);
       }
     } else {
-      this.props.searchDropdown([]);
+      this.props.searchItems([]);
     }
   };
 

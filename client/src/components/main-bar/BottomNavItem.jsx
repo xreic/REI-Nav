@@ -1,12 +1,7 @@
 import React from 'react';
+import axios from 'axios';
 
-const BottomNavItem = ({
-  index,
-  item,
-  active,
-  showMain,
-  activateMainModal
-}) => {
+const BottomNavItem = ({ index, item, active, showMain }) => {
   return (
     <li
       key={index}
@@ -15,8 +10,9 @@ const BottomNavItem = ({
           ? 'bottomNavItems bottomNavItemsActive'
           : 'bottomNavItems'
       }
-      onClick={() => {
-        showMain({ title: item });
+      onClick={async () => {
+        const { data } = await axios.post('/api/navbar/', { title: item });
+        showMain(data[0]);
       }}
     >
       <p className={item === active ? 'bottomNavText' : 'doNothing'}>{item}</p>
