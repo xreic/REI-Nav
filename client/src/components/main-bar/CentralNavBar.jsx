@@ -4,11 +4,7 @@ import SearchBar from './SearchBar.jsx';
 import Actions from './Actions.jsx';
 import BottomNav from './BottomNavBar.jsx';
 
-const CentralNav = ({
-  activateLoginModal,
-  activateCartModal,
-  hideAllModals
-}) => (
+const CentralNav = () => (
   <div className="navBarWrapper">
     <div className="navBar">
       <div className="navImage">
@@ -20,12 +16,8 @@ const CentralNav = ({
       </div>
       <div className="navBarRight">
         <div className="navBarRightUpper">
-          <SearchBar hideAllModals={hideAllModals} />
-          <Actions
-            activateLoginModal={activateLoginModal}
-            activateCartModal={activateCartModal}
-            hideAllModals={hideAllModals}
-          />
+          <SearchBar />
+          <Actions />
         </div>
         <BottomNav />
       </div>

@@ -23,10 +23,6 @@ const mapDispatchToProps = (dispatch) => ({
   hideSearch: () => dispatch(hideSearch())
 });
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount = async () => {
     var quantStorage = {};
 
@@ -45,50 +41,6 @@ class App extends React.Component {
     });
 
     this.props.getCart(data);
-  };
-
-  hideAllModals = () => {
-    this.hideMainModal();
-    this.hideLoginModal();
-    this.hideSearches();
-
-    this.props.hideMain();
-    this.props.hideLogin();
-    this.props.hideSearch();
-  };
-
-  hideMainModal = () => {
-    this.setState({
-      showMainModal: false,
-      modalData: [],
-      activeCategory: ''
-    });
-  };
-
-  activateLoginModal = () => {
-    //prettier-ignore
-    this.setState({
-      showLoginModal: true,
-      showSearches: false
-      }, () => this.hideMainModal());
-  };
-
-  hideLoginModal = () => {
-    this.setState({
-      showLoginModal: false
-    });
-  };
-
-  activateCartModal = () => {
-    this.setState({
-      showCartModal: true
-    });
-  };
-
-  hideCartModal = () => {
-    this.setState({
-      showCartModal: false
-    });
   };
 
   changeLogin = () => {
@@ -119,35 +71,16 @@ class App extends React.Component {
       .catch((err) => console.error(err));
   };
 
-  activateSearches = () => {
-    this.setState({
-      showSearches: true
-    });
-  };
-
-  hideSearches = () => {
-    this.setState({
-      showSearches: false
-    });
-  };
-
   render() {
     return (
       <React.Fragment>
         <div id="navigation">
           <TopNav />
 
-          <CentralNav
-            activateMainModal={this.activateMainModal}
-            activateLoginModal={this.activateLoginModal}
-            activateCartModal={this.activateCartModal}
-            activateSearches={this.activateSearches}
-            hideAllModals={this.hideAllModals}
-            saveRegex={this.saveRegex}
-          />
+          <CentralNav />
         </div>
 
-        <ModalContainer hideAllModals={this.hideAllModals} />
+        <ModalContainer />
         <Coronavirus />
       </React.Fragment>
     );
