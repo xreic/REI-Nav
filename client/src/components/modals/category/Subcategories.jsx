@@ -1,5 +1,7 @@
+// Dependencies
 import React from 'react';
 
+// Components
 import Items from './Items';
 
 const Subcategories = ({ subcategorySet, active }) => {

@@ -1,5 +1,7 @@
+// Dependencies
 import React from 'react';
 
+// Components
 import SearchBar from './SearchBar';
 import Actions from './Actions';
 import BottomNav from './BottomNavBar';
