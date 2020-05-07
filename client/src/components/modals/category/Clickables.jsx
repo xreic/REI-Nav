@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Clickables = ({ index, icon, top, bottom }) => {
+const Clickables = ({ icon, top, bottom }) => {
   return (
-    <li key={index}>
+    <li>
       <img
         className={`clickableImages ${icon}`}
         src={`/assets/other/${icon}.png`}

@@ -6,79 +6,63 @@ import Adverts from './Adverts.jsx';
 import Clickables from './Clickables.jsx';
 
 const mapStateToProps = (state) => ({
-  active: state.main.active
+  active: state.main.active,
+  data: state.main.data,
+  adverts: state.main.adverts,
+  clickables: state.main.clickables
 });
 
-const NavModal = ({
-  active,
-  activeCategory,
-  modalData,
-  modalAdverts,
-  modalClickables,
-  hideMainModal
-}) => {
-  if (active === 'Camp & Hike') {
-    var catURL = 'camp_hike';
-  } else {
-    var catURL = active.toLowerCase();
-  }
-
-  return (
-    <div className="modalMainLayout">
-      <div className="modalMainContent">
-        <div className="modalMainCategory">
-          <h3>{active}</h3>
-          <span onClick={hideMainModal}>
-            <p>✖</p>
-          </span>
+const NavModal = ({ active, data, adverts, clickables, hideMainModal }) => (
+  <div className="modalMainLayout">
+    <div className="modalMainContent">
+      <div className="modalMainCategory">
+        <h3>{active}</h3>
+        <span onClick={hideMainModal}>
+          <p>✖</p>
+        </span>
+      </div>
+      <div className="modalMainSubs">
+        <div
+          className={
+            active === 'More'
+              ? 'modalMainSubItem modalMainSubItemMini'
+              : 'modalMainSubItem'
+          }
+        >
+          {data.map((item, index) => (
+            <Subcategories key={index} subcategorySet={item} active={active} />
+          ))}
         </div>
-        <div className="modalMainSubs">
-          <div
-            className={
-              active === 'More'
-                ? ' modalMainSubItem modalMainSubItemMini '
-                : 'modalMainSubItem'
-            }
-          >
-            {modalData.map((item, index) => (
-              <Subcategories
+        <div className="modalMainSide">
+          <div className="modalSideOne">
+            {active === 'More' ? null : (
+              <img
+                className="fade-in"
+                src={`/assets/categories/${
+                  active === 'Camp & Hike' ? 'camp_hike' : active.toLowerCase()
+                }.png`}
+              />
+            )}
+          </div>
+          <ul className="modalSideTwo">
+            {adverts.map((item, index) => (
+              <Adverts key={index} item={item} />
+            ))}
+          </ul>
+          <ul className="modalSideThree">
+            {clickables.map((item, index) => (
+              <Clickables
                 key={index}
-                index={index}
-                subcategorySet={item}
-                active={active}
+                icon={item['icon']}
+                top={item['top']}
+                bottom={item['bottom']}
               />
             ))}
-          </div>
-          <div className="modalMainSide">
-            <div className="modalSideOne">
-              {active === 'More' ? null : (
-                <img
-                  className="fade-in"
-                  src={`/assets/categories/${catURL}.png`}
-                />
-              )}
-            </div>
-            <ul className="modalSideTwo">
-              {modalAdverts.map((item, index) => (
-                <Adverts key={index} index={index} item={item} />
-              ))}
-            </ul>
-            <ul className="modalSideThree">
-              {modalClickables.map((item, index) => (
-                <Clickables
-                  key={index}
-                  index={index}
-                  icon={item['icon']}
-                  top={item['top']}
-                  bottom={item['bottom']}
-                />
-              ))}
-            </ul>
-          </div>
+          </ul>
         </div>
       </div>
     </div>
-  );
-};
+  </div>
+);
 
-export default connect(mapStateToProps, null)(NavModal);
+export default connect(mapStateToProps)(NavModal);

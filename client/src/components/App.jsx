@@ -235,13 +235,7 @@ class App extends React.Component {
         ) : null}
         {this.state.showMainModal ? (
           <div className="modalMainWrapper">
-            <BottomNavModal
-              activeCategory={this.state.activeCategory}
-              modalData={this.state.modalData}
-              modalAdverts={this.state.modalAdverts}
-              modalClickables={this.state.modalClickables}
-              hideMainModal={this.hideMainModal}
-            />
+            <BottomNavModal hideMainModal={this.hideMainModal} />
           </div>
         ) : null}
         {this.state.showLoginModal ? (

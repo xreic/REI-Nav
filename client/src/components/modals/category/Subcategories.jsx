@@ -2,19 +2,19 @@ import React from 'react';
 
 import Items from './Items.jsx';
 
-const Subcategories = ({ index, subcategorySet, activeCategory }) => {
-  if (activeCategory !== 'More') {
+const Subcategories = ({ subcategorySet, active }) => {
+  if (active !== 'More') {
     return (
-      <div className="modalMainSubTitles" key={index}>
+      <div className="modalMainSubTitles">
         <p>{subcategorySet.subcategory}</p>
         {subcategorySet.items.map((item, index) => (
-          <Items key={index} index={index} item={item} />
+          <Items key={index} item={item} />
         ))}
       </div>
     );
   } else {
     return (
-      <div className="modalMainSubTitles" key={index}>
+      <div className="modalMainSubTitles">
         <p>{subcategorySet.subcategory}</p>
       </div>
     );

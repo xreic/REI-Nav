@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Items = ({ index, item }) => {
+const Items = ({ item }) => {
   return (
-    <div className="modalMainLists" key={index}>
+    <div className="modalMainLists">
       <p>{item}</p>
     </div>
   );

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Adverts = ({ index, item }) => {
+const Adverts = ({  item }) => {
   return (
-    <li key={index}>
+    <li >
       <h4>{item}</h4>
     </li>
   );
