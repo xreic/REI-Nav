@@ -1,10 +1,13 @@
+// Dependencies
 import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
+// Components
 import TopNav from './top-bar/TopNavBar.jsx';
 import CentralNav from './main-bar/CentralNavBar.jsx';
 import ModalContainer from './ModalContainer.jsx';
+import Coronavirus from './Coronavirus.jsx';
 
 // Redux
 import { getCart, hideMain, hideLogin, hideSearch } from '../redux/actions.js';
@@ -22,42 +25,6 @@ const mapDispatchToProps = (dispatch) => ({
 class App extends React.Component {
   constructor(props) {
     super(props);
-
-    //prettier-ignore
-    this.state = {
-      xCoords: 0,
-      cartItems: [],
-      showCartModal: false,
-
-      showMainModal: false,
-      modalData: [],
-      modalAdverts: [],
-      modalClickables: [],
-
-      showLoginModal: false,
-      userFullame: '',
-
-      searchRegex: '',
-      showSearches: false,
-      searchData: []
-    };
-
-    this.activateMainModal = this.activateMainModal.bind(this);
-    this.hideMainModal = this.hideMainModal.bind(this);
-
-    this.activateLoginModal = this.activateLoginModal.bind(this);
-    this.hideLoginModal = this.hideLoginModal.bind(this);
-
-    this.activateCartModal = this.activateCartModal.bind(this);
-    this.hideCartModal = this.hideCartModal.bind(this);
-
-    this.hideAllModals = this.hideAllModals.bind(this);
-
-    this.changeLogin = this.changeLogin.bind(this);
-    this.retrieveUserdata = this.retrieveUserdata.bind(this);
-
-    this.activateSearches = this.activateSearches.bind(this);
-    this.hideSearches = this.hideSearches.bind(this);
   }
 
   componentDidMount = async () => {
@@ -80,7 +47,7 @@ class App extends React.Component {
     this.props.getCart(data);
   };
 
-  hideAllModals() {
+  hideAllModals = () => {
     this.hideMainModal();
     this.hideLoginModal();
     this.hideSearches();
@@ -88,59 +55,50 @@ class App extends React.Component {
     this.props.hideMain();
     this.props.hideLogin();
     this.props.hideSearch();
-  }
+  };
 
-  activateMainModal(active) {
-    this.hideAllModals();
-
-    axios
-      .post('/api/navbar/', { title: active })
-      .then(() => this.setState({ showMainModal: true }))
-      .catch((err) => console.error(err));
-  }
-
-  hideMainModal() {
+  hideMainModal = () => {
     this.setState({
       showMainModal: false,
       modalData: [],
       activeCategory: ''
     });
-  }
+  };
 
-  activateLoginModal() {
+  activateLoginModal = () => {
     //prettier-ignore
     this.setState({
       showLoginModal: true,
       showSearches: false
       }, () => this.hideMainModal());
-  }
+  };
 
-  hideLoginModal() {
+  hideLoginModal = () => {
     this.setState({
       showLoginModal: false
     });
-  }
+  };
 
-  activateCartModal() {
+  activateCartModal = () => {
     this.setState({
       showCartModal: true
     });
-  }
+  };
 
-  hideCartModal() {
+  hideCartModal = () => {
     this.setState({
       showCartModal: false
     });
-  }
+  };
 
-  changeLogin() {
+  changeLogin = () => {
     this.setState({
       userLoggedin: !this.state.userLoggedin,
       userFullame: ''
     });
-  }
+  };
 
-  retrieveUserdata(userObject, callback) {
+  retrieveUserdata = (userObject, callback) => {
     axios
       .post('/api/login/', userObject)
       .then(({ data }) => {
@@ -159,25 +117,25 @@ class App extends React.Component {
         }
       })
       .catch((err) => console.error(err));
-  }
+  };
 
-  activateSearches() {
+  activateSearches = () => {
     this.setState({
       showSearches: true
     });
-  }
+  };
 
-  hideSearches() {
+  hideSearches = () => {
     this.setState({
       showSearches: false
     });
-  }
+  };
 
   render() {
     return (
       <React.Fragment>
         <div id="navigation">
-          <TopNav hideAllModals={this.hideAllModals} />
+          <TopNav />
 
           <CentralNav
             activateMainModal={this.activateMainModal}
@@ -190,26 +148,7 @@ class App extends React.Component {
         </div>
 
         <ModalContainer hideAllModals={this.hideAllModals} />
-
-        <div className="coronaVirus">
-          <div className="coronaVirusRNA">
-            <p className="coronaVirusStrand1">{'COVID-19 UPDATE.'}</p>
-            &nbsp;
-            <p className="coronaVirusStrand2">
-              {'REI stores are temporarily closed.'}
-            </p>
-            &nbsp;
-            <p className="coronaVirusStrand3">
-              {'Learn more on how to stay healthy and wash properly.'}
-            </p>
-            &nbsp;
-            <p className="coronaVirusStrand4">
-              {'🧼👏. Free standard shipping during this time.'}
-            </p>
-            &nbsp;
-            <p className="coronaVirusStrand5">{'See details.'}</p>
-          </div>
-        </div>
+        <Coronavirus />
       </React.Fragment>
     );
   }

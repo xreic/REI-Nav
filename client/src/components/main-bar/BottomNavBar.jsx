@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import BottomNavItem from './BottomNavItem.jsx';
 
 // Redux
-import { showMain } from '../../redux/actions.js';
+import { showMain, hideSearch, hideLogin } from '../../redux/actions.js';
 
 const mapStateToProps = (state) => ({
   lower: state.nav.lower,
@@ -14,16 +14,12 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  showMain: (payload) => dispatch(showMain(payload))
+  showMain: (payload) => dispatch(showMain(payload)),
+  hideSearch: () => dispatch(hideSearch()),
+  hideLogin: () => dispatch(hideLogin())
 });
 
-const BottomNav = ({
-  lower,
-  active,
-  showMain,
-  activateMainModal,
-  hideAllModals
-}) => {
+const BottomNav = ({ lower, active, showMain, hideSearch }) => {
   return (
     <nav className="bottomNavBar">
       <ul className="bottomNavList">
@@ -34,10 +30,11 @@ const BottomNav = ({
             item={item}
             active={active}
             showMain={showMain}
-            activateMainModal={activateMainModal}
+            hideLogin={hideLogin}
+            hideSearch={hideSearch}
           />
         ))}
-        <li className="bottomNavItems" onClick={hideAllModals}>
+        <li className="bottomNavItems" onClick={hideSearch}>
           <p>REI Outlet</p>
           <p className="exitArrow"> &gt;</p>
         </li>

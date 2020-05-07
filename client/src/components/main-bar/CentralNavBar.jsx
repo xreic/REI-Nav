@@ -5,7 +5,6 @@ import Actions from './Actions.jsx';
 import BottomNav from './BottomNavBar.jsx';
 
 const CentralNav = ({
-  activateMainModal,
   activateLoginModal,
   activateCartModal,
   hideAllModals
@@ -28,10 +27,7 @@ const CentralNav = ({
             hideAllModals={hideAllModals}
           />
         </div>
-        <BottomNav
-          activateMainModal={activateMainModal}
-          hideAllModals={hideAllModals}
-        />
+        <BottomNav />
       </div>
     </div>
   </div>

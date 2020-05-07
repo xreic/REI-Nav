@@ -1,34 +1,27 @@
+// Dependencies
 import React from 'react';
 import { connect } from 'react-redux';
 
+// Redux
 import { hideMain, hideLogin, hideSearch } from '../../redux/actions';
 
 const mapDispatchToProps = (dispatch) => ({
-  hideMain: () => dispatch(hideMain()),
-  hideLogin: () => dispatch(hideLogin()),
-  hideSearch: () => dispatch(hideSearch())
+  hideMain: async () => dispatch(hideMain()),
+  hideLogin: async () => dispatch(hideLogin()),
+  hideSearch: async () => dispatch(hideSearch())
 });
 
-const TopNavItem = (props) => {
-  const { index, item, hideAllModals } = props;
-  return (
-    <li
-      key={index}
-      className={index === 0 ? 'topNavItems topNavItemsActive' : 'topNavItems'}
+const TopNavItem = ({ index, item, hideMain, hideLogin, hideSearch }) => (
+  <li className={index === 0 ? 'topNavItems topNavItemsActive' : 'topNavItems'}>
+    <p
+      className={index === 0 ? 'topNavText' : 'doNothing'}
+      onClick={async () => {
+        await Promise.all([hideMain(), hideLogin(), hideSearch()]);
+      }}
     >
-      <p
-        className={index === 0 ? 'topNavText' : 'doNothing'}
-        onClick={() => {
-          props.hideMain();
-          props.hideLogin();
-          props.hideSearch();
-          hideAllModals();
-        }}
-      >
-        {item}
-      </p>
-    </li>
-  );
-};
+      {item}
+    </p>
+  </li>
+);
 
 export default connect(null, mapDispatchToProps)(TopNavItem);

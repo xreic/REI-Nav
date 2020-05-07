@@ -4,12 +4,20 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 // Redux
-import { setRegex, searchItems, showSearch } from '../../redux/actions';
+import {
+  setRegex,
+  searchItems,
+  showSearch,
+  hideMain,
+  hideLogin
+} from '../../redux/actions';
 
 const mapDispatchToProps = (dispatch) => ({
   showSearch: () => dispatch(showSearch()),
   setRegex: (payload) => dispatch(setRegex(payload)),
-  searchItems: (payload) => dispatch(searchItems(payload))
+  searchItems: (payload) => dispatch(searchItems(payload)),
+  hideMain: () => dispatch(hideMain()),
+  hideLogin: () => dispatch(hideLogin())
 });
 
 class SearchBar extends React.Component {
@@ -26,13 +34,15 @@ class SearchBar extends React.Component {
   };
 
   onClickHandler = () => {
-    this.props.hideAllModals();
+    hideMain();
+    hideLogin();
     this.setState({ colored: true }, () => this.props.showSearch());
   };
 
   onSubmitHandler = async (e) => {
     e.preventDefault();
-    this.props.hideAllModals();
+    hideMain();
+    hideLogin();
     this.queryItems();
 
     await axios.post('/api/searchbar/history', {

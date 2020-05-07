@@ -1,7 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
-const BottomNavItem = ({ index, item, active, showMain }) => {
+const BottomNavItem = ({
+  index,
+  item,
+  active,
+  showMain,
+  hideLogin,
+  hideSearch
+}) => {
   return (
     <li
       key={index}
@@ -11,6 +18,8 @@ const BottomNavItem = ({ index, item, active, showMain }) => {
           : 'bottomNavItems'
       }
       onClick={async () => {
+        hideLogin();
+        hideSearch();
         const { data } = await axios.post('/api/navbar/', { title: item });
         showMain(data[0]);
       }}
