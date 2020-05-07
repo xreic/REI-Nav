@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
+const cartQuantity = Math.floor(Math.random() * 7);
+
 const nav = () => ({
   upper: [
     'SHOP REI',
@@ -44,12 +46,7 @@ const main = (
 };
 
 const cart = (
-  state = {
-    visible: false,
-    xCoords: 0,
-    data: [],
-    cartQuantity: Math.floor(Math.random() * 7)
-  },
+  state = { visible: false, xCoords: 0, data: [], cartQuantity },
   action
 ) => {
   switch (action.type) {
