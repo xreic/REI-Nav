@@ -3,9 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // Components
-import Subcategories from './Subcategories.jsx';
-import Adverts from './Adverts.jsx';
-import Clickables from './Clickables.jsx';
+import Subcategories from './Subcategories';
+import Adverts from './Adverts';
+import Clickables from './Clickables';
 
 // Redux
 import { hideMain } from '../../../redux/actions.js';

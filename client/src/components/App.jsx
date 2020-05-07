@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 // Components
-import TopNav from './top-bar/TopNavBar.jsx';
-import CentralNav from './main-bar/CentralNavBar.jsx';
-import ModalContainer from './ModalContainer.jsx';
-import Coronavirus from './Coronavirus.jsx';
+import TopNav from './top-bar/TopNavBar';
+import CentralNav from './main-bar/CentralNavBar';
+import ModalContainer from './ModalContainer';
+import Coronavirus from './Coronavirus';
 
 // Redux
-import { getCart } from '../redux/actions.js';
+import { getCart } from '../redux/actions';
 
 const mapStateToProps = (state) => ({
   cartQuantity: state.cart.cartQuantity

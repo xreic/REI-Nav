@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Items from './Items.jsx';
+import Items from './Items';
 
 const Subcategories = ({ subcategorySet, active }) => {
   if (active !== 'More') {

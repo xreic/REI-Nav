@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // Components
-import TopNavItem from './TopNavItem.jsx';
+import TopNavItem from './TopNavItem';
 
 // Redux
 const mapStateToProps = (state) => ({

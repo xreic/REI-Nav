@@ -1,8 +1,8 @@
 import React from 'react';
 
-import SearchBar from './SearchBar.jsx';
-import Actions from './Actions.jsx';
-import BottomNav from './BottomNavBar.jsx';
+import SearchBar from './SearchBar';
+import Actions from './Actions';
+import BottomNav from './BottomNavBar';
 
 const CentralNav = () => (
   <div className="navBarWrapper">

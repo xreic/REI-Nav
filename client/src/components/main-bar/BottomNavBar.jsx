@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // Components
-import BottomNavItem from './BottomNavItem.jsx';
+import BottomNavItem from './BottomNavItem';
 
 // Redux
 import { showMain, hideSearch, hideLogin } from '../../redux/actions.js';

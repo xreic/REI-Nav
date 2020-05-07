@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 // Components
-import SearchHistory from './SearchHistory.jsx';
-import SearchItems from './SearchItems.jsx';
+import SearchHistory from './SearchHistory';
+import SearchItems from './SearchItems';
 
 // Redux
 import {

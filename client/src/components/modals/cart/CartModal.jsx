@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // Components
-import CartItems from './CartItems.jsx';
+import CartItems from './CartItems';
 
 // Redux
 import { hideCart, getCart, scrollCart } from '../../../redux/actions.js';
