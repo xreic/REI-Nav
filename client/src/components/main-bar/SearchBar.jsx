@@ -9,15 +9,17 @@ import {
   searchItems,
   showSearch,
   hideMain,
-  hideLogin
+  hideLogin,
+  hideCart
 } from '../../redux/actions';
 
 const mapDispatchToProps = (dispatch) => ({
   showSearch: () => dispatch(showSearch()),
   setRegex: (payload) => dispatch(setRegex(payload)),
   searchItems: (payload) => dispatch(searchItems(payload)),
-  hideMain: () => dispatch(hideMain()),
-  hideLogin: () => dispatch(hideLogin())
+  hideMain: async () => dispatch(hideMain()),
+  hideLogin: async () => dispatch(hideLogin()),
+  hideCart: async () => dispatch(hideCart())
 });
 
 class SearchBar extends React.Component {
@@ -33,18 +35,24 @@ class SearchBar extends React.Component {
     this.setState({ productName: e.target.value }, () => this.queryItems());
   };
 
-  onClickHandler = () => {
-    hideMain();
-    hideLogin();
+  onClickHandler = async () => {
+    await Promise.all([
+      this.props.hideMain(),
+      this.props.hideLogin(),
+      this.props.hideCart()
+    ]);
     this.setState({ colored: true }, () => this.props.showSearch());
   };
 
   onSubmitHandler = async (e) => {
     e.preventDefault();
-    hideMain();
-    hideLogin();
     this.queryItems();
 
+    await Promise.all([
+      this.props.hideMain(),
+      this.props.hideLogin(),
+      this.props.hideCart()
+    ]);
     await axios.post('/api/searchbar/history', {
       search: this.state.productName
     });
