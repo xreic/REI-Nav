@@ -125,33 +125,18 @@ class LoginModal extends React.Component {
                 className="passwordForm"
                 onSubmit={this.onSigninClick}
               >
-                {this.state.showPassword ? (
-                  <input
-                    type="text"
-                    name="password"
-                    className="formInputPassword"
-                    autoComplete="off"
-                    onKeyDown={(e) => {
-                      if (e.keyCode === 13) {
-                        this.onSigninClick(e);
-                      }
-                    }}
-                    onChange={this.onChangeHandler}
-                  />
-                ) : (
-                  <input
-                    type="password"
-                    name="password"
-                    className="formInputPassword"
-                    autoComplete="off"
-                    onKeyDown={(e) => {
-                      if (e.keyCode === 13) {
-                        this.onSigninClick(e);
-                      }
-                    }}
-                    onChange={this.onChangeHandler}
-                  />
-                )}
+                <input
+                  type={this.state.showPassword ? 'text' : 'password'}
+                  name="password"
+                  className="formInputPassword"
+                  autoComplete="off"
+                  onKeyDown={(e) => {
+                    if (e.keyCode === 13) {
+                      this.onSigninClick(e);
+                    }
+                  }}
+                  onChange={this.onChangeHandler}
+                />
                 <button
                   className="formButtonPassword"
                   onClick={(e) => {
