@@ -8,11 +8,7 @@ import SearchHistory from './SearchHistory';
 import SearchItems from './SearchItems';
 
 // Redux
-import {
-  getHistory,
-  clearHistory,
-  hideSearch
-} from '../../../redux/actions.js';
+import { getHistory, clearHistory, hideSearch } from '../../../redux/actions';
 
 const mapStateToProps = (state) => ({
   regex: state.search.regex,

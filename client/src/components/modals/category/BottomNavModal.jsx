@@ -8,7 +8,7 @@ import Adverts from './Adverts';
 import Clickables from './Clickables';
 
 // Redux
-import { hideMain } from '../../../redux/actions.js';
+import { hideMain } from '../../../redux/actions';
 const mapStateToProps = (state) => ({
   active: state.main.active,
   data: state.main.data,
