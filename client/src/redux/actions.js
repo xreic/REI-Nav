@@ -56,3 +56,8 @@ export const getCart = (query) => async (dispatch) => {
     payload: data
   });
 };
+
+export const scrollCart = (payload) => ({
+  type: 'SCROLL_CART',
+  payload
+});

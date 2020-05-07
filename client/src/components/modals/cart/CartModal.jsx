@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import CartItems from './CartItems.jsx';
 
 // Redux
-import { hideCart, getCart } from '../../../redux/actions.js';
+import { hideCart, getCart, scrollCart } from '../../../redux/actions.js';
 
 const mapStateToProps = (state) => ({
   cartQuantity: state.cart.cartQuantity,
@@ -15,63 +15,40 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getCart: (query) => dispatch(getCart(query)),
-  hideCart: () => dispatch(hideCart())
+  hideCart: () => dispatch(hideCart()),
+  scrollCart: (scrollAmount) => dispatch(scrollCart(scrollAmount))
 });
 
 class CartModal extends Component {
-  constructor(props) {
-    super(props);
-
-    this.leftScroll = this.leftScroll.bind(this);
-    this.rightScroll = this.rightScroll.bind(this);
-  }
-
-  componentDidMount() {
-    var quantStorage = {};
-
-    for (var i = 0; i < this.props.cartQuantity; i++) {
-      let rand = Math.ceil(Math.random() * 100);
-
-      if (quantStorage[rand] === undefined) {
-        quantStorage[rand] = 1;
-      } else {
-        quantStorage[rand]++;
-      }
-    }
-
-    this.props.getCart({ items: Object.keys(quantStorage) });
-
+  componentDidMount = () => {
     document.getElementById('slider').scrollLeft += this.props.xCoords;
-  }
+  };
 
-  leftScroll() {
+  leftScroll = () => {
     if (this.props.xCoords >= 500) {
       document.getElementById('slider').scrollLeft -= 500;
       let coords = this.props.xCoords - 500 < 0 ? 0 : this.props.xCoords - 500;
-      this.props.setCoords(coords);
+      this.props.scrollCart(coords);
     }
-  }
+  };
 
-  rightScroll() {
+  rightScroll = () => {
     if (this.props.xCoords < (this.props.cartQuantity - 1) * 500) {
       document.getElementById('slider').scrollLeft += 500;
       let coords =
         this.props.xCoords + 500 < 500 * (this.props.cartQuantity - 1)
           ? this.props.xCoords + 500
           : 500 * (this.props.cartQuantity - 1);
-      this.props.setCoords(coords);
+      this.props.scrollCart(coords);
     }
-  }
+  };
 
   render() {
     return (
       <div className="cartContainer">
         <div className="cartWrapper">
           <div className="cartWindow">
-            <div
-              className="cartContents"
-              onMouseLeave={this.props.hideCartModal}
-            >
+            <div className="cartContents" onMouseLeave={this.props.hideCart}>
               <div className="cartLeft">
                 <div className="cartTitle">Added to your cart</div>
                 <div className="cartDetails">
@@ -101,10 +78,7 @@ class CartModal extends Component {
                 </div>
               </div>
               <div className="cartRight">
-                <span
-                  className="cartModalClose"
-                  onClick={this.props.hideCartModal}
-                >
+                <span className="cartModalClose" onClick={this.props.hideCart}>
                   <p>✖</p>
                 </span>
                 <div className="cartRightDetails">

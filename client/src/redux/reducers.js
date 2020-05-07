@@ -59,6 +59,8 @@ const cart = (
       return { ...state, visible: false };
     case 'GET_CART':
       return { ...state, data: action.payload };
+    case 'SCROLL_CART':
+      return { ...state, xCoords: action.payload };
     default:
       return state;
   }

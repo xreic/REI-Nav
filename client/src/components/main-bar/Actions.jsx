@@ -1,16 +1,24 @@
+// Dependencies
 import React from 'react';
 import { connect } from 'react-redux';
+
+// Redux
+import { showCart } from '../../redux/actions';
 
 const mapStateToProps = (state) => ({
   cartQuantity: state.cart.cartQuantity,
   user: state.login.user
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  showCart: () => dispatch(showCart())
+});
+
 const Actions = ({
   cartQuantity,
   user,
   activateLoginModal,
-  activateCartModal,
+  showCart,
   hideAllModals
 }) => (
   <div className="navActions">
@@ -27,7 +35,7 @@ const Actions = ({
       onClick={hideAllModals}
       onMouseEnter={() => {
         if (cartQuantity > 0) {
-          activateCartModal();
+          showCart();
         }
       }}
     >
@@ -40,4 +48,4 @@ const Actions = ({
   </div>
 );
 
-export default connect(mapStateToProps)(Actions);
+export default connect(mapStateToProps, mapDispatchToProps)(Actions);

@@ -4,12 +4,15 @@ import axios from 'axios';
 
 import TopNav from './top-bar/TopNavBar.jsx';
 import CentralNav from './main-bar/CentralNavBar.jsx';
-import CartModal from './modals/cart/CartModal.jsx';
 import SearchModal from './modals/search/SearchModal.jsx';
 import ModalContainer from './ModalContainer.jsx';
 
 // Redux
 import { getCart, hideMain, hideLogin, hideSearch } from '../redux/actions.js';
+
+const mapStateToProps = (state) => ({
+  cartQuantity: state.cart.cartQuantity
+});
 
 const mapDispatchToProps = (dispatch) => ({
   getCart: (query) => dispatch(getCart(query)),
@@ -48,7 +51,6 @@ class App extends React.Component {
 
     this.activateCartModal = this.activateCartModal.bind(this);
     this.hideCartModal = this.hideCartModal.bind(this);
-    this.setCoords = this.setCoords.bind(this);
 
     this.hideAllModals = this.hideAllModals.bind(this);
 
@@ -59,6 +61,22 @@ class App extends React.Component {
     this.hideSearches = this.hideSearches.bind(this);
     this.searchDropdown = this.searchDropdown.bind(this);
     this.saveRegex = this.saveRegex.bind(this);
+  }
+
+  componentDidMount() {
+    var quantStorage = {};
+
+    for (var i = 0; i < this.props.cartQuantity; i++) {
+      let rand = Math.ceil(Math.random() * 100);
+
+      if (quantStorage[rand] === undefined) {
+        quantStorage[rand] = 1;
+      } else {
+        quantStorage[rand]++;
+      }
+    }
+
+    this.props.getCart({ items: Object.keys(quantStorage) });
   }
 
   hideAllModals() {
@@ -171,12 +189,6 @@ class App extends React.Component {
     });
   }
 
-  setCoords(coords) {
-    this.setState({
-      xCoords: coords
-    });
-  }
-
   render() {
     return (
       <React.Fragment>
@@ -195,14 +207,6 @@ class App extends React.Component {
         </div>
 
         <ModalContainer hideAllModals={this.hideAllModals} />
-
-        {this.state.showCartModal ? (
-          <CartModal
-            hideCartModal={this.hideCartModal}
-            setCoords={this.setCoords}
-            xCoords={this.state.xCoords}
-          />
-        ) : null}
 
         {this.state.showSearches ? (
           <SearchModal
@@ -236,4 +240,4 @@ class App extends React.Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
