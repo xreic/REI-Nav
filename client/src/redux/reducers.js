@@ -78,12 +78,23 @@ const login = (state = { visible: false, user: false, name: '' }, action) => {
   }
 };
 
-const search = (state = { visible: false, regex: '', data: [] }, action) => {
+const search = (
+  state = { visible: false, regex: '', data: [], history: [] },
+  action
+) => {
   switch (action.type) {
     case 'SHOW_SEARCHES':
       return { ...state, visible: true };
     case 'HIDE_SEARCHES':
       return { ...state, visible: false };
+    case 'SEARCH_ITEMS':
+      return { ...state, data: action.payload };
+    case 'GET_HISTORY':
+      return { ...state, history: action.payload };
+    case 'CLEAR_HISTORY':
+      return { ...state, history: [] };
+    case 'SET_REGEX':
+      return { ...state, regex: action.payload };
     default:
       return state;
   }

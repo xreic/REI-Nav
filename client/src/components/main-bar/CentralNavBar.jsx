@@ -8,10 +8,7 @@ const CentralNav = ({
   activateMainModal,
   activateLoginModal,
   activateCartModal,
-  activateSearches,
-  searchDropdown,
-  hideAllModals,
-  saveRegex
+  hideAllModals
 }) => (
   <div className="navBarWrapper">
     <div className="navBar">
@@ -24,12 +21,7 @@ const CentralNav = ({
       </div>
       <div className="navBarRight">
         <div className="navBarRightUpper">
-          <SearchBar
-            hideAllModals={hideAllModals}
-            activateSearches={activateSearches}
-            searchDropdown={searchDropdown}
-            saveRegex={saveRegex}
-          />
+          <SearchBar hideAllModals={hideAllModals} />
           <Actions
             activateLoginModal={activateLoginModal}
             activateCartModal={activateCartModal}

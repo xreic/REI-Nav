@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import TopNav from './top-bar/TopNavBar.jsx';
 import CentralNav from './main-bar/CentralNavBar.jsx';
-import SearchModal from './modals/search/SearchModal.jsx';
 import ModalContainer from './ModalContainer.jsx';
 
 // Redux
@@ -59,8 +58,6 @@ class App extends React.Component {
 
     this.activateSearches = this.activateSearches.bind(this);
     this.hideSearches = this.hideSearches.bind(this);
-    this.searchDropdown = this.searchDropdown.bind(this);
-    this.saveRegex = this.saveRegex.bind(this);
   }
 
   componentDidMount() {
@@ -172,22 +169,6 @@ class App extends React.Component {
     });
   }
 
-  searchDropdown(data) {
-    if (data === []) {
-      this.hideSearches();
-    } else {
-      this.setState({
-        showSearches: true,
-        searchData: data
-      });
-    }
-  }
-
-  saveRegex(regex) {
-    this.setState({
-      searchRegex: regex
-    });
-  }
 
   render() {
     return (
@@ -200,7 +181,6 @@ class App extends React.Component {
             activateLoginModal={this.activateLoginModal}
             activateCartModal={this.activateCartModal}
             activateSearches={this.activateSearches}
-            searchDropdown={this.searchDropdown}
             hideAllModals={this.hideAllModals}
             saveRegex={this.saveRegex}
           />
@@ -208,13 +188,6 @@ class App extends React.Component {
 
         <ModalContainer hideAllModals={this.hideAllModals} />
 
-        {this.state.showSearches ? (
-          <SearchModal
-            searchData={this.state.searchData}
-            searchRegex={this.state.searchRegex}
-            hideSearches={this.hideSearches}
-          />
-        ) : null}
 
         <div className="coronaVirus">
           <div className="coronaVirusRNA">

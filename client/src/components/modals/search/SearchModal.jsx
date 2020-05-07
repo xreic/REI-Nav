@@ -1,37 +1,42 @@
+// Dependencies
 import React from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
 
+// Components
 import SearchHistory from './SearchHistory.jsx';
 import SearchItems from './SearchItems.jsx';
 
+// Redux
+import {
+  getHistory,
+  clearHistory,
+  hideSearch
+} from '../../../redux/actions.js';
+
+const mapStateToProps = (state) => ({
+  regex: state.search.regex,
+  data: state.search.data,
+  history: state.search.history
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getHistory: () => dispatch(getHistory()),
+  clearHistory: () => dispatch(clearHistory()),
+  hideSearch: () => dispatch(hideSearch())
+});
+
 class SearchModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      history: []
-    };
+  componentDidMount = () => {
+    this.props.getHistory();
+  };
 
-    this.onClear = this.onClear.bind(this);
-  }
-
-  componentDidMount() {
-    axios
-      .get('/api/searchbar/history')
-      .then(({ data }) => this.setState({ history: data }))
-      .catch((err) => console.error(err));
-  }
-
-  onClear() {
-    axios
-      .delete('/api/searchbar/history')
-      .then(() => {})
-      .catch((err) => console.error(err));
-
-    this.props.hideSearches();
-  }
+  onClear = () => {
+    this.props.clearHistory();
+    this.props.hideSearch();
+  };
 
   render() {
-    if (this.props.searchData.length === 0) {
+    if (this.props.data.length === 0) {
       return (
         <div className="searchContainer">
           <div className="searchWrapper">
@@ -40,16 +45,12 @@ class SearchModal extends React.Component {
                 <ul className="searchHistory">
                   <li
                     className="searchItems-First"
-                    onClick={this.props.hideSearches}
+                    onClick={this.props.hideSearch}
                   >
                     Search History
                   </li>
-                  {this.state.history.map((item, index) => (
-                    <SearchHistory
-                      key={index}
-                      index={index}
-                      item={item.search}
-                    />
+                  {this.props.history.map((item, index) => (
+                    <SearchHistory key={index} item={item.search} />
                   ))}
                   <li className="searchItems-Last" onClick={this.onClear}>
                     Clear History
@@ -67,12 +68,12 @@ class SearchModal extends React.Component {
             <div className="searchLayout">
               <div className="searchContents">
                 <ul className="searchItems">
-                  {this.props.searchData.map((item, index) => (
+                  {this.props.data.map((item, index) => (
                     <SearchItems
                       key={index}
                       item={item.productName}
                       productID={item.productID}
-                      searchRegex={this.props.searchRegex}
+                      regex={this.props.regex}
                     />
                   ))}
                 </ul>
@@ -85,4 +86,4 @@ class SearchModal extends React.Component {
   }
 }
 
-export default SearchModal;
+export default connect(mapStateToProps, mapDispatchToProps)(SearchModal);

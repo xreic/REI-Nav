@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 // Components
 import BottomNavModal from './modals/category/BottomNavModal.jsx';
 import CartModal from './modals/cart/CartModal.jsx';
+import SearchModal from './modals/search/SearchModal.jsx';
 
 // Redux
 const mapStateToProps = (state) => ({
@@ -35,6 +36,8 @@ const ModalContainer = (props) => (
     ) : null}
 
     {props.cartVisible ? <CartModal xCoords={props.xCoords} /> : null}
+
+    {props.searchVisible ? <SearchModal /> : null}
   </React.Fragment>
 );
 

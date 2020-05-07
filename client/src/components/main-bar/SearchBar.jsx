@@ -1,5 +1,16 @@
+// Dependencies
 import React from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
+
+// Redux
+import { setRegex, searchItems, showSearch } from '../../redux/actions';
+
+const mapDispatchToProps = (dispatch) => ({
+  showSearch: () => dispatch(showSearch()),
+  setRegex: (payload) => dispatch(setRegex(payload)),
+  searchItems: (payload) => dispatch(searchItems(payload))
+});
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -8,47 +19,35 @@ class SearchBar extends React.Component {
       productName: '',
       colored: false
     };
-
-    this.onChangeHandler = this.onChangeHandler.bind(this);
-    this.onClickHandler = this.onClickHandler.bind(this);
-    this.onSubmitHandler = this.onSubmitHandler.bind(this);
-    this.queryItems = this.queryItems.bind(this);
   }
 
-  //prettier-ignore
-  onChangeHandler(e) {
-    this.setState({
-      productName: e.target.value
-    }, () => this.queryItems());
-  }
+  onChangeHandler = (e) => {
+    this.setState({ productName: e.target.value }, () => this.queryItems());
+  };
 
-  //prettier-ignore
-  onClickHandler() {
+  onClickHandler = () => {
     this.props.hideAllModals();
-    this.setState({
-      colored: true
-    }, () => this.props.activateSearches());
-  }
+    this.setState({ colored: true }, () => this.props.showSearch());
+  };
 
-  onSubmitHandler(e) {
+  onSubmitHandler = async (e) => {
     e.preventDefault();
     this.props.hideAllModals();
     this.queryItems();
 
-    axios
-      .post('/api/searchbar/history', { search: this.state.productName })
-      .then(() => {})
-      .catch((err) => console.error(err));
-  }
+    await axios.post('/api/searchbar/history', {
+      search: this.state.productName
+    });
+  };
 
-  queryItems() {
+  queryItems = async () => {
     if (this.state.productName !== '') {
-      var newSplit = [];
-      var jsRegex = [];
+      let newSplit = [];
+      let jsRegex = [];
 
-      var split = this.state.productName.split(' ');
+      let split = this.state.productName.split(' ');
 
-      for (var i = 0; i < split.length; i++) {
+      for (let i = 0; i < split.length; i++) {
         newSplit.push(`(${split[i]})`);
 
         if (split[i] !== '') {
@@ -56,19 +55,18 @@ class SearchBar extends React.Component {
         }
       }
 
-      axios
-        .post('/api/searchbar/', { productName: newSplit.join('(.*)') })
-        .then(({ data }) => {
-          if (data.length > 0) {
-            this.props.searchDropdown(data);
-            this.props.saveRegex(jsRegex);
-          }
-        })
-        .catch((err) => console.error(err));
+      const { data } = await axios.post('/api/searchbar/', {
+        productName: newSplit.join('(.*)')
+      });
+
+      if (data.length > 0) {
+        this.props.searchItems(data);
+        this.props.setRegex(jsRegex);
+      }
     } else {
       this.props.searchDropdown([]);
     }
-  }
+  };
 
   render() {
     return (
@@ -96,4 +94,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+export default connect(null, mapDispatchToProps)(SearchBar);
