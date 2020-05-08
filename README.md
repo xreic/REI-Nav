@@ -1,4 +1,4 @@
-# Team_Ferrari
+# REI Co-op Nav Bar Mockup
 
 > Replica of the REI store page's navigation bar and search functionality.
 
