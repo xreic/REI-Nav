@@ -23,8 +23,6 @@
   - [ ] npm start
   - [ ] npm run seed (Only run if you want to populate the database with items)
 - Start mongod in terminal or command prompt (If necessary)
-- Start all servers
-- Open localhost:#### (#### is the port number the proxy server is established)
 
 ## Requirements
 
