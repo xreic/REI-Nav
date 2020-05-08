@@ -22,7 +22,7 @@
   - [ ] npm start
   - [ ] npm run dev:react
   - [ ] npm run seed (Only run if you want to populate the database with items)
-- Start mongod in terminal or command prompt (If necessary for Windows)
+- Start mongod in terminal or command prompt (If necessary)
 
 ## Requirements
 
