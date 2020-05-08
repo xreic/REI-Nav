@@ -23,6 +23,7 @@
   - [ ] npm start
   - [ ] npm run seed (Only run if you want to populate the database with items)
 - Start mongod in terminal or command prompt (If necessary)
+- [localhost:3100](http://localhost:3100)
 
 ## Requirements
 
