@@ -1,10 +1,6 @@
 # Team_Ferrari
 
-> Project description
-
-```sh
-Replica of the REI store page's navigation bar and search functionality.
-```
+> Replica of the REI store page's navigation bar and search functionality.
 
 ## Related Projects
 
