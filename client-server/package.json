@@ -1,14 +1,13 @@
 {
-  "name": "rei-coop-mockup",
-  "version": "2.0.0",
+  "name": "nav-Front",
+  "version": "1.0.0",
   "description": "",
   "keywords": [],
   "author": "Eric Lau",
   "license": "ISC",
   "scripts": {
     "react": "webpack -d --watch",
-    "start": "nodemon server/index.js",
-    "seed": "node database/seed.js"
+    "start": "nodemon server/index.js"
   },
   "dependencies": {
     "axios": "^0.19.2",

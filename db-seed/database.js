@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const url = 'mongodb://localhost:27017/rei-mockup';
+const url =
+  process.env.MONGO_CONNECTION_STRING || 'mongodb://localhost:27017/rei-mockup';
 
 mongoose.connect(url, {
   useNewUrlParser: true,
