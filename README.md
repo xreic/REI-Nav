@@ -2,17 +2,22 @@
 
 Mockup of the REI store page's navigation bar and search functionality. Now with Redux!
 
-## Related Projects
-
-- https://github.com/HRLA-35-FEC-CBDE/REI-Nav
-- https://github.com/HRLA-35-FEC-CBDE/Brandon_body
-- https://github.com/HRLA-35-FEC-CBDE/chris_reviews
-
 ## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+- [REI Co-op Nav Bar Mockup](#rei-co-op-nav-bar-mockup)
+  - [Table of Contents](#table-of-contents)
+  - [Microservices](#microservices)
+  - [Usage](#usage)
+  - [Requirements](#requirements)
+  - [Development](#development)
+    - [Installing Dependencies](#installing-dependencies)
+    - [Proxy Server](#proxy-server)
+
+## Microservices
+
+- [Nav](https://github.com/HRLA-35-FEC-CBDE/REI-Nav)
+- [Body](https://github.com/HRLA-35-FEC-CBDE/Brandon_body)
+- [Reviews](https://github.com/HRLA-35-FEC-CBDE/chris_reviews)
 
 ## Usage
 
@@ -41,3 +46,7 @@ From within the root directory:
 ```sh
 npm install
 ```
+
+### Proxy Server
+
+- [Proxy](https://github.com/HRLA-35-FEC-CBDE/REI-Nav-Proxy)
