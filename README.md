@@ -15,9 +15,10 @@ Mockup of the REI store page's navigation bar and search functionality. Now with
 
 ## Microservices
 
-- [Nav](https://github.com/HRLA-35-FEC-CBDE/REI-Nav)
-- [Body](https://github.com/HRLA-35-FEC-CBDE/Brandon_body)
-- [Reviews](https://github.com/HRLA-35-FEC-CBDE/chris_reviews)
+1. [Nav](https://github.com/HRLA-35-FEC-CBDE/REI-Nav)
+   1. [Dockerized](https://github.com/HRLA-35-FEC-CBDE/REI-Nav-Container)
+2. [Body](https://github.com/HRLA-35-FEC-CBDE/Brandon_body)
+3. [Reviews](https://github.com/HRLA-35-FEC-CBDE/chris_reviews)
 
 ## Usage
 
