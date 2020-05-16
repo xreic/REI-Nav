@@ -4,7 +4,7 @@ Mockup of the REI store page's navigation bar and search functionality. Now with
 
 ## Related Projects
 
-- https://github.com/xreic/REI-Nav
+- https://github.com/HRLA-35-FEC-CBDE/REI-Nav
 - https://github.com/HRLA-35-FEC-CBDE/Brandon_body
 - https://github.com/HRLA-35-FEC-CBDE/chris_reviews
 
