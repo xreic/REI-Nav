@@ -14,7 +14,7 @@ Mockup of the REI store page's navigation bar and search functionality. Now with
 
 1. [Proxy](https://github.com/HRLA-35-FEC-CBDE/REI-Nav-Proxy)
 2. [Nav](https://github.com/xreic/REI-Nav)
-   1. [Dockerized](https://github.com/HRLA-35-FEC-CBDE/REI-Nav-Container)
+   1. [Dockerized](https://github.com/xreic/REI-Nav/tree/Dockerized)
 3. [Body](https://github.com/HRLA-35-FEC-CBDE/Brandon_body)
 4. [Reviews](https://github.com/HRLA-35-FEC-CBDE/chris_reviews)
 
