@@ -31,13 +31,34 @@ const parse = (regex, item) => {
   return parsed;
 };
 
+<<<<<<< HEAD
 const SearchItems = ({ item, searchRegex }) => {
   return (
     <li
       className="searchItems-Between"
       dangerouslySetInnerHTML={{ __html: parse(searchRegex, item) }}
+=======
+const linkRedirect = (productID) => {
+  var url = window.location.href.toString().split('/');
+  var newURL = url.slice(0, 3);
+
+  newURL.push(productID);
+  window.location.href = newURL.join('/');
+};
+
+const SearchItems = ({ item, productID, regex }) => {
+  return (
+    <li
+      className="searchItems-Between"
+      dangerouslySetInnerHTML={{ __html: parse(regex, item) }}
+      onClick={() => linkRedirect(productID)}
+>>>>>>> redux
     />
   );
 };
 
+<<<<<<< HEAD
 module.exports = SearchItems;
+=======
+export default SearchItems;
+>>>>>>> redux

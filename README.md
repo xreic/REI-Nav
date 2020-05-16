@@ -1,10 +1,10 @@
-# REI Co-op Nav Bar Mockup
+# REI Co-op Nav Bar Mockup (Redux)
 
-> Replica of the REI store page's navigation bar and search functionality.
+> Mockup of the REI store page's navigation bar and search functionality. Now with Redux!
 
 ## Related Projects
 
-- https://github.com/HRLA-35-FEC-CBDE/Eric_NavBar
+- https://github.com/xreic/FEC-NavBar/tree/redux
 - https://github.com/HRLA-35-FEC-CBDE/Brandon_body
 - https://github.com/HRLA-35-FEC-CBDE/chris_reviews
 
@@ -19,8 +19,8 @@
 - Install dependencies.
   - [ ] npm install
 - Run scripts.
+  - [ ] npm run react
   - [ ] npm start
-  - [ ] npm run dev:react
   - [ ] npm run seed (Only run if you want to populate the database with items)
 - Start mongod in terminal or command prompt (If necessary)
 - [localhost:3100](http://localhost:3100)

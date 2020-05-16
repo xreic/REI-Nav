@@ -1,6 +1,28 @@
+<<<<<<< HEAD
 import React from 'react';
 import axios from 'axios';
 
+=======
+// Dependencies
+import React from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
+
+// Redux
+import { hideLogin, userLogin, userLogout } from '../../../redux/actions';
+
+const mapStateToProps = (state) => ({
+  name: state.login.name,
+  loggedIn: state.login.user
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  hideLogin: () => dispatch(hideLogin()),
+  userLogin: (payload) => dispatch(userLogin(payload)),
+  userLogout: () => dispatch(userLogout())
+});
+
+>>>>>>> redux
 class LoginModal extends React.Component {
   constructor(props) {
     super(props);
@@ -10,6 +32,7 @@ class LoginModal extends React.Component {
       showPassword: false,
       failed: false
     };
+<<<<<<< HEAD
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onSigninClick = this.onSigninClick.bind(this);
@@ -24,12 +47,24 @@ class LoginModal extends React.Component {
   }
 
   onSigninClick(e) {
+=======
+  }
+
+  onChangeHandler = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  onSigninClick = async (e) => {
+>>>>>>> redux
     e.preventDefault();
     let auth = {
       username: this.state.username,
       password: this.state.password
     };
 
+<<<<<<< HEAD
     this.props.retrieveUserdata(auth, (err) => {
       if (err) {
         this.setState({ failed: true });
@@ -55,10 +90,36 @@ class LoginModal extends React.Component {
 
   render() {
     if (this.props.userFullame !== '') {
+=======
+    try {
+      const { data } = await axios.post('/api/login/', auth);
+
+      this.props.userLogin(data[0]['name']);
+
+      this.setState({
+        failed: false,
+        username: '',
+        password: ''
+      });
+    } catch (error) {
+      this.setState({ failed: true });
+    }
+  };
+
+  passwordToggle = (e) => {
+    this.setState({
+      showPassword: !this.state.showPassword
+    });
+  };
+
+  render() {
+    if (this.props.name !== '') {
+>>>>>>> redux
       return (
         <div className="loginModalContainer">
           <div className="loginModalWrapper">
             <div className="loginModal">
+<<<<<<< HEAD
               <span
                 className="loginModalClose"
                 onClick={this.props.hideLoginModal}
@@ -67,6 +128,13 @@ class LoginModal extends React.Component {
               </span>
               <div className="formBorderTriangles" />
               <p className="loggedFullname">{this.props.userFullame}</p>
+=======
+              <span className="loginModalClose" onClick={this.props.hideLogin}>
+                <p>✖</p>
+              </span>
+              <div className="formBorderTriangles" />
+              <p className="loggedFullname">{this.props.name}</p>
+>>>>>>> redux
               <p className="becomeMember">Become an REI member</p>
               <p className="memeberBenefits">
                 Earn an Annual Dividend, plus get access to exclusive products,
@@ -77,10 +145,14 @@ class LoginModal extends React.Component {
                 <li className="accountViewHistory">Purchase history</li>
                 <li className="accountViewWish">Wish lists</li>
               </ul>
+<<<<<<< HEAD
               <p
                 className="logoutAccount"
                 onClick={() => this.props.changeLogin()}
               >
+=======
+              <p className="logoutAccount" onClick={this.props.userLogout}>
+>>>>>>> redux
                 Sign out
               </p>
             </div>
@@ -92,10 +164,14 @@ class LoginModal extends React.Component {
         <div className="loginModalContainer">
           <div className="loginModalWrapper">
             <div className="loginModal">
+<<<<<<< HEAD
               <span
                 className="loginModalClose"
                 onClick={this.props.hideLoginModal}
               >
+=======
+              <span className="loginModalClose" onClick={this.props.hideLogin}>
+>>>>>>> redux
                 <p>✖</p>
               </span>
               <div className="formBorderTriangles" />
@@ -109,7 +185,11 @@ class LoginModal extends React.Component {
               ) : null}
 
               <p className="inputUserTitle">Email</p>
+<<<<<<< HEAD
               <form id="doubleForm1" onSubmit={(e) => this.onSigninClick(e)}>
+=======
+              <form id="doubleForm1" onSubmit={this.onSigninClick}>
+>>>>>>> redux
                 <input
                   id="loginInputUser"
                   name="username"
@@ -123,6 +203,7 @@ class LoginModal extends React.Component {
               <form
                 id="doubleForm2"
                 className="passwordForm"
+<<<<<<< HEAD
                 onSubmit={(e) => this.onSigninClick(e)}
               >
                 {this.state.showPassword ? (
@@ -152,6 +233,22 @@ class LoginModal extends React.Component {
                     onChange={this.onChangeHandler}
                   />
                 )}
+=======
+                onSubmit={this.onSigninClick}
+              >
+                <input
+                  type={this.state.showPassword ? 'text' : 'password'}
+                  name="password"
+                  className="formInputPassword"
+                  autoComplete="off"
+                  onKeyDown={(e) => {
+                    if (e.keyCode === 13) {
+                      this.onSigninClick(e);
+                    }
+                  }}
+                  onChange={this.onChangeHandler}
+                />
+>>>>>>> redux
                 <button
                   className="formButtonPassword"
                   onClick={(e) => {
@@ -178,11 +275,15 @@ class LoginModal extends React.Component {
               >
                 Sign in
               </button>
+<<<<<<< HEAD
               <button
                 name="create"
                 className="loginFormCreate"
                 onClick={this.onCreateClick}
               >
+=======
+              <button name="create" className="loginFormCreate">
+>>>>>>> redux
                 Create an account
               </button>
             </div>
@@ -193,4 +294,8 @@ class LoginModal extends React.Component {
   }
 }
 
+<<<<<<< HEAD
 module.exports = LoginModal;
+=======
+export default connect(mapStateToProps, mapDispatchToProps)(LoginModal);
+>>>>>>> redux

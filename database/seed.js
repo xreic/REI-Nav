@@ -1,5 +1,9 @@
 const { Items, Users, Categories, Searches } = require('./database.js');
 
+Searches.create({ search: 'rei-mockup' })
+  .then(() => Searches.deleteMany({}))
+  .catch((err) => console.error(err));
+
 const usersList = [
   {
     name: 'Eric Lau',
@@ -18,8 +22,12 @@ const usersList = [
   }
 ];
 
-Users.insertMany(usersList)
-  .then(() => console.log('Users seeded!'))
+Users.deleteMany({})
+  .then(() => {
+    Users.insertMany(usersList)
+      .then(() => console.log('Users seeded!'))
+      .catch((err) => console.error(err));
+  })
   .catch((err) => console.error(err));
 
 const itemList = [
@@ -29,13 +37,13 @@ const itemList = [
 
   { productID: 3, productName: 'Triti Watercontact Lite SL Pack' },
 
-  { productID: 4, productName: 'The South Face Golden Gate 4 Tent' },
+  { productID: 4, productName: 'The South Face Golden Gate 8 Tent' },
 
   { productID: 5, productName: 'Kingdom Clubs 3 Tent' },
 
   { productID: 6, productName: 'Melty Wandering 2-Person Camp Bundle' },
 
-  { productID: 7, productName: 'Dukenam 3 Tent' },
+  { productID: 7, productName: 'Dukenam 6 Tent' },
 
   { productID: 8, productName: 'Sleeping Bag' },
 
@@ -230,8 +238,12 @@ const itemList = [
   { productID: 100, productName: 'OnePunch Grip Trainers' }
 ];
 
-Items.insertMany(itemList)
-  .then(() => console.log('Items seeded!'))
+Items.deleteMany({})
+  .then(() => {
+    Items.insertMany(itemList)
+      .then(() => console.log('Items seeded!'))
+      .catch((err) => console.error(err));
+  })
   .catch((err) => console.error(err));
 
 const categoriesList = [
@@ -1652,10 +1664,10 @@ const categoriesList = [
   }
 ];
 
-Categories.insertMany(categoriesList)
-  .then(() => console.log('Categories seeded!'))
-  .catch((err) => console.error(err));
-
-Searches.create({ search: 'test' })
-  .then(() => Searches.remove({}))
+Categories.deleteMany({})
+  .then(() => {
+    Categories.insertMany(categoriesList)
+      .then(() => console.log('Categories seeded!'))
+      .catch((err) => console.error(err));
+  })
   .catch((err) => console.error(err));
