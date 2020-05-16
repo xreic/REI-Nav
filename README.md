@@ -11,25 +11,25 @@ Mockup of the REI store page's navigation bar and search functionality. Now with
   - [Requirements](#requirements)
   - [Development](#development)
     - [Installing Dependencies](#installing-dependencies)
-    - [Proxy Server](#proxy-server)
 
 ## Microservices
 
-1. [Nav](https://github.com/HRLA-35-FEC-CBDE/REI-Nav)
+1. [Proxy](https://github.com/HRLA-35-FEC-CBDE/REI-Nav-Proxy)
+2. [Nav](https://github.com/HRLA-35-FEC-CBDE/REI-Nav)
    1. [Dockerized](https://github.com/HRLA-35-FEC-CBDE/REI-Nav-Container)
-2. [Body](https://github.com/HRLA-35-FEC-CBDE/Brandon_body)
-3. [Reviews](https://github.com/HRLA-35-FEC-CBDE/chris_reviews)
+3. [Body](https://github.com/HRLA-35-FEC-CBDE/Brandon_body)
+4. [Reviews](https://github.com/HRLA-35-FEC-CBDE/chris_reviews)
 
 ## Usage
 
-- Install dependencies.
-  - [ ] npm install
-- Run scripts.
-  - [ ] npm run react
-  - [ ] npm start
-  - [ ] npm run seed (Only run if you want to populate the database with items)
-- Start mongod in terminal or command prompt (If necessary)
-- [localhost:3100](http://localhost:3100)
+1. Fork and clone repo(s)
+2. Install dependencies
+   1. npm scripts
+   2. docker-compose up for Dockerized services
+3. Start up each microservice
+4. Start the proxy server
+   1. Only connects the navigation bar and the product view.
+   2. Other modules are images.
 
 ## Requirements
 
@@ -47,7 +47,3 @@ From within the root directory:
 ```sh
 npm install
 ```
-
-### Proxy Server
-
-- [Proxy](https://github.com/HRLA-35-FEC-CBDE/REI-Nav-Proxy)
