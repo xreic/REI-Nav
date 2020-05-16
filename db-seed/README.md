@@ -1,7 +1,10 @@
 # REI Co-op Nav Bar Mockup Database Seed (Docker + Redux)
 
 All this does is seed MongoDB with the items.
-Mockup of the REI store page's navigation bar and search functionality. Now with Docker and Redux!
+
+Mockup of the REI store page's navigation bar and search functionality. 
+
+Now with Docker and Redux!
 
 ## Table of Contents
 
