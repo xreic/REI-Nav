@@ -9,8 +9,6 @@ Mockup of the REI store page's navigation bar and search functionality. Now with
   - [Microservices](#microservices)
   - [Usage](#usage)
   - [Requirements](#requirements)
-  - [Development](#development)
-    - [Installing Dependencies](#installing-dependencies)
 
 ## Microservices
 
@@ -35,15 +33,5 @@ Mockup of the REI store page's navigation bar and search functionality. Now with
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-- Node 12.16.2 (I just put the version I run on. Good luck.)
+- Node 12.16.2 (This is the safest version to use.)
 - etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install
-```
