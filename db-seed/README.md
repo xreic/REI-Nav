@@ -2,7 +2,7 @@
 
 All this does is seed MongoDB with the items.
 
-Mockup of the REI store page's navigation bar and search functionality. 
+Mockup of the REI store page's navigation bar and search functionality.
 
 Now with Docker and Redux!
 
@@ -18,7 +18,7 @@ Now with Docker and Redux!
 
 1. [Proxy](https://github.com/HRLA-35-FEC-CBDE/REI-Nav-Proxy)
 2. [Nav](https://github.com/HRLA-35-FEC-CBDE/REI-Nav)
-   1. [Dockerized](https://github.com/HRLA-35-FEC-CBDE/REI-Nav-Container)
+   1. [Dockerized](https://github.com/xreic/REI-Nav/tree/Dockerized)
 3. [Body](https://github.com/HRLA-35-FEC-CBDE/Brandon_body)
 4. [Reviews](https://github.com/HRLA-35-FEC-CBDE/chris_reviews)
 
