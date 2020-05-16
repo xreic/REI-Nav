@@ -1,21 +1,25 @@
+// Dependencies
 import React from 'react';
+import { connect } from 'react-redux';
 
-import TopNavItem from './TopNavItem.jsx';
+// Components
+import TopNavItem from './TopNavItem';
 
-const TopNav = ({ list, classType, hideAllModals }) => (
-  <nav className="topNavBar">
-    <ul className="topNavList">
-      {list.map((item, index) => (
-        <TopNavItem
-          key={index}
-          index={index}
-          item={item}
-          classType={classType}
-          hideAllModals={hideAllModals}
-        />
-      ))}
-    </ul>
-  </nav>
-);
+// Redux
+const mapStateToProps = (state) => ({
+  upper: state.nav.upper
+});
 
-module.exports = TopNav;
+const TopNav = ({ upper }) => {
+  return (
+    <nav className="topNavBar">
+      <ul className="topNavList">
+        {upper.map((item, index) => (
+          <TopNavItem key={index} index={index} item={item} />
+        ))}
+      </ul>
+    </nav>
+  );
+};
+
+export default connect(mapStateToProps)(TopNav);

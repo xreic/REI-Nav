@@ -1,17 +1,35 @@
+// Dependencies
 import React from 'react';
+import { connect } from 'react-redux';
 
-const TopNavItem = ({ index, item, classType, hideAllModals }) => (
-  <li
-    key={index}
-    className={index === 0 ? `${classType} ${classType}Active` : classType}
-  >
+// Redux
+import { hideMain, hideLogin, hideSearch, hideCart } from '../../redux/actions';
+
+const mapDispatchToProps = (dispatch) => ({
+  hideMain: async () => dispatch(hideMain()),
+  hideLogin: async () => dispatch(hideLogin()),
+  hideSearch: async () => dispatch(hideSearch()),
+  hideCart: async () => dispatch(hideCart())
+});
+
+const TopNavItem = ({
+  index,
+  item,
+  hideMain,
+  hideLogin,
+  hideSearch,
+  hideCart
+}) => (
+  <li className={index === 0 ? 'topNavItems topNavItemsActive' : 'topNavItems'}>
     <p
       className={index === 0 ? 'topNavText' : 'doNothing'}
-      onClick={hideAllModals}
+      onClick={async () => {
+        await Promise.all([hideMain(), hideLogin(), hideSearch(), hideCart()]);
+      }}
     >
       {item}
     </p>
   </li>
 );
 
-module.exports = TopNavItem;
+export default connect(null, mapDispatchToProps)(TopNavItem);

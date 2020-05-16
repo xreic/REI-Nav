@@ -1,7 +1,7 @@
 const { Items, Users, Categories, Searches } = require('./database.js');
 
-Searches.create({ search: 'test' })
-  .then(() => Searches.remove({}))
+Searches.create({ search: 'rei-mockup' })
+  .then(() => Searches.deleteMany({}))
   .catch((err) => console.error(err));
 
 const usersList = [
@@ -22,8 +22,7 @@ const usersList = [
   }
 ];
 
-Users
-  .remove({})
+Users.deleteMany({})
   .then(() => {
     Users.insertMany(usersList)
       .then(() => console.log('Users seeded!'))
@@ -239,8 +238,7 @@ const itemList = [
   { productID: 100, productName: 'OnePunch Grip Trainers' }
 ];
 
-Items
-  .remove({})
+Items.deleteMany({})
   .then(() => {
     Items.insertMany(itemList)
       .then(() => console.log('Items seeded!'))
@@ -1666,8 +1664,7 @@ const categoriesList = [
   }
 ];
 
-Categories
-  .remove({})
+Categories.deleteMany({})
   .then(() => {
     Categories.insertMany(categoriesList)
       .then(() => console.log('Categories seeded!'))

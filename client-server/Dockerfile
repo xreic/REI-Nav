@@ -8,7 +8,7 @@ COPY --chown=node:node . .
 
 EXPOSE 3100
 
-RUN npm ci
+RUN npm install
 
 USER node
 

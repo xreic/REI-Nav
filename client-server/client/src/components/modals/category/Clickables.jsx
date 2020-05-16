@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Clickables = ({ index, icon, top, bottom }) => {
+const Clickables = ({ icon, top, bottom }) => {
   return (
-    <li key={index}>
+    <li>
       <img
         className={`clickableImages ${icon}`}
-        src={`https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Other/${icon}.png`}
+        src={`/assets/other/${icon}.png`}
         alt={icon}
       />
       <div className="clickableContainer">
@@ -17,4 +17,4 @@ const Clickables = ({ index, icon, top, bottom }) => {
   );
 };
 
-module.exports = Clickables;
+export default Clickables;

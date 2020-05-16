@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const url = process.env.MONGO_CONNECTION_STRING || 'mongodb://localhost:navbar';
+const url =
+  process.env.MONGO_CONNECTION_STRING || 'mongodb://localhost:27017/rei-mockup';
 
 mongoose.connect(url, {
   useNewUrlParser: true,
@@ -8,7 +9,7 @@ mongoose.connect(url, {
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
+db.once('open', function () {
   console.log('Mongoose-d!');
 });
 

@@ -1,5 +1,21 @@
+// Dependencies
 import React from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
+
+// Redux
+import { hideLogin, userLogin, userLogout } from '../../../redux/actions';
+
+const mapStateToProps = (state) => ({
+  name: state.login.name,
+  loggedIn: state.login.user
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  hideLogin: () => dispatch(hideLogin()),
+  userLogin: (payload) => dispatch(userLogin(payload)),
+  userLogout: () => dispatch(userLogout())
+});
 
 class LoginModal extends React.Component {
   constructor(props) {
@@ -10,63 +26,53 @@ class LoginModal extends React.Component {
       showPassword: false,
       failed: false
     };
-
-    this.onChangeHandler = this.onChangeHandler.bind(this);
-    this.onSigninClick = this.onSigninClick.bind(this);
-    this.onCreateClick = this.onCreateClick.bind(this);
-    this.passwordToggle = this.passwordToggle.bind(this);
   }
 
-  onChangeHandler(e) {
+  onChangeHandler = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     });
-  }
+  };
 
-  onSigninClick(e) {
+  onSigninClick = async (e) => {
     e.preventDefault();
     let auth = {
       username: this.state.username,
       password: this.state.password
     };
 
-    this.props.retrieveUserdata(auth, (err) => {
-      if (err) {
-        this.setState({ failed: true });
-      } else {
-        this.setState({
-          failed: false,
-          username: '',
-          password: ''
-        });
-      }
-    });
-  }
+    try {
+      const { data } = await axios.post('/api/login/', auth);
 
-  onCreateClick(e) {
-    console.log('Redirect to account creation.');
-  }
+      this.props.userLogin(data[0]['name']);
 
-  passwordToggle(e) {
+      this.setState({
+        failed: false,
+        username: '',
+        password: ''
+      });
+    } catch (error) {
+      this.setState({ failed: true });
+    }
+  };
+
+  passwordToggle = (e) => {
     this.setState({
       showPassword: !this.state.showPassword
     });
-  }
+  };
 
   render() {
-    if (this.props.userFullame !== '') {
+    if (this.props.name !== '') {
       return (
         <div className="loginModalContainer">
           <div className="loginModalWrapper">
             <div className="loginModal">
-              <span
-                className="loginModalClose"
-                onClick={this.props.hideLoginModal}
-              >
+              <span className="loginModalClose" onClick={this.props.hideLogin}>
                 <p>✖</p>
               </span>
               <div className="formBorderTriangles" />
-              <p className="loggedFullname">{this.props.userFullame}</p>
+              <p className="loggedFullname">{this.props.name}</p>
               <p className="becomeMember">Become an REI member</p>
               <p className="memeberBenefits">
                 Earn an Annual Dividend, plus get access to exclusive products,
@@ -77,10 +83,7 @@ class LoginModal extends React.Component {
                 <li className="accountViewHistory">Purchase history</li>
                 <li className="accountViewWish">Wish lists</li>
               </ul>
-              <p
-                className="logoutAccount"
-                onClick={() => this.props.changeLogin()}
-              >
+              <p className="logoutAccount" onClick={this.props.userLogout}>
                 Sign out
               </p>
             </div>
@@ -92,10 +95,7 @@ class LoginModal extends React.Component {
         <div className="loginModalContainer">
           <div className="loginModalWrapper">
             <div className="loginModal">
-              <span
-                className="loginModalClose"
-                onClick={this.props.hideLoginModal}
-              >
+              <span className="loginModalClose" onClick={this.props.hideLogin}>
                 <p>✖</p>
               </span>
               <div className="formBorderTriangles" />
@@ -109,7 +109,7 @@ class LoginModal extends React.Component {
               ) : null}
 
               <p className="inputUserTitle">Email</p>
-              <form id="doubleForm1" onSubmit={(e) => this.onSigninClick(e)}>
+              <form id="doubleForm1" onSubmit={this.onSigninClick}>
                 <input
                   id="loginInputUser"
                   name="username"
@@ -123,35 +123,20 @@ class LoginModal extends React.Component {
               <form
                 id="doubleForm2"
                 className="passwordForm"
-                onSubmit={(e) => this.onSigninClick(e)}
+                onSubmit={this.onSigninClick}
               >
-                {this.state.showPassword ? (
-                  <input
-                    type="text"
-                    name="password"
-                    className="formInputPassword"
-                    autoComplete="off"
-                    onKeyDown={(e) => {
-                      if (e.keyCode === 13) {
-                        this.onSigninClick(e);
-                      }
-                    }}
-                    onChange={this.onChangeHandler}
-                  />
-                ) : (
-                  <input
-                    type="password"
-                    name="password"
-                    className="formInputPassword"
-                    autoComplete="off"
-                    onKeyDown={(e) => {
-                      if (e.keyCode === 13) {
-                        this.onSigninClick(e);
-                      }
-                    }}
-                    onChange={this.onChangeHandler}
-                  />
-                )}
+                <input
+                  type={this.state.showPassword ? 'text' : 'password'}
+                  name="password"
+                  className="formInputPassword"
+                  autoComplete="off"
+                  onKeyDown={(e) => {
+                    if (e.keyCode === 13) {
+                      this.onSigninClick(e);
+                    }
+                  }}
+                  onChange={this.onChangeHandler}
+                />
                 <button
                   className="formButtonPassword"
                   onClick={(e) => {
@@ -178,11 +163,7 @@ class LoginModal extends React.Component {
               >
                 Sign in
               </button>
-              <button
-                name="create"
-                className="loginFormCreate"
-                onClick={this.onCreateClick}
-              >
+              <button name="create" className="loginFormCreate">
                 Create an account
               </button>
             </div>
@@ -193,4 +174,4 @@ class LoginModal extends React.Component {
   }
 }
 
-module.exports = LoginModal;
+export default connect(mapStateToProps, mapDispatchToProps)(LoginModal);

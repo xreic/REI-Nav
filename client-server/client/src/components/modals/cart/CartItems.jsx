@@ -3,10 +3,7 @@ import React from 'react';
 const cartItems = ({ index, cartQuantity, productName, productID }) => {
   return (
     <div key={index} className="cartIndiv">
-      <img
-        className="cartImage"
-        src={`https://hrla35-fec-teamferrari-eric.s3.us-east-2.amazonaws.com/Images/Cart/${productID}.png`}
-      />
+      <img className="cartImage" src={`/assets/cart/${productID}.png`} />
       <ul className="cartDescription">
         <li>
           <p>{productName}</p>
@@ -22,4 +19,4 @@ const cartItems = ({ index, cartQuantity, productName, productID }) => {
   );
 };
 
-module.exports = cartItems;
+export default cartItems;
