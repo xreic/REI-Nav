@@ -1,10 +1,10 @@
-# REI Co-op Nav Bar Mockup
+# REI Co-op Nav Bar Mockup (Docker + Redux)
 
-Mockup of the REI store page's navigation bar and search functionality. Now with Redux!
+Mockup of the REI store page's navigation bar and search functionality. Now with Docker and Redux!
 
 ## Table of Contents
 
-- [REI Co-op Nav Bar Mockup](#rei-co-op-nav-bar-mockup)
+- [REI Co-op Nav Bar Mockup (Docker + Redux)](#rei-co-op-nav-bar-mockup-docker--redux)
   - [Table of Contents](#table-of-contents)
   - [Microservices](#microservices)
   - [Usage](#usage)
