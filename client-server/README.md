@@ -2,7 +2,9 @@
 
 This is the repo for the client and server.
 
-Mockup of the REI store page's navigation bar and search functionality. Now with Docker and Redux!
+Mockup of the REI store page's navigation bar and search functionality. 
+
+Now with Docker and Redux!
 
 ## Table of Contents
 
