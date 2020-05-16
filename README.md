@@ -4,7 +4,7 @@
 
 ## Related Projects
 
-- https://github.com/xreic/FEC-NavBar/tree/redux
+- https://github.com/xreic/REI-Nav
 - https://github.com/HRLA-35-FEC-CBDE/Brandon_body
 - https://github.com/HRLA-35-FEC-CBDE/chris_reviews
 
